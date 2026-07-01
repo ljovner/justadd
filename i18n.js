@@ -2,7 +2,7 @@
 const translations = {
     en: {
         "page-title": "Just Add. — Frozen Artisan Sauces, Perogies & Entrees",
-        "announcement": "🚚 FREE HOME DELIVERY on orders over $100",
+        "announcement": "🏡 100% Homestyle Small Batch Kitchen • No Fillers or Additives • Free Home Delivery on Orders Over $100",
         "brand-title": "Just Add.",
         "brand-subtitle": "Frozen Artisan Sauces, Perogies & Entrees",
         "nav-shop": "Shop",
@@ -249,7 +249,7 @@ const translations = {
     },
     ru: {
         "page-title": "Just Add. — Замороженные соусы, вареники и основные блюда",
-        "announcement": "🚚 БЕСПЛАТНАЯ ДОСТАВКА при заказе от",
+        "announcement": "🏡 На 100% домашняя кухня малых партий • Без наполнителей и добавок • Бесплатная доставка на дом при заказе от $100",
         "brand-title": "Just Add.",
         "brand-subtitle": "Замороженные соусы, вареники и основные блюда",
         "nav-shop": "Магазин",
@@ -495,7 +495,7 @@ const translations = {
         "summary-free": "БЕСПЛАТНО"
     },    uk: {
         "page-title": "Just Add. — Заморожені соуси, вареники та основні страви",
-        "announcement": "🚚 БЕЗКОШТОВНА ДОСТАВКА при замовленні від",
+        "announcement": "🏡 На 100% домашня кухня малих партій • Без наповнювачів та добавок • Безкоштовна доставка додому при замовленні від $100",
         "brand-title": "Just Add.",
         "brand-subtitle": "Заморожені соуси, вареники та основні страви",
         "nav-shop": "Магазин",
