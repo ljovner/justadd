@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Add - Homestyle Frozen European Cuisine</title>
+    <!-- Tailwind CSS for production-grade visual prototyping -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .product-card { transition: all 0.25s ease-in-out; }
+        .product-card.hidden-filter { display: none !important; }
+        .page-view { display: none; }
+        .page-view.active-view { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Announcement Banner -->
+    <div class="bg-amber-600 text-white text-center py-2 text-xs font-semibold px-4 sticky top-0 z-50 shadow">
+        🏡 100% Homestyle Small Batch Kitchen • No Fillers or Additives • Free Home Delivery on Orders Over $100
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-[32px] z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-3xl font-extrabold text-amber-600 tracking-tight">Just Add.</h1>
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Gourmet Frozen Basics</p>
+            </div>
+            
+            <nav class="flex items-center space-x-6 text-sm font-semibold text-gray-600">
+                <button onclick="switchView('store-page')" class="nav-link text-amber-600 hover:text-amber-600 transition">Our Shop</button>
+                <button onclick="switchView('about-page')" class="nav-link hover:text-amber-600 transition">About Us</button>
+                <button onclick="switchView('feedback-page')" class="nav-link hover:text-amber-600 transition">Leave Feedback</button>
+            </nav>
+
+            <div class="flex items-center">
+                <a href="#checkout" onclick="switchView('store-page')" class="bg-amber-500 text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-amber-600 transition shadow-sm flex items-center gap-2">
+                    🛒 Cart Summary: <span id="nav-cart-total">$0.00</span> (<span id="nav-cart-count">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE VIEW 1: THE STOREFRONT CATALOG -->
+    <div id="store-page" class="page-view active-view">
+        <!-- CHANGE #1: CATEGORIES MENU STAYS PINNED AND SECURE WHILE SCROLLING DOWN -->
+        <div class="bg-white border-b border-gray-200 sticky top-[150px] sm:top-[73px] z-30 shadow-md overflow-x-auto">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex gap-4 text-sm font-semibold whitespace-nowrap">
+                <a href="#sauces" class="text-amber-700 hover:bg-amber-50 px-3 py-1.5 rounded-lg transition">🔥 Sauce & Meat Mixes (10)</a>
+                <a href="#perogies" class="text-amber-700 hover:bg-amber-50 px-3 py-1.5 rounded-lg transition">🥟 Artisanal Perogies (12)</a>
+                <a href="#classics" class="text-amber-700 hover:bg-amber-50 px-3 py-1.5 rounded-lg transition">🥩 Specialty Entrées (6)</a>
+            </div>
+        </div>
+
+        <main class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Sidebar Filtering System -->
+            <aside class="hidden lg:block space-y-6">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm sticky top-[140px]">
+                    <h3 class="font-bold text-gray-900 mb-2 text-md">Kitchen Filter</h3>
+                    <p class="text-xs text-gray-400 mb-4">Toggle preferences to filter items out in real-time:</p>
+                    
+                    <div class="space-y-3 border-t pt-4">
+                        <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider">Dietary Preferences</span>
+                        <label class="flex items-center text-sm text-gray-600 gap-2.5 cursor-pointer select-none">
+                            <input type="checkbox" id="filter-vegetarian" onchange="applyFilters()" class="w-4 h-4 rounded text-amber-600 accent-amber-500 border-gray-300">
+                            <span>Vegetarian Only</span>
+                        </label>
+                        <label class="flex items-center text-sm text-gray-600 gap-2.5 cursor-pointer select-none">
+                            <input type="checkbox" id="filter-dairy-free" onchange="applyFilters()" class="w-4 h-4 rounded text-amber-600 accent-amber-500 border-gray-300">
+                            <span>Dairy-Free Options</span>
+                        </label>
+                        <label class="flex items-center text-sm text-gray-600 gap-2.5 cursor-pointer select-none">
+                            <input type="checkbox" id="filter-pork-free" onchange="applyFilters()" class="w-4 h-4 rounded text-amber-600 accent-amber-500 border-gray-300">
+                            <span>100% Pork-Free</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid Catalog Content -->
+            <div class="lg:col-span-3 space-y-16">
+                
+                <!-- ALL 10 SAUCES SECTIONS -->
+                <section id="sauces" class="scroll-mt-40">
+                    <div class="border-b border-gray-200 pb-4 mb-6">
+                        <h2 class="text-2xl font-extrabold text-gray-900">🔥 Ready-Made Sauce & Meat Mixes (10 Options)</h2>
+                        <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider font-semibold text-amber-600">💡 Tip: Click on any card header bar to preview the prepared dish dish imagery sample overlay!</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Sauce 1 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Beef Stroganoff', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">1. Beef Stroganoff <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Beef strips in rich sour cream mushroom gravy.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's1-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's1-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's1-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s1-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Beef, Cremini mushrooms, Sour cream, Broth, Butter, Dill.</p><p class="text-amber-600 font-medium">💡 Best with: Egg noodles or mashed potatoes.</p></div>
+                                    <div id="s1-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">380</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>28g</span></div><div class="flex justify-between"><span>Carbs</span><span>8g</span></div></div>
+                                    <div id="s1-cook" class="tab-content">Simmer sealed pouch in hot water for 15 minutes from frozen.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$18.50 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Beef Stroganoff', 18.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 2 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Classic Bolognaise', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">2. Classic Bolognaise <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Slow-simmered minced beef & pork ragu inside premium tomato reduction.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's2-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's2-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's2-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s2-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Ground beef, Ground pork, Plum tomatoes, Carrots, Celery, Wine.</p><p class="text-amber-600 font-medium">💡 Best with: Spaghetti or Rigatoni.</p></div>
+                                    <div id="s2-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">340</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>22g</span></div><div class="flex justify-between"><span>Carbs</span><span>12g</span></div></div>
+                                    <div id="s2-cook" class="tab-content">Thaw pouch or boil from frozen in water bath for 12 mins.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$16.00 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Classic Bolognaise', 16.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 3 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Chicken & Mushroom Cream', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">3. Chicken & Mushroom Cream <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Diced chicken breast strips inside gourmet mushroom white cream matrix.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's3-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's3-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's3-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s3-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Chicken breast, Field mushrooms, Cream, Garlic, White wine.</p><p class="text-amber-600 font-medium">💡 Best with: Steamed basmati white rice.</p></div>
+                                    <div id="s3-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">410</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>31g</span></div><div class="flex justify-between"><span>Carbs</span><span>5g</span></div></div>
+                                    <div id="s3-cook" class="tab-content">Reheat inside water bath directly from frozen for 15-18 mins.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$17.50 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Chicken & Mushroom Cream', 17.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 4 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Meatballs in Marinara', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">4. Meatballs in Marinara <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Hand-rolled beef/pork meatballs simmered in sweet herbed garlic tomato sauce.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's4-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's4-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's4-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s4-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Ground beef, Pork, Plum tomatoes, Fresh garlic, Basil flakes.</p><p class="text-amber-600 font-medium">💡 Best with: Spaghetti or crusty baguettes.</p></div>
+                                    <div id="s4-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">360</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>24g</span></div><div class="flex justify-between"><span>Carbs</span><span>11g</span></div></div>
+                                    <div id="s4-cook" class="tab-content">Empty details into covered pan for 12-14 minutes on low heat setup.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$16.75 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Meatballs in Marinara', 16.75)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 5 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Four-Cheese & Spinach', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">5. Creamy Four-Cheese <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Velvety blend of gorgonzola, parmesan, cheddar, and spinach.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's5-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's5-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's5-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s5-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Cream, Gorgonzola, Parmesan, Fontina, Cheddar, Spinach.</p><p class="text-amber-600 font-medium">💡 Best with: Gnocchi or ribbon Fettuccine.</p></div>
+                                    <div id="s5-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">450</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>14g</span></div><div class="flex justify-between"><span>Carbs</span><span>6g</span></div></div>
+                                    <div id="s5-cook" class="tab-content">Warm gently in a saucepan over low heat for 10 minutes until smooth.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$15.25 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Creamy Four-Cheese & Spinach', 15.25)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 6 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition" onclick="openVisualModal('Hunter\'s Pork Stew Base', 'image_agent_tag_1875138137582495119')">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">6. Hunter's Pork Stew Base <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Bone-broth gravy base with wild mushrooms and slow pork shoulder.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's6-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's6-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's6-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s6-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Pork shoulder, Pork bone marrow broth, Porcini mushrooms,具.</p><p class="text-amber-600 font-medium">💡 Best with: Buckwheat groats or boiled potato jackets.</p></div>
+                                    <div id="s6-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">390</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>26g</span></div><div class="flex justify-between"><span>Carbs</span><span>4g</span></div></div>
+                                    <div id="s6-cook" class="tab-content">Submerge frozen pouch configuration inside boiling water for 18-20 minutes.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$17.00 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Hunters Pork Stew Base', 17.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 7 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Hungarian Beef Paprikash', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">7. Hungarian Beef Paprikash <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Cubed beef chuck braised inside sweet Hungarian paprika cream reduction sauce.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's7-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's7-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's7-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s7-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Beef chuck, Imported paprika powder, Onions, Sour cream, Bell peppers.</p><p class="text-amber-600 font-medium">💡 Best with: Small spaetzle dumplings or rice.</p></div>
+                                    <div id="s7-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">410</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>29g</span></div><div class="flex justify-between"><span>Carbs</span><span>9g</span></div></div>
+                                    <div id="s7-cook" class="tab-content">Boil inside original package pouch wrapper container for 15 minutes.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$18.00 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Hungarian Beef Paprikash', 18.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 8 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Dill Garlic Chicken', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">8. Dill Garlic Lemon Chicken <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Shredded chicken thighs slow cooked inside garlic-dill broth gravy base.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's8-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's8-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's8-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s8-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Chicken thighs, Chicken broth, Lemon oil, Garlic cloves, Dill sprigs.</p><p class="text-amber-600 font-medium">💡 Best with: White rice or orzo.</p></div>
+                                    <div id="s8-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">320</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>27g</span></div><div class="flex justify-between"><span>Carbs</span><span>3g</span></div></div>
+                                    <div id="s8-cook" class="tab-content">Thaw pack over night, transfer to saucepan and heat until fully bubbling hot.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$15.75 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Dill Garlic Lemon Chicken', 15.75)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 9 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Roasted Root Vegetable Mix', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">9. Roasted Root Veg Mix <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Caramelized squashes and carrots slowly baked inside herbed tomato juice.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's9-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's9-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's9-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s9-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Parsnips, Butternut squash, Carrots, Onions, Thyme, Olive oil, Tomato purée.</p><p class="text-amber-600 font-medium">💡 Best with: Polenta porridge or thick ribbon pasta.</p></div>
+                                    <div id="s9-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">180</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>4g</span></div><div class="flex justify-between"><span>Carbs</span><span>24g</span></div></div>
+                                    <div id="s9-cook" class="tab-content">Bake frozen tray layout at 375°F (190°C) for 20 minutes.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$14.50 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Roasted Root Veg Mix', 14.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Sauce 10 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Smoked Bacon Cream & Leek', 'image_agent_tag_1875138137582495119')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">10. Smoked Bacon Cream <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Thick lardons of pork belly paired with non-dairy oat milk cream alternative.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 's10-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 's10-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 's10-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="s10-about" class="tab-content active space-y-1"><p><strong>Ingredients:</strong> Pork belly bacon lardons, Leeks, Oat-milk base cream alternative, Garlic.</p><p class="text-amber-600 font-medium">💡 Best with: Boiled red jacket potatoes.</p></div>
+                                    <div id="s10-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">420</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>16g</span></div><div class="flex justify-between"><span>Carbs</span><span>7g</span></div></div>
+                                    <div id="s10-cook" class="tab-content">Heat pouch bag safely inside boiling pan liquid bath medium for 14 minutes.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$16.50 <span class="text-[10px] font-normal text-gray-400">/ 500g</span></span><button onclick="addToCart('Smoked Bacon Cream & Leek', 16.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ALL 12 PEROGIES SECTIONS -->
+                <section id="perogies" class="scroll-mt-40">
+                    <div class="border-b border-gray-200 pb-4 mb-6">
+                        <h2 class="text-2xl font-extrabold text-gray-900">🥟 Artisanal Hand-Pinched Perogies (12 Varieties)</h2>
+                        <p class="text-sm text-gray-500 mt-1">Stuffed dough dumplings, fast-frozen raw directly off pinning boards.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Perogy 1 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Potato & Cheddar Cheese', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">1. Potato & Cheddar <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Traditional russet potato base whipped with sharp cheddar.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p1_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p1_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p1_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p1_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Wheat flour, Russet potatoes, Aged cheddar cheese, Butter, Salt.</p></div>
+                                    <div id="p1_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">290</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>10g</span></div><div class="flex justify-between"><span>Carbs</span><span>44g</span></div></div>
+                                    <div id="p1_v-cook" class="tab-content">Boil in salted water for 5 minutes until they float to the surface.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$12.00 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Potato & Cheddar Perogies', 12.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 2 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Sauerkraut & Field Mushroom', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">2. Sauerkraut & Mushroom <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Tangy house-fermented cabbage mix with roasted field mushrooms.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p2_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p2_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p2_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p2_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Fermented cabbage, Portobello mushrooms, Onion paste, Wheat flour.</p></div>
+                                    <div id="p2_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">240</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>7g</span></div><div class="flex justify-between"><span>Carbs</span><span>42g</span></div></div>
+                                    <div id="p2_v-cook" class="tab-content">Boil for 5 minutes, then pan-fry in oil or butter until crisp.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$13.50 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Sauerkraut & Mushroom Perogies', 13.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 3 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Sweet Cinnamon Blueberry', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">3. Sweet Cinnamon Blueberry <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Plump whole wild dark blueberries dusted with organic cane sugar.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p3_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p3_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p3_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p3_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Wild blueberries, Organic cane sugar, Cinnamon, Wheat flour.</p></div>
+                                    <div id="p3_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">260</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>5g</span></div><div class="flex justify-between"><span>Carbs</span><span>52g</span></div></div>
+                                    <div id="p3_v-cook" class="tab-content">Boil gently for 4 minutes. Serve with cool sweet sour cream.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$14.00 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Sweet Blueberry Perogies', 14.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 4 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Potato, Bacon & Onion', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold">4. Potato, Bacon & Onion</h4><p class="text-amber-100 text-xs mt-1">Whipped savory russets laced with applewood smoked bacon bits.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p4_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p4_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p4_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p4_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Russet potatoes, Smoked bacon lardons, Caramelized onions, Flour, Salt.</p></div>
+                                    <div id="p4_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">310</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>12g</span></div><div class="flex justify-between"><span>Carbs</span><span>43g</span></div></div>
+                                    <div id="p4_v-cook" class="tab-content">Boil for 5 minutes. Best when served with hot chive toppings.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$13.00 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Potato, Bacon & Onion Perogies', 13.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 5 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Cottage Cheese & Dill perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white"><h4 class="text-xl font-bold">5. Cottage Cheese & Dill</h4><p class="text-amber-100 text-xs mt-1">Thick curd farmer's cheese mixed with minced aromatic dill leaves.</p></div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p5_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p5_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p5_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p5_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Farmer cottage cheese, Fresh dill, Wheat flour, Eggs, Salt.</p></div>
+                                    <div id="p5_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">270</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>13g</span></div><div class="flex justify-between"><span>Carbs</span><span>39g</span></div></div>
+                                    <div id="p5_v-cook" class="tab-content">Boil for 4-5 minutes in lightly salted hot water.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$12.50 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Cottage Cheese & Dill Perogies', 12.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 6 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Seasoned Minced Beef perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white"><h4 class="text-xl font-bold">6. Seasoned Minced Beef</h4><p class="text-amber-100 text-xs mt-1">Savory lean ground chuck steak folded inside onion juice reduction skins.</p></div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p6_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p6_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p6_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p6_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Ground beef chuck, Onions, Beef broth, Wheat flour, Black pepper.</p></div>
+                                    <div id="p6_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">320</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>16g</span></div><div class="flex justify-between"><span>Carbs</span><span>41g</span></div></div>
+                                    <div id="p6_v-cook" class="tab-content">Boil for 6 minutes directly from frozen to cook ground meat through.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$14.50 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Minced Beef Perogies', 14.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 7 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Roasted Pumpkin Perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white"><h4 class="text-xl font-bold">7. Roasted Pumpkin & Goat Cheese</h4><p class="text-amber-100 text-xs mt-1">Sweet roasted pumpkin purée matched with goat cheese crumbles.</p></div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p7_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p7_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p7_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p7_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Roasted pumpkin, Goat cheese, Nutmeg, Honey, Wheat flour wrapper.</p></div>
+                                    <div id="p7_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">280</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>9g</span></div><div class="flex justify-between"><span>Carbs</span><span>45g</span></div></div>
+                                    <div id="p7_v-cook" class="tab-content">Boil for 5 minutes. Amazing when tossed in browned sage butter.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$13.75 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Pumpkin Goat Cheese Perogies', 13.75)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 8 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Pork & Cabbage perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white"><h4 class="text-xl font-bold">8. Pork & Caramelized Cabbage</h4><p class="text-amber-100 text-xs mt-1">Minced pork shoulder blended with sweet sautéed cabbage shredding.</p></div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p8_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p8_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p8_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p8_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Ground pork, Sweet green cabbage, Onions, Spices, Wheat wrapper.</p></div>
+                                    <div id="p8_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">330</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>14g</span></div><div class="flex justify-between"><span>Carbs</span><span>40g</span></div></div>
+                                    <div id="p8_v-cook" class="tab-content">Boil for 5-6 minutes until dough expands slightly.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$13.25 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Pork & Cabbage Perogies', 13.25)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 9 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Sour Cherry Perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white"><h4 class="text-xl font-bold">9. Tart Orchard Sour Cherry</h4><p class="text-amber-100 text-xs mt-1">Pitted red sour orchard cherries packed inside sweet wrapper sheets.</p></div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p9_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p9_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p9_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p9_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Sour red cherries, Cane sugar, Potato starch binder, Flour dough.</p></div>
+                                    <div id="p9_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">250</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>4g</span></div><div class="flex justify-between"><span>Carbs</span><span>55g</span></div></div>
+                                    <div id="p9_v-cook" class="tab-content">Boil for 4 minutes. Do not overcook or fruit juices run thin out.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$14.00 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Tart Cherry Perogies', 14.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 10 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Jalapeno Popper Perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white"><h4 class="text-xl font-bold">10. Jalapeno & Cheddar Popper</h4><p class="text-amber-100 text-xs mt-1">A spicy modern twist on our best selling potato cheese baseline.</p></div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p10_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p10_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p10_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p10_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Russet potatoes, Aged cheddar, Jalapeno pepper rings, Flour skins.</p></div>
+                                    <div id="p10_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">300</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>11g</span></div><div class="flex justify-between"><span>Carbs</span><span>44g</span></div></div>
+                                    <div id="p10_v-cook" class="tab-content">Boil for 5 minutes, then pan-fry with butter until golden brown edges show.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$12.75 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Jalapeno Popper Perogies', 12.75)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 11 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Spinach Ricotta Feta Perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white"><h4 class="text-xl font-bold">11. Spinach, Ricotta & Feta</h4><p class="text-amber-100 text-xs mt-1">Mediterranean inspired filling packed inside homestyle European dough wrapper.</p></div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p11_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p11_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p11_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p11_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Spinach leaves, Ricotta cheese curds, Feta flakes, Garlic crumbs, Flour skin.</p></div>
+                                    <div id="p11_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">280</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>11g</span></div><div class="flex justify-between"><span>Carbs</span><span>41g</span></div></div>
+                                    <div id="p11_v-cook" class="tab-content">Boil for 5 minutes. Perfect with light olive oil gloss finishes.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$13.50 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Spinach Ricotta Feta Perogies', 13.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Perogy 12 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Smoked Salmon Perogies', 'image_agent_tag_1875138137582494917')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">12. Smoked Salmon & Chive <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Flaked wild salmon pieces paired with sweet chives.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'p12_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'p12_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'p12_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="p12_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Smoked salmon fillets, Potato binders, Fresh chives, Wheat flour wrapper.</p></div>
+                                    <div id="p12_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">295</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>15g</span></div><div class="flex justify-between"><span>Carbs</span><span>39g</span></div></div>
+                                    <div id="p12_v-cook" class="tab-content">Boil carefully for 4-5 minutes in non-rolling hot water medium.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$16.00 <span class="text-[10px] font-normal text-gray-400">/ Dozen</span></span><button onclick="addToCart('Smoked Salmon Perogies', 16.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ALL 6 SPECIALTY ENTRÉES -->
+                <section id="classics" class="scroll-mt-40">
+                    <div class="border-b border-gray-200 pb-4 mb-6">
+                        <h2 class="text-2xl font-extrabold text-gray-900">🥩 Eastern European Handcrafted Specialties (6 Options)</h2>
+                        <p class="text-sm text-gray-500 mt-1">Regional classics prepared exactly like traditional home kitchens down to the letter.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Classic 1 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Crispy Meat Chebureke', 'image_agent_tag_1875138137582497066')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">1. Crispy Meat Chebureke <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Deep-fried crescent turnovers filled with seasoned meats and pastry broths.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'c1_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'c1_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'c1_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="c1_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Pork mince, Beef mince, Onion juices, Fine wheat pastry flour skin.</p></div>
+                                    <div id="c1_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">380</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>18g</span></div><div class="flex justify-between"><span>Carbs</span><span>32g</span></div></div>
+                                    <div id="c1_v-cook" class="tab-content">Shallow pan fry in oil directly from frozen or bake at 390°F until crisp.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$15.00 <span class="text-[10px] font-normal text-gray-400">/ 4 Pcs</span></span><button onclick="addToCart('Crispy Meat Chebureke', 15.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Classic 2 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Garlic Chicken Kotlete', 'image_agent_tag_1875138137582497066')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">2. Garlic Chicken Kotlete <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Juicy minced chicken breast patties blended with garlic and butter.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'c2_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'c2_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'c2_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="c2_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Minced chicken breast, Soft breadcrumbs, Whole milk, Garlic, Butter, Herbs.</p></div>
+                                    <div id="c2_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">290</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>24g</span></div><div class="flex justify-between"><span>Carbs</span><span>8g</span></div></div>
+                                    <div id="c2_v-cook" class="tab-content">Pan-sear over medium heat with oil or bake at 375°F for 20 mins.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$16.50 <span class="text-[10px] font-normal text-gray-400">/ 6 Pcs</span></span><button onclick="addToCart('Garlic Chicken Kotlete', 16.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Classic 3 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Classic Golubtse (Cabbage Rolls)', 'image_agent_tag_1875138137582496864')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">3. Classic Golubtse <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Whole green cabbage leaves wrapped over minced pork, beef, and white rice.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'c3_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'c3_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'c3_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="c3_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Green cabbage leaves, Ground beef, Ground pork, White rice, Tomato purée.</p></div>
+                                    <div id="c3_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">210</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>14g</span></div><div class="flex justify-between"><span>Carbs</span><span>19g</span></div></div>
+                                    <div id="c3_v-cook" class="tab-content">Bake covered with rich tomato sauce at 375°F (190°C) for 55 minutes.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$16.00 <span class="text-[10px] font-normal text-gray-400">/ 4 Big Pack</span></span><button onclick="addToCart('Classic Golubtse', 16.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Classic 4 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="true" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Vegetarian Cabbage Rolls', 'image_agent_tag_1875138137582496864')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">4. Vegetarian Cabbage Rolls <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Cabbage pockets loaded with wild mushroom, brown rice, and sweet carrots.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'c4_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'c4_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'c4_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="c4_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Green cabbage leaves, Brown field mushrooms, Brown rice, Grated carrots.</p></div>
+                                    <div id="c4_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">160</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>6g</span></div><div class="flex justify-between"><span>Carbs</span><span>28g</span></div></div>
+                                    <div id="c4_v-cook" class="tab-content">Bake covered with sauce or vegetable broth at 375°F for 50 minutes.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$14.50 <span class="text-[10px] font-normal text-gray-400">/ 4 Pack</span></span><button onclick="addToCart('Vegetarian Cabbage Rolls', 14.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Classic 5 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="false" data-df="true" data-pf="false">
+                            <div>
+                                <div onclick="openVisualModal('Pork Pelmeni Pellets', 'image_agent_tag_1875138137582496864')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">5. Pork & Herb Pelmeni <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Tiny circular thin-wrapper dumplings stuffed with seasoned minced pork.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'c5_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'c5_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'c5_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="c5_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Ground pork shoulder, Onion paste, Wheat flour wrapper, Black pepper.</p></div>
+                                    <div id="c5_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">310</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>15g</span></div><div class="flex justify-between"><span>Carbs</span><span>35g</span></div></div>
+                                    <div id="c5_v-cook" class="tab-content">Boil in heavily salted water for 4 minutes after they float.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$11.50 <span class="text-[10px] font-normal text-gray-400">/ 500g Bag</span></span><button onclick="addToCart('Pork Pelmeni Pellets', 11.50)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+
+                        <!-- Classic 6 -->
+                        <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="true" data-df="false" data-pf="true">
+                            <div>
+                                <div onclick="openVisualModal('Cheese Blintzes', 'image_agent_tag_1875138137582496864')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                    <h4 class="text-xl font-bold flex items-center justify-between">6. Cheese Blintzes <span class="text-xs font-normal underline opacity-80">View Dish 📷</span></h4>
+                                    <p class="text-amber-100 text-xs mt-1">Paper thin pan crepe sheets wrapped over sweetened vanilla cream curd fillings.</p>
+                                </div>
+                                <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
+                                    <button onclick="switchTab(this, 'c6_v-about')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">About</button>
+                                    <button onclick="switchTab(this, 'c6_v-nutrition')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Nutrition</button>
+                                    <button onclick="switchTab(this, 'c6_v-cook')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">Cooking</button>
+                                </div>
+                                <div class="p-5 text-xs text-gray-600 min-h-[140px]">
+                                    <div id="c6_v-about" class="tab-content active"><p><strong>Ingredients:</strong> Farmer curd cheese, Crepe wrap flour skin, Eggs, Vanilla extract, Sugar.</p></div>
+                                    <div id="c6_v-nutrition" class="tab-content space-y-1"><div class="flex justify-between border-b pb-0.5"><span>Calories</span><span class="font-bold">280</span></div><div class="flex justify-between border-b pb-0.5"><span>Protein</span><span>11g</span></div><div class="flex justify-between"><span>Carbs</span><span>34g</span></div></div>
+                                    <div id="c6_v-cook" class="tab-content">Pan fry slowly in butter over low-medium heat until golden brown.</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-gray-50 border-t flex justify-between items-center"><span class="font-bold text-gray-900">$13.00 <span class="text-[10px] font-normal text-gray-400">/ 6 Pack</span></span><button onclick="addToCart('Cheese Blintzes', 13.00)" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">+ Add</button></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Checkout View Section Layout -->
+        <section id="checkout" class="bg-gray-100 py-16 px-4 border-t border-gray-200">
+            <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-1">No-Login Checkout</h3>
+                <p class="text-sm text-gray-500 mb-6">Simple and seamless. No accounts required.</p>
+                
+                <form onsubmit="event.preventDefault(); alert('Order received successfully!');" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                            <input type="email" required class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none" placeholder="you@domain.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                            <input type="tel" required class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none" placeholder="(555) 000-0000">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Order Configuration Style</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="border-2 border-amber-500 bg-amber-50 p-4 rounded-xl cursor-pointer flex flex-col justify-between">
+                                <input type="radio" name="order-style" value="cold" checked onchange="toggleCateringDetails(false)" class="accent-amber-600 self-end">
+                                <div>
+                                    <span class="block text-sm font-bold text-gray-900">Standard Pack</span>
+                                    <span class="text-[11px] text-gray-500 block mt-0.5">Delivered deep frozen. Perfect for storage.</span>
+                                </div>
+                            </label>
+                            <label class="border-2 border-gray-200 p-4 rounded-xl cursor-pointer flex flex-col justify-between hover:border-gray-300 transition">
+                                <input type="radio" name="order-style" value="hot" onchange="toggleCateringDetails(true)" class="accent-amber-600 self-end">
+                                <div>
+                                    <span class="block text-sm font-bold text-gray-900">Catering Service</span>
+                                    <span class="text-[11px] text-gray-500 block mt-0.5">Delivered steaming hot & table ready.</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="catering-time-panel" class="hidden bg-amber-50 p-4 rounded-xl border border-amber-200">
+                        <label class="block text-xs font-bold text-amber-900 mb-1">Select Future Catering Delivery Date/Time</label>
+                        <input type="datetime-local" class="p-2 border rounded w-full bg-white text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Fulfillment Method</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="border border-gray-300 p-3 rounded-lg cursor-pointer flex items-center gap-3">
+                                <input type="radio" name="delivery-opt" value="pickup" checked class="accent-amber-600">
+                                <span class="text-sm font-medium">Kitchen Pickup</span>
+                            </label>
+                            <label class="border border-gray-300 p-3 rounded-lg cursor-pointer flex items-center gap-3">
+                                <input type="radio" name="delivery-opt" value="delivery" class="accent-amber-600">
+                                <div>
+                                    <span class="text-sm font-medium block">Home Delivery</span>
+                                    <span class="text-[10px] text-amber-600 font-bold block">Free over $100</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Message to Kitchen / Special Instructions</label>
+                        <textarea rows="3" class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none placeholder-gray-400" placeholder="Let us know about food allergies, delivery directions, or catering preferences..."></textarea>
+                    </div>
+
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-sm text-gray-900 mb-3 border-b pb-2">Your Selected Items</h4>
+                        <div id="cart-items-wrapper" class="space-y-3 mb-4 max-h-60 overflow-y-auto pr-1">
+                            <p class="text-xs text-gray-400 italic py-2 text-center" id="empty-cart-msg">Your shopping cart is currently empty.</p>
+                        </div>
+                        <div class="space-y-1.5 text-xs pt-2 border-t border-gray-200">
+                            <div class="flex justify-between text-gray-600"><span>Items Subtotal</span><span id="summary-subtotal">$0.00</span></div>
+                            <div class="flex justify-between text-gray-600"><span>Delivery Fee</span><span id="summary-delivery">$0.00</span></div>
+                            <div class="flex justify-between font-bold text-base text-gray-900 pt-1"><span>Total Cost</span><span id="summary-total">$0.00</span></div>
+                        </div>
+                        <p id="delivery-incentive-msg" class="text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded p-2 mt-3 text-center hidden"></p>
+                    </div>
+
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white text-center py-3.5 rounded-xl font-bold transition text-md shadow-md">
+                        Place Order As Guest
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE VIEW 2: ABOUT US -->
+    <div id="about-page" class="page-view max-w-4xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-8 md:p-12 space-y-8">
+            <div class="text-center">
+                <span class="text-xs font-bold tracking-widest text-amber-600 uppercase bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">Our Story</span>
+                <h2 class="text-4xl font-extrabold text-gray-900 mt-3">25 Years of Artisan Quality</h2>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="text-md text-gray-600 leading-relaxed space-y-6">
+                <p>For a quarter of a century, our family kitchen has stayed committed to one single, unchanging mission: preserving true, legacy European cooking traditions without compromises. What started as a small kitchen project built around hand-rolling authentic perogies has evolved into an established artisan community staple.</p>
+                <blockquote class="border-l-4 border-amber-500 bg-amber-50/50 p-4 font-medium italic text-gray-800 rounded-r-xl">"We don't use machinery shortcuts, processing stabilizers, artificial powders, or generic food fillers. If it wouldn't be found inside an old country farmhouse kitchen pantry, it doesn't enter our products."</blockquote>
+                <p>Our new line of <strong>All-in-One ready sauces</strong> represents the next phase of home kitchen convenience. By packing slow-braised, top-tier meats directly inside rich, traditional sauce bases, we take care of the hard work. You simply choose the side—mash, fresh pasta, or steamed rice—and open a package to experience a true homestyle meal in minutes.</p>
+            </div>
+            <div class="grid grid-cols-3 gap-4 pt-6 text-center border-t border-gray-100">
+                <div><h5 class="text-3xl font-extrabold text-amber-600">25</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1">Years of Heritage</p></div>
+                <div><h5 class="text-3xl font-extrabold text-amber-600">0%</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1">Fillers / Additives</p></div>
+                <div><h5 class="text-3xl font-extrabold text-amber-600">100%</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1">Hand-Rolled Care</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE VIEW 3: FEEDBACK PAGE -->
+    <div id="feedback-page" class="page-view max-w-xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-8 space-y-6">
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900">Product Feedback Desk</h3>
+                <p class="text-sm text-gray-500 mt-1">Your honest reviews help our kitchen team constantly improve recipes.</p>
+            </div>
+            <form onsubmit="event.preventDefault(); alert('Thank you for your feedback submission!'); this.reset();" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Select Product to Review *</label>
+                    <select required class="w-full p-3 border rounded-xl bg-white text-sm focus:ring-2 focus:ring-amber-500 outline-none">
+                        <option value="" disabled selected>-- Choose an item from our menu --</option>
+                        <optgroup label="Ready-Made Sauce Bases">
+                            <option>Beef Stroganoff</option>
+                            <option>Classic Bolognaise</option>
+                            <option>Chicken & Mushroom Cream</option>
+                            <option>Gourmet Meatballs in Marinara</option>
+                            <option>Creamy Four-Cheese & Spinach</option>
+                            <option>Hunter's Pork Stew Base</option>
+                            <option>Hungarian Beef Paprikash</option>
+                            <option>Dill Garlic Lemon Chicken</option>
+                            <option>Roasted Root Vegetable Mix</option>
+                            <option>Smoked Bacon Cream & Leek</option>
+                        </optgroup>
+                        <optgroup label="Artisanal Hand-Pinched Perogies">
+                            <option>Potato & Cheddar Cheese</option>
+                            <option>Sauerkraut & Field Mushroom</option>
+                            <option>Sweet Cinnamon Blueberry</option>
+                            <option>Potato, Bacon & Onion</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label><input type="text" class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none" placeholder="Optional"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Your Review Note *</label><textarea rows="4" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none placeholder-gray-400" placeholder="Tell us what you liked or what could be adjusted..."></textarea></div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl shadow-sm transition">Submit Product Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CHANGE #3: DYNAMIC POPUP MODAL ARCHITECTURE OVERLAY -->
+    <div id="visual-modal-overlay" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden" onclick="closeVisualModal()">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="p-4 border-b flex justify-between items-center">
+                <h3 id="modal-dish-title" class="font-bold text-lg text-gray-900">Prepared Dish Preview</h3>
+                <button onclick="closeVisualModal()" class="text-gray-400 hover:text-gray-600 font-bold text-xl px-2">×</button>
+            </div>
+            <!-- Standard dynamic component integration layout inside html container wrapper scripts elements -->
+            <div class="aspect-video bg-gray-100 flex items-center justify-center relative">
+                <img id="modal-dish-image-1" class="w-full h-full object-cover hidden" src="https://cookingwithzahra.com/wp-content/uploads/2023/03/Beef-Stroganoff-500x500.jpg" alt="Beef Stroganoff">
+                <img id="modal-dish-image-2" class="w-full h-full object-cover hidden" src="https://canadianfoodfocus.org/wp-content/uploads/2025/12/Perogies-2-500x375.jpg" alt="Perogies">
+                <img id="modal-dish-image-3" class="w-full h-full object-cover hidden" src="https://allweeat.com/wp-content/uploads/2022/02/19-1-1333x2000.jpg" alt="Chebureki">
+                <img id="modal-dish-image-4" class="w-full h-full object-cover hidden" src="https://thenewbaguette.com/wp-content/uploads/2024/02/Vegetarian-Ukrainian-Cabbage-Rolls-Golubtsi-29.jpg" alt="Cabbage rolls">
+            </div>
+            <div class="p-4 bg-gray-50 text-xs text-gray-500 italic text-center">
+                * Serving suggestion presentation snippet. No artificial additives or processing fillers used during prep.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Area -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center text-sm border-t border-gray-800">
+        <p class="font-bold text-white mb-2">Just Add. © 2026</p>
+        <p>Homemade recipes without fillers or additives, flash-packed for exceptional home cooking convenience.</p>
+    </footer>
+
+    <!-- Logic Script Controllers -->
+    <script>
+        let cart = [];
+
+        // CHANGE #3: OVERLAY SYSTEM SCRIPTS MAP CONTROLLERS
+        function openVisualModal(dishName, tagId) {
+            document.getElementById('modal-dish-title').innerText = dishName;
+            
+            // Hide all map items first loop
+            document.getElementById('modal-dish-image-1').classList.add('hidden');
+            document.getElementById('modal-dish-image-2').classList.add('hidden');
+            document.getElementById('modal-dish-image-3').classList.add('hidden');
+            document.getElementById('modal-dish-image-4').classList.add('hidden');
+
+            // Select index depending on incoming asset reference hooks data matrices
+            if (tagId === 'image_agent_tag_1875138137582495119') {
+                document.getElementById('modal-dish-image-1').classList.remove('hidden');
+            } else if (tagId === 'image_agent_tag_1875138137582494917') {
+                document.getElementById('modal-dish-image-2').classList.remove('hidden');
+            } else if (tagId === 'image_agent_tag_1875138137582497066') {
+                document.getElementById('modal-dish-image-3').classList.remove('hidden');
+            } else {
+                document.getElementById('modal-dish-image-4').classList.remove('hidden');
+            }
+
+            document.getElementById('visual-modal-overlay').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Lock background layer scrolling activity
+        }
+
+        function closeVisualModal() {
+            document.getElementById('visual-modal-overlay').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function switchView(viewId) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-view'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-amber-600'));
+            document.getElementById(viewId).classList.add('active-view');
+            
+            const targetButton = Array.from(document.querySelectorAll('.nav-link')).find(btn => 
+                btn.getAttribute('onclick').includes(viewId)
+            );
+            if (targetButton) targetButton.classList.add('text-amber-600');
+            window.scrollTo(0,0);
+        }
+
+        // CHANGE #2: CLICKING ANY FILTER ROLLS ACTIVE VIEWPORT BACK TO THE HEAD TARGET OF CURRENT SECTION
+        function applyFilters() {
+            const showVegOnly = document.getElementById('filter-vegetarian').checked;
+            const showDfOnly = document.getElementById('filter-dairy-free').checked;
+            const showPfOnly = document.getElementById('filter-pork-free').checked;
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const isVeg = card.getAttribute('data-veg') === 'true';
+                const isDf = card.getAttribute('data-df') === 'true';
+                const isPf = card.getAttribute('data-pf') === 'true';
+
+                let matchesFilter = true;
+                if (showVegOnly && !isVeg) matchesFilter = false;
+                if (showDfOnly && !isDf) matchesFilter = false;
+                if (showPfOnly && !isPf) matchesFilter = false;
+
+                if (matchesFilter) card.classList.remove('hidden-filter');
+                else card.classList.add('hidden-filter');
+            });
+
+            // Calculate current section viewpoint center spacing coordinate metrics
+            const saucesSec = document.getElementById('sauces');
+            const perogiesSec = document.getElementById('perogies');
+            const classicsSec = document.getElementById('classics');
+
+            const scrollPos = window.scrollY + 200; // Account for navigation offset headers bounds
+
+            let targetSection = saucesSec;
+            if (scrollPos >= classicsSec.offsetTop) {
+                targetSection = classicsSec;
+            } else if (scrollPos >= perogiesSec.offsetTop) {
+                targetSection = perogiesSec;
+            }
+
+            // Smooth scroll redirect anchor function trigger loop
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+            renderCart();
+        }
+
+        function updateQuantity(name, change) {
+            const item = cart.find(item => item.name === name);
+            if (!item) return;
+            
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.name !== name);
+            }
+            renderCart();
+        }
+
+        function renderCart() {
+            const wrapper = document.getElementById('cart-items-wrapper');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            let subtotal = 0;
+            let totalItemsCount = 0;
+            
+            wrapper.querySelectorAll('.cart-item-row').forEach(row => row.remove());
+
+            if (cart.length === 0) {
+                emptyMsg.classList.remove('hidden');
+            } else {
+                emptyMsg.classList.add('hidden');
+                cart.forEach(item => {
+                    const itemCost = item.price * item.quantity;
+                    subtotal += itemCost;
+                    totalItemsCount += item.quantity;
+
+                    const rowHTML = `
+                        <div class="cart-item-row flex justify-between items-center bg-white p-2.5 rounded-lg border border-gray-100 text-xs shadow-sm">
+                            <div class="max-w-[60%]"><p class="font-bold text-gray-900">${item.name}</p><p class="text-[11px] text-gray-400">$${item.price.toFixed(2)} each</p></div>
+                            <div class="flex items-center gap-3">
+                                <div class="flex items-center border rounded bg-gray-50 overflow-hidden">
+                                    <button type="button" onclick="updateQuantity('${item.name}', -1)" class="px-2 py-0.5 text-gray-500 hover:bg-gray-200 font-bold">-</button>
+                                    <span class="px-2 font-semibold text-gray-800">${item.quantity}</span>
+                                    <button type="button" onclick="updateQuantity('${item.name}', 1)" class="px-2 py-0.5 text-gray-500 hover:bg-gray-200 font-bold">+</button>
+                                </div>
+                                <span class="font-bold text-gray-900 min-w-[50px] text-right">$${itemCost.toFixed(2)}</span>
+                            </div>
+                        </div>`;
+                    wrapper.insertAdjacentHTML('beforeend', rowHTML);
+                });
+            }
+
+            let deliveryFee = 0;
+            const deliveryIncentive = document.getElementById('delivery-incentive-msg');
+
+            if (subtotal > 0) {
+                if (subtotal >= 100) {
+                    deliveryFee = 0;
+                    deliveryIncentive.innerHTML = "🎉 <strong>Success!</strong> Your order qualifies for <strong>Free Home Delivery</strong>.";
+                    deliveryIncentive.classList.remove('hidden');
+                } else {
+                    deliveryFee = 12.00;
+                    const awayAmount = (100 - subtotal).toFixed(2);
+                    deliveryIncentive.innerHTML = `🛒 Add <strong>$${awayAmount}</strong> more to your order to unlock <strong>Free Delivery</strong>!`;
+                    deliveryIncentive.classList.remove('hidden');
+                }
+            } else {
+                deliveryIncentive.classList.add('hidden');
+            }
+
+            const totalCost = subtotal + deliveryFee;
+            document.getElementById('nav-cart-total').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('nav-cart-count').innerText = totalItemsCount;
+            document.getElementById('summary-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('summary-delivery').innerText = deliveryFee === 0 ? (subtotal > 0 ? "FREE" : "$0.00") : `$${deliveryFee.toFixed(2)}`;
+            document.getElementById('summary-total').innerText = `$${totalCost.toFixed(2)}`;
+        }
+
+        function switchTab(button, tabId) {
+            const card = button.closest('.product-card');
+            card.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-amber-500', 'text-amber-600', 'font-bold');
+                btn.classList.add('border-transparent', 'text-gray-400');
+            });
+            card.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            button.classList.add('border-amber-500', 'text-amber-600', 'font-bold');
+            button.classList.remove('border-transparent', 'text-gray-400');
+            card.querySelector(`#${tabId}`).classList.add('active');
+        }
+
+        function toggleCateringDetails(show) {
+            const el = document.getElementById('catering-time-panel');
+            if (show) el.classList.remove('hidden');
+            else el.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
