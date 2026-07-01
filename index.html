@@ -725,15 +725,15 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-1" data-i18n="checkout-title">No-Login Checkout</h3>
                 <p class="text-sm text-gray-500 mb-6" data-i18n="checkout-subtitle">Simple and seamless. No accounts required.</p>
                 
-                <form onsubmit="event.preventDefault(); alert('Order received successfully!');" class="space-y-6">
+                <form id="checkout-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="checkout-email-label">Email Address *</label>
-                            <input type="email" required class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="checkout-email-placeholder" placeholder="you@domain.com">
+                            <input type="email" id="checkout-email" required class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="checkout-email-placeholder" placeholder="you@domain.com">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="checkout-phone-label">Phone Number *</label>
-                            <input type="tel" required class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="checkout-phone-placeholder" placeholder="(555) 000-0000">
+                            <input type="tel" id="checkout-phone" required class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="checkout-phone-placeholder" placeholder="(555) 000-0000">
                         </div>
                     </div>
 
@@ -759,7 +759,7 @@
 
                     <div id="catering-time-panel" class="hidden bg-amber-50 p-4 rounded-xl border border-amber-200">
                         <label class="block text-xs font-bold text-amber-900 mb-1" data-i18n="checkout-catering-time-label">Select Future Catering Delivery Date/Time</label>
-                        <input type="datetime-local" class="p-2 border rounded w-full bg-white text-sm">
+                        <input type="datetime-local" id="catering-time-input" class="p-2 border rounded w-full bg-white text-sm">
                     </div>
 
                     <div>
@@ -781,7 +781,7 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="checkout-message-label">Message to Kitchen / Special Instructions</label>
-                        <textarea rows="3" class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none placeholder-gray-400" data-i18n-placeholder="checkout-message-placeholder" placeholder="Let us know about food allergies, delivery directions, or catering preferences..."></textarea>
+                        <textarea id="checkout-notes" rows="3" class="w-full p-3 border rounded-lg text-sm focus:ring-2 focus:ring-amber-500 outline-none placeholder-gray-400" data-i18n-placeholder="checkout-message-placeholder" placeholder="Let us know about food allergies, delivery directions, or catering preferences..."></textarea>
                     </div>
 
                     <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
@@ -1113,6 +1113,97 @@
             if (show) el.classList.remove('hidden');
             else el.classList.add('hidden');
         }
+
+        // ============================================================
+        // GOOGLE APPS SCRIPT ORDER SUBMISSION
+        // ============================================================
+        // Paste your unique Google Web App URL here!
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1PoZeK9Q8brRQSaxKuV5Lvr3EwpUDWOPmP8ZalmHKka0wCAHhb1o7qJZyQr3GzpFM/exec";
+
+        // Locate the form and hijack the submission event
+        document.querySelector('#checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop page from refreshing
+            
+            if (cart.length === 0) {
+                alert("Your cart is empty! Please add some items before checking out.");
+                return;
+            }
+
+            // 1. Gather form fields
+            const emailVal = document.getElementById('checkout-email').value;
+            const phoneVal = document.getElementById('checkout-phone').value;
+            const notesVal = document.getElementById('checkout-notes').value;
+            const styleVal = document.querySelector('input[name="order-style"]:checked').value;
+            const fulfillmentVal = document.querySelector('input[name="delivery-opt"]:checked').value;
+            const cateringTimeVal = document.getElementById('catering-time-input').value;
+
+            // 2. Format a readable text block of the items for the email body
+            let itemsText = "";
+            cart.forEach(item => {
+                itemsText += `- ${item.name} (Qty: ${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}\n`;
+            });
+
+            const totalCostText = document.getElementById('summary-total').innerText;
+
+            // 3. Show a loading state on the button
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Processing Order... Please Wait ⏳";
+            submitBtn.disabled = true;
+
+            // 4. Create a hidden <iframe> to receive the response (avoids navigating away)
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden-google-submit';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+
+            // Listen for the iframe to finish loading (Google Script redirects back after processing)
+            iframe.onload = function() {
+                // Order submitted successfully — clean up
+                document.body.removeChild(iframe);
+                alert("🎉 Success! Your order has been placed. An email summary has been sent to the kitchen team!");
+                
+                cart = [];
+                renderCart();
+                document.querySelector('#checkout-form').reset();
+                document.getElementById('catering-time-panel').classList.add('hidden');
+                
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            };
+
+            // 5. Build a temporary <form> that POSTs to the Google Script URL
+            //    This avoids the no-cors content-type stripping issue entirely.
+            const tempForm = document.createElement('form');
+            tempForm.method = 'POST';
+            tempForm.action = GOOGLE_SCRIPT_URL;
+            tempForm.target = 'hidden-google-submit';
+            tempForm.style.display = 'none';
+
+            // Add all order data as hidden input fields (URL-encoded form submission)
+            const fields = {
+                'email': emailVal,
+                'phone': phoneVal,
+                'notes': notesVal,
+                'style': styleVal,
+                'fulfillment': fulfillmentVal,
+                'cateringTime': cateringTimeVal,
+                'cartSummary': itemsText,
+                'total': totalCostText
+            };
+
+            for (const [key, value] of Object.entries(fields)) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                tempForm.appendChild(input);
+            }
+
+            document.body.appendChild(tempForm);
+            tempForm.submit();
+            document.body.removeChild(tempForm);
+        });
     </script>
 </body>
 </html>
