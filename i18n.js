@@ -12,9 +12,9 @@ const translations = {
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
         "cart-label": "Cart",
-        "cat-sauces": "Sauce Bases",
-        "cat-perogies": "Perogies",
-        "cat-classics": "Specialty Entrees",
+        "cat-sauces": "🔥 Sauce & Meat Mixes (10)",
+        "cat-perogies": "🥟 Artisanal Perogies (12)",
+        "cat-classics": "🥩 Specialty Entrées (6)",
         "filter-title": "Filters",
         "filter-subtitle": "Narrow down your selection",
         "filter-search-label": "🔍 Search by name",
@@ -259,9 +259,9 @@ const translations = {
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
         "cart-label": "Корзина",
-        "cat-sauces": "Соусы",
-        "cat-perogies": "Вареники",
-        "cat-classics": "Фирменные блюда",
+        "cat-sauces": "🔥 Соусы и мясные смеси (10)",
+        "cat-perogies": "🥟 Вареники ручной лепки (12)",
+        "cat-classics": "🥩 Фирменные блюда (6)",
         "filter-title": "Фильтры",
         "filter-subtitle": "Сузьте выбор",
         "filter-search-label": "🔍 Поиск по названию",
@@ -505,9 +505,9 @@ const translations = {
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
         "cart-label": "Кошик",
-        "cat-sauces": "Соуси",
-        "cat-perogies": "Вареники",
-        "cat-classics": "Фірмові страви",
+        "cat-sauces": "🔥 Соуси та м'ясні суміші (10)",
+        "cat-perogies": "🥟 Вареники ручного ліплення (12)",
+        "cat-classics": "🥩 Фірмові страви (6)",
         "filter-title": "Фільтри",
         "filter-subtitle": "Звужте вибір",
         "filter-search-label": "🔍 Пошук за назвою",
@@ -741,3 +741,6 @@ const translations = {
         "summary-free": "БЕЗКОШТОВНО"
     }
 };
+
+// Expose translations globally so index.html's changeLanguage() can access via window.translations
+window.translations = translations;
