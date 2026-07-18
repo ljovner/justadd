@@ -363,10 +363,11 @@
             const navContainer = document.getElementById('section-nav-links');
             const t = (window.translations && translations[currentLang]) ? translations[currentLang] : {};
 
-            // Build section navigation links
+            // Build section navigation links (count calculated dynamically)
             navContainer.innerHTML = catalogData.sections.map(sec => {
                 const label = t[sec.navLabelKey] || sec.navLabelKey;
-                return `<a href="#${sec.id}" class="text-amber-700 hover:bg-amber-50 px-3 py-1.5 rounded-lg transition">${sec.icon} ${label}</a>`;
+                const count = sec.products.length;
+                return `<a href="#${sec.id}" class="text-amber-700 hover:bg-amber-50 px-3 py-1.5 rounded-lg transition">${sec.icon} ${label} (${count})</a>`;
             }).join('');
 
             // Build product sections
