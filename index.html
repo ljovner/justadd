@@ -61,12 +61,12 @@
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/golubtsi.jpg');"></div>
             <div class="absolute inset-0 bg-[#5E2F26]/70"></div>
             <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-                <span class="text-xs uppercase tracking-widest font-bold bg-[#5E2F26] text-white px-3 py-1 rounded-full" data-i18n="hero-badge">Old Town European Diner Quality</span>
+                <span class="text-xs uppercase tracking-widest font-bold bg-[#5E2F26] text-white px-3 py-1 rounded-full" data-i18n="hero-badge"></span>
                 <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-none text-gray-100">
-                    <span class="block" data-i18n="hero-heading-line1">We Handle the Hard Part.</span>
-                    <span class="block md:inline text-amber-500" data-i18n="hero-heading-line2">You Just Add the Side.</span>
+                    <span class="block" data-i18n="hero-heading-line1">Authentic Flavors</span>
+                    <span class="block md:inline text-amber-500" data-i18n="hero-heading-line2">Frozen for Your Convenience.</span>
                 </h2>
-                <p class="text-md md:text-xl text-gray-300 max-w-2xl mx-auto font-medium" data-i18n="hero-desc">Authentic, hand-rolled Eastern European frozen classics and all-in-one meat sauces. Crafted using small-batch, 25-year family techniques with zero fillers or additives.</p>
+                <p class="text-md md:text-xl text-gray-300 max-w-2xl mx-auto font-medium" data-i18n="hero-desc">Authentic, hand made classics. Crafted using small-batch, 25-year family techniques with zero fillers or additives.</p>
                 <div class="pt-4">
                     <button onclick="switchView('store-page')" class="bg-[#8C292C] hover:bg-[#5E2F26] text-white px-8 py-4 rounded-xl font-extrabold text-lg shadow-lg transition transform hover:-translate-y-0.5" data-i18n="hero-cta">Explore Menu & Order Online</button>
                 </div>
@@ -277,15 +277,15 @@
                 <h3 class="text-2xl font-bold text-gray-900" data-i18n="feedback-title">Product Feedback Desk</h3>
                 <p class="text-sm text-gray-500 mt-1" data-i18n="feedback-subtitle">Your honest reviews help our kitchen team constantly improve recipes.</p>
             </div>
-            <form onsubmit="event.preventDefault(); alert('Thank you for your feedback submission!'); this.reset();" class="space-y-4">
+            <form id="feedback-form" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-product-label">Select Product to Review *</label>
                     <select id="feedback-product-select" required class="w-full p-3 border rounded-xl bg-white text-sm focus:ring-2 focus:ring-amber-500 outline-none">
                         <option value="" disabled selected data-i18n="feedback-select-placeholder">-- Choose an item from our menu --</option>
                     </select>
                 </div>
-                <div><label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-name-label">Your Name</label><input type="text" class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="feedback-name-placeholder" placeholder="Optional"></div>
-                <div><label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-review-label">Your Review Note *</label><textarea rows="4" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none placeholder-stone-400" data-i18n-placeholder="feedback-review-placeholder" placeholder="Tell us what you liked or what could be adjusted..."></textarea></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-name-label">Your Name</label><input type="text" id="feedback-name" class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="feedback-name-placeholder" placeholder="Optional"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-review-label">Your Review Note *</label><textarea id="feedback-review" rows="4" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none placeholder-stone-400" data-i18n-placeholder="feedback-review-placeholder" placeholder="Tell us what you liked or what could be adjusted..."></textarea></div>
                 <button type="submit" class="w-full bg-[#8C292C] hover:bg-[#5E2F26] text-white font-bold py-3 rounded-xl shadow-sm transition" data-i18n="feedback-submit-btn">Submit Product Review</button>
             </form>
         </div>
@@ -670,7 +670,7 @@
         }
 
         // --- ASYNC FORM HANDLER CONNECTED TO GOOGLE SCRIPT VIA X-WWW-FORM DATA ---
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1PoZeK9Q8brRQSaxKuV5Lvr3EwpUDWOPmP8ZalmHKka0wCAHhb1o7qJZyQr3GzpFM/exec";
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxPhbSpZZzruCvbzsyowW7AWAnmHuLyM9FN5Tpl2Ymeu-nzaNopNM_Bz1bZMvygwXn-/exec";
 
         document.getElementById('checkout-form').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -719,6 +719,51 @@
             .catch(error => {
                 console.error("Error submitting order:", error);
                 alert("Something went wrong processing your order transmission. Please try again.");
+            })
+            .finally(() => {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // ── Feedback Form Handler ──
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const product = document.getElementById('feedback-product-select').value;
+            const name = document.getElementById('feedback-name').value || 'Anonymous';
+            const review = document.getElementById('feedback-review').value;
+
+            if (!product) {
+                alert('Please select a product to review.');
+                return;
+            }
+
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Submitting... ⏳";
+            submitBtn.disabled = true;
+
+            const formData = new URLSearchParams();
+            formData.append('product', product);
+            formData.append('name', name);
+            formData.append('review', review);
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData.toString()
+            })
+            .then(() => {
+                alert("✅ Thank you for your feedback! Your review has been submitted.");
+                document.getElementById('feedback-form').reset();
+            })
+            .catch(error => {
+                console.error("Error submitting feedback:", error);
+                alert("Something went wrong submitting your feedback. Please try again.");
             })
             .finally(() => {
                 submitBtn.innerText = originalBtnText;
