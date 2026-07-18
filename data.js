@@ -12,6 +12,7 @@ window.catalogData = {
         {
           "id": "s1",
           "name": "Beef Stroganoff",
+          "descriptionKey": "s1-desc",
           "price": 18.50,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": false, "pf": true },
@@ -23,6 +24,7 @@ window.catalogData = {
         {
           "id": "s2",
           "name": "Classic Bolognaise",
+          "descriptionKey": "s2-desc",
           "price": 16.00,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -34,6 +36,7 @@ window.catalogData = {
         {
           "id": "s3",
           "name": "Chicken & Mushroom Cream",
+          "descriptionKey": "s3-desc",
           "price": 17.50,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": false, "pf": true },
@@ -45,6 +48,7 @@ window.catalogData = {
         {
           "id": "s4",
           "name": "Meatballs in Marinara",
+          "descriptionKey": "s4-desc",
           "price": 16.75,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -56,6 +60,7 @@ window.catalogData = {
         {
           "id": "s5",
           "name": "Creamy Four-Cheese & Spinach",
+          "descriptionKey": "s5-desc",
           "price": 15.25,
           "unitKey": "per-unit",
           "dietary": { "veg": true, "df": false, "pf": true },
@@ -67,6 +72,7 @@ window.catalogData = {
         {
           "id": "s6",
           "name": "Hunter's Pork Stew Base",
+          "descriptionKey": "s6-desc",
           "price": 17.00,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -78,6 +84,7 @@ window.catalogData = {
         {
           "id": "s7",
           "name": "Hungarian Beef Paprikash",
+          "descriptionKey": "s7-desc",
           "price": 18.00,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": false, "pf": true },
@@ -89,6 +96,7 @@ window.catalogData = {
         {
           "id": "s8",
           "name": "Dill Garlic Lemon Chicken",
+          "descriptionKey": "s8-desc",
           "price": 15.75,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": true, "pf": true },
@@ -100,6 +108,7 @@ window.catalogData = {
         {
           "id": "s9",
           "name": "Roasted Root Vegetable Mix",
+          "descriptionKey": "s9-desc",
           "price": 14.50,
           "unitKey": "per-unit",
           "dietary": { "veg": true, "df": true, "pf": true },
@@ -111,6 +120,7 @@ window.catalogData = {
         {
           "id": "s10",
           "name": "Smoked Bacon Cream & Leek",
+          "descriptionKey": "s10-desc",
           "price": 16.50,
           "unitKey": "per-unit",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -131,6 +141,7 @@ window.catalogData = {
         {
           "id": "p1",
           "name": "Potato & Cheddar Cheese",
+          "descriptionKey": "p1-desc",
           "price": 12.00,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": false, "pf": true },
@@ -142,6 +153,7 @@ window.catalogData = {
         {
           "id": "p2",
           "name": "Sauerkraut & Field Mushroom",
+          "descriptionKey": "p2-desc",
           "price": 13.50,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": true, "pf": true },
@@ -153,6 +165,7 @@ window.catalogData = {
         {
           "id": "p3",
           "name": "Sweet Cinnamon Blueberry",
+          "descriptionKey": "p3-desc",
           "price": 14.00,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": true, "pf": true },
@@ -164,6 +177,7 @@ window.catalogData = {
         {
           "id": "p4",
           "name": "Potato, Bacon & Onion",
+          "descriptionKey": "p4-desc",
           "price": 13.00,
           "unitKey": "per-dozen",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -175,6 +189,7 @@ window.catalogData = {
         {
           "id": "p5",
           "name": "Cottage Cheese & Dill",
+          "descriptionKey": "p5-desc",
           "price": 12.50,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": false, "pf": true },
@@ -186,6 +201,7 @@ window.catalogData = {
         {
           "id": "p6",
           "name": "Seasoned Minced Beef",
+          "descriptionKey": "p6-desc",
           "price": 14.50,
           "unitKey": "per-dozen",
           "dietary": { "veg": false, "df": true, "pf": true },
@@ -197,6 +213,7 @@ window.catalogData = {
         {
           "id": "p7",
           "name": "Roasted Pumpkin & Goat Cheese",
+          "descriptionKey": "p7-desc",
           "price": 13.75,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": false, "pf": true },
@@ -208,6 +225,7 @@ window.catalogData = {
         {
           "id": "p8",
           "name": "Pork & Caramelized Cabbage",
+          "descriptionKey": "p8-desc",
           "price": 13.25,
           "unitKey": "per-dozen",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -219,6 +237,7 @@ window.catalogData = {
         {
           "id": "p9",
           "name": "Tart Orchard Sour Cherry",
+          "descriptionKey": "p9-desc",
           "price": 14.00,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": true, "pf": true },
@@ -230,6 +249,7 @@ window.catalogData = {
         {
           "id": "p10",
           "name": "Jalapeno Cheddar Popper",
+          "descriptionKey": "p10-desc",
           "price": 12.75,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": false, "pf": true },
@@ -241,6 +261,7 @@ window.catalogData = {
         {
           "id": "p11",
           "name": "Spinach, Ricotta & Feta",
+          "descriptionKey": "p11-desc",
           "price": 13.50,
           "unitKey": "per-dozen",
           "dietary": { "veg": true, "df": false, "pf": true },
@@ -252,6 +273,7 @@ window.catalogData = {
         {
           "id": "p12",
           "name": "Smoked Salmon & Chive",
+          "descriptionKey": "p12-desc",
           "price": 16.00,
           "unitKey": "per-dozen",
           "dietary": { "veg": false, "df": true, "pf": true },
@@ -272,6 +294,7 @@ window.catalogData = {
         {
           "id": "c1",
           "name": "Crispy Meat Chebureke",
+          "descriptionKey": "c1-desc",
           "price": 15.00,
           "unitKey": "per-4pcs",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -283,6 +306,7 @@ window.catalogData = {
         {
           "id": "c2",
           "name": "Garlic Chicken Kotlete",
+          "descriptionKey": "c2-desc",
           "price": 16.50,
           "unitKey": "per-6pcs",
           "dietary": { "veg": false, "df": false, "pf": true },
@@ -294,6 +318,7 @@ window.catalogData = {
         {
           "id": "c3",
           "name": "Classic Golubtse",
+          "descriptionKey": "c3-desc",
           "price": 16.00,
           "unitKey": "per-4pack",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -305,6 +330,7 @@ window.catalogData = {
         {
           "id": "c4",
           "name": "Vegetarian Cabbage Rolls",
+          "descriptionKey": "c4-desc",
           "price": 14.50,
           "unitKey": "per-4pack",
           "dietary": { "veg": true, "df": true, "pf": true },
@@ -316,6 +342,7 @@ window.catalogData = {
         {
           "id": "c5",
           "name": "Pork & Herb Pelmeni",
+          "descriptionKey": "c5-desc",
           "price": 11.50,
           "unitKey": "per-500gbag",
           "dietary": { "veg": false, "df": true, "pf": false },
@@ -327,6 +354,7 @@ window.catalogData = {
         {
           "id": "c6",
           "name": "Cheese Blintzes",
+          "descriptionKey": "c6-desc",
           "price": 13.00,
           "unitKey": "per-6pack",
           "dietary": { "veg": true, "df": false, "pf": true },

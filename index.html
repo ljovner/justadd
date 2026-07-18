@@ -384,9 +384,8 @@
                 const sectionTitle = t[section.titleKey] || section.titleKey;
                 const productsHtml = section.products.map((prod, idx) => {
                     const nameKey = `${prod.id}-name`;
-                    const descKey = `${prod.id}-desc`;
                     const prodName = t[nameKey] || prod.name;
-                    const prodDesc = t[descKey] || '';
+                    const prodDesc = prod.descriptionKey ? (t[prod.descriptionKey] || '') : '';
 
                     // Build tabs content
                     const aboutId = `${prod.id}-about`;
