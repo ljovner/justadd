@@ -107,27 +107,7 @@
                     <p class="text-xs text-gray-400 font-bold uppercase tracking-wider" data-i18n="popular-subtitle">Customer Favorites from the Counter</p>
                 </div>
                 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="images/beefStroganoff.jpg" alt="Beef Stroganoff">
-                        <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-1-name">Beef Stroganoff</h4><p class="text-xs text-gray-500" data-i18n="popular-1-desc">Tender beef in sour cream mushroom gravy.</p></div>
-                        <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
-                    </div>
-                    <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="images/perogies.jpg" alt="Perogies">
-                        <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-2-name">Potato & Cheddar Perogies</h4><p class="text-xs text-gray-500" data-i18n="popular-2-desc">Whipped russet potatoes with real sharp cheddar.</p></div>
-                        <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
-                    </div>
-                    <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="images/cheburiki.jpg" alt="Chebureki">
-                        <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-3-name">Crispy Meat Chebureke</h4><p class="text-xs text-gray-500" data-i18n="popular-3-desc">Turnovers filled with minced beef and hot broth juices.</p></div>
-                        <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
-                    </div>
-                    <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="images/golubtsi.jpg" alt="Cabbage Rolls">
-                        <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-4-name">Classic Golubtse</h4><p class="text-xs text-gray-500" data-i18n="popular-4-desc">Cabbage leaves wrapped over minced pork, beef, and rice.</p></div>
-                        <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
-                    </div>
+                <div id="popular-product-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 </div>
             </div>
         </section>
@@ -350,6 +330,32 @@
             const navContainer = document.getElementById('section-nav-links');
             const feedbackSelect = document.getElementById('feedback-product-select');
             const t = (window.translations && translations[currentLang]) ? translations[currentLang] : {};
+
+            // Build popular picks (4 random products)
+            const popularGrid = document.getElementById('popular-product-grid');
+            if (popularGrid) {
+                const allProducts = catalogData.sections.flatMap(sec => sec.products);
+                const shuffled = [...allProducts].sort(() => Math.random() - 0.5);
+                const picks = shuffled.slice(0, 4);
+                popularGrid.innerHTML = picks.map(prod => {
+                    const nameKey = `${prod.id}-name`;
+                    const descKey = prod.descriptionKey;
+                    const prodName = t[nameKey] || prod.name;
+                    const prodDesc = descKey ? (t[descKey] || '') : '';
+                    const orderBtnLabel = t['popular-order-btn'] || 'Order from Menu';
+                    return `
+                        <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
+                            <img class="w-full h-44 object-cover" src="${prod.image}" alt="${prod.name}">
+                            <div class="p-4 space-y-1">
+                                <h4 class="font-bold text-gray-900">${prodName}</h4>
+                                <p class="text-xs text-gray-500">${prodDesc}</p>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600">${orderBtnLabel}</button>
+                            </div>
+                        </div>`;
+                }).join('');
+            }
 
             // Build section navigation links (count calculated dynamically)
             navContainer.innerHTML = catalogData.sections.map(sec => {
