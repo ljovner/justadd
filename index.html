@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -275,8 +275,8 @@
             </div>
             <div class="text-md text-gray-600 leading-relaxed space-y-6">
                 <p data-i18n="about-p1">For a quarter of a century, our family kitchen has stayed committed to one single, unchanging mission: preserving true, legacy European cooking traditions without compromises. What started as a small kitchen project built around hand-rolling authentic perogies has evolved into an established artisan community staple.</p>
-                <blockquote class="border-l-4 border-[#8C292C] bg-[#E3D2B4]/50 p-4 font-medium italic text-gray-800 rounded-r-xl" data-i18n="about-quote">"We don't use machinery shortcuts, processing stabilizers, artificial powders, or generic food fillers. If it wouldn't be found inside an old country farmhouse kitchen pantry, it doesn't enter our products."</blockquote>
-                <p data-i18n="about-p2">Our new line of <strong>All-in-One ready sauces</strong> represents the next phase of home kitchen convenience. By packing slow-braised, top-tier meats directly inside rich, traditional sauce bases, we take care of the hard work. You simply choose the side—mash, fresh pasta, or steamed rice—and open a package to experience a true homestyle meal in minutes.</p>
+                <blockquote class="border-l-4 border-[#8C292C] bg-[#E3D2B4]/50 p-4 font-medium italic text-gray-800 rounded-r-xl" data-i18n="about-quote">"We don't use machinery shortcuts, processing stabilizers, artificial powders, or generic food fillers. If it isn't in your home pantry, it's not in our products."</blockquote>
+                <p data-i18n-html="about-p2"></p>
             </div>
             <div class="grid grid-cols-3 gap-4 pt-6 text-center border-t border-gray-100">
                 <div><h5 class="text-3xl font-extrabold text-[#8C292C]">25</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1" data-i18n="about-stat-heritage">Years of Heritage</p></div>
@@ -837,6 +837,8 @@
         loadCart();
         renderCart();
         renderStore();
+        // Sync all data-i18n elements with English translations on load
+        changeLanguage(currentLang);
     </script>
 </body>
 </html>
