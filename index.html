@@ -59,7 +59,7 @@
     <div id="home-page" class="page-view active-view animate-fade-in">
         <!-- Hero Section -->
         <section class="relative bg-gray-900 text-white overflow-hidden py-24 md:py-32 px-4 border-b-4 border-amber-600">
-            <div class="absolute inset-0 bg-black/50 bg-cover bg-center mix-blend-overlay" style="background-image: url('https://thenewbaguette.com/wp-content/uploads/2024/02/Vegetarian-Ukrainian-Cabbage-Rolls-Golubtsi-29.jpg');"></div>
+            <div class="absolute inset-0 bg-black/50 bg-cover bg-center mix-blend-overlay" style="background-image: url('images/golubtsi.jpg');"></div>
             <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
                 <span class="text-xs uppercase tracking-widest font-bold bg-amber-600 text-white px-3 py-1 rounded-full" data-i18n="hero-badge">Old Town European Diner Quality</span>
                 <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-none text-gray-100">
@@ -109,22 +109,22 @@
                 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="https://cookingwithzahra.com/wp-content/uploads/2023/03/Beef-Stroganoff-500x500.jpg" alt="Beef Stroganoff">
+                        <img class="w-full h-44 object-cover" src="images/beefStroganoff.jpg" alt="Beef Stroganoff">
                         <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-1-name">Beef Stroganoff</h4><p class="text-xs text-gray-500" data-i18n="popular-1-desc">Tender beef in sour cream mushroom gravy.</p></div>
                         <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
                     </div>
                     <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="https://www.recipetineats.com/uploads/2023/10/Pierogi-ruskies_5.jpg" alt="Perogies">
+                        <img class="w-full h-44 object-cover" src="images/perogies.jpg" alt="Perogies">
                         <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-2-name">Potato & Cheddar Perogies</h4><p class="text-xs text-gray-500" data-i18n="popular-2-desc">Whipped russet potatoes with real sharp cheddar.</p></div>
                         <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
                     </div>
                     <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="https://allweeat.com/wp-content/uploads/2022/02/19-1-1333x2000.jpg" alt="Chebureki">
+                        <img class="w-full h-44 object-cover" src="images/cheburiki.jpg" alt="Chebureki">
                         <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-3-name">Crispy Meat Chebureke</h4><p class="text-xs text-gray-500" data-i18n="popular-3-desc">Turnovers filled with minced beef and hot broth juices.</p></div>
                         <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
                     </div>
                     <div class="bg-white rounded-2xl border overflow-hidden shadow-sm flex flex-col justify-between">
-                        <img class="w-full h-44 object-cover" src="https://thenewbaguette.com/wp-content/uploads/2024/02/Vegetarian-Ukrainian-Cabbage-Rolls-Golubtsi-29.jpg" alt="Cabbage Rolls">
+                        <img class="w-full h-44 object-cover" src="images/golubtsi.jpg" alt="Cabbage Rolls">
                         <div class="p-4 space-y-1"><h4 class="font-bold text-gray-900" data-i18n="popular-4-name">Classic Golubtse</h4><p class="text-xs text-gray-500" data-i18n="popular-4-desc">Cabbage leaves wrapped over minced pork, beef, and rice.</p></div>
                         <div class="p-4 pt-0"><button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600" data-i18n="popular-order-btn">Order from Menu</button></div>
                     </div>
@@ -318,10 +318,7 @@
                 <button onclick="closeVisualModal()" class="text-gray-400 hover:text-gray-600 font-bold text-xl px-2">×</button>
             </div>
             <div class="aspect-video bg-gray-100 flex items-center justify-center relative">
-                <img id="modal-dish-image-1" class="w-full h-full object-cover hidden" src="https://cookingwithzahra.com/wp-content/uploads/2023/03/Beef-Stroganoff-500x500.jpg" alt="Beef Stroganoff">
-                <img id="modal-dish-image-2" class="w-full h-full object-cover hidden" src="https://www.recipetineats.com/uploads/2023/10/Pierogi-ruskies_5.jpg" alt="Perogies">
-                <img id="modal-dish-image-3" class="w-full h-full object-cover hidden" src="https://allweeat.com/wp-content/uploads/2022/02/19-1-1333x2000.jpg" alt="Chebureki">
-                <img id="modal-dish-image-4" class="w-full h-full object-cover hidden" src="https://thenewbaguette.com/wp-content/uploads/2024/02/Vegetarian-Ukrainian-Cabbage-Rolls-Golubtsi-29.jpg" alt="Cabbage rolls">
+                <img id="modal-dish-image" class="w-full h-full object-cover" src="" alt="Dish preview">
             </div>
             <div class="p-4 bg-gray-50 text-xs text-gray-500 italic text-center" data-i18n="modal-disclaimer">
                 * Serving suggestion presentation snippet. No artificial additives or processing fillers used during prep.
@@ -433,7 +430,7 @@
                     return `
                         <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="${veg}" data-df="${df}" data-pf="${pf}">
                             <div>
-                                <div onclick="openVisualModal('${prod.name.replace(/'/g, "\\'")}', '${prod.imageTag}')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                <div onclick="openVisualModal('${prod.name.replace(/'/g, "\\'")}', '${prod.image}')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
                                     <h4 class="text-xl font-bold flex items-center justify-between">${prodName} <span class="text-sm opacity-90 p-1 hover:scale-110 transition">📷</span></h4>
                                     <p class="text-amber-100 text-xs mt-1">${prodDesc}</p>
                                 </div>
@@ -503,22 +500,12 @@
             renderCart();
         }
 
-        function openVisualModal(dishName, tagId) {
+        function openVisualModal(dishName, imagePath) {
             document.getElementById('modal-dish-title').innerText = dishName;
-            document.getElementById('modal-dish-image-1').classList.add('hidden');
-            document.getElementById('modal-dish-image-2').classList.add('hidden');
-            document.getElementById('modal-dish-image-3').classList.add('hidden');
-            document.getElementById('modal-dish-image-4').classList.add('hidden');
-
-            if (tagId === 'image_agent_tag_1875138137582495119') {
-                document.getElementById('modal-dish-image-1').classList.remove('hidden');
-            } else if (tagId === 'image_agent_tag_1875138137582494917') {
-                document.getElementById('modal-dish-image-2').classList.remove('hidden');
-            } else if (tagId === 'image_agent_tag_1875138137582497066') {
-                document.getElementById('modal-dish-image-3').classList.remove('hidden');
-            } else {
-                document.getElementById('modal-dish-image-4').classList.remove('hidden');
-            }
+            const img = document.getElementById('modal-dish-image');
+            img.src = imagePath;
+            img.alt = dishName;
+            img.classList.remove('hidden');
             document.getElementById('visual-modal-overlay').classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
         }
