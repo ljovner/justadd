@@ -1,9 +1,9 @@
 ﻿// Internationalization - translations and language switching
 const translations = {
     en: {
-        "page-title": "Just Add. — Frozen Artisan Sauces, Perogies & Entrees",
+        "page-title": "🥟 Pelmen Perogies — Authentic Flavors",
         "announcement": "🏡 100% Homestyle Small Batch Kitchen • No Fillers or Additives • Free Home Delivery on Orders Over $100",
-        "brand-title": "Just Add.",
+        "brand-title": "Pelmen Perogies",
         "brand-subtitle": "Frozen Artisan Sauces, Perogies & Entrees",
         "nav-shop": "Shop",
         "nav-about": "About",
@@ -212,7 +212,7 @@ const translations = {
         "feedback-submit-btn": "Submit Feedback",
         "modal-title": "Dish Preview",
         "modal-disclaimer": "* Image may differ from the actual dish appearance.",
-        "footer-brand": "Just Add. © 2026",
+        "footer-brand": "Pelmen Perogies © 2026",
         "footer-tagline": "Homemade recipes without fillers or additives, flash-packed for exceptional home cooking convenience.",
         "delivery-incentive": "🎉 <strong>Congratulations!</strong> Your order qualifies for <strong>Free Home Delivery</strong>.",
         "delivery-incentive-pending": "🛒 Add <strong>$</strong> more to your order to unlock <strong>Free Delivery</strong>!",
@@ -242,9 +242,9 @@ const translations = {
         "popular-order-btn": "Order from Menu"
     },
     ru: {
-        "page-title": "Just Add. — Замороженные соусы, вареники и основные блюда",
+        "page-title": "🥟 Pelmen Perogies — Аутентичные вкусы",
         "announcement": "🏡 На 100% домашняя кухня малых партий • Без наполнителей и добавок • Бесплатная доставка на дом при заказе от $100",
-        "brand-title": "Just Add.",
+        "brand-title": "Pelmen Perogies",
         "brand-subtitle": "Замороженные соусы, вареники и основные блюда",
         "nav-shop": "Магазин",
         "nav-about": "О нас",
@@ -453,7 +453,7 @@ const translations = {
         "feedback-submit-btn": "Отправить отзыв",
         "modal-title": "Превью блюда",
         "modal-disclaimer": "* Изображение может отличаться от фактического вида блюда.",
-        "footer-brand": "Just Add. © 2026",
+        "footer-brand": "Pelmen Perogies © 2026",
         "footer-tagline": "Домашние рецепты без наполнителей и добавок.",
         "delivery-incentive": "🎉 <strong>Поздравляем!</strong> Ваш заказ подходит для <strong>Бесплатной доставки</strong>.",
         "delivery-incentive-pending": "🛒 Добавьте <strong>$</strong> к заказу для <strong>Бесплатной доставки</strong>!",
@@ -482,9 +482,9 @@ const translations = {
         "popular-4-desc": "Капустные листья с начинкой из свинины, говядины и риса.",
         "popular-order-btn": "Заказать из меню"
     },    uk: {
-        "page-title": "Just Add. — Заморожені соуси, вареники та основні страви",
+        "page-title": "🥟 Pelmen Perogies — Автентичні смаки",
         "announcement": "🏡 На 100% домашня кухня малих партій • Без наповнювачів та добавок • Безкоштовна доставка додому при замовленні від $100",
-        "brand-title": "Just Add.",
+        "brand-title": "Pelmen Perogies",
         "brand-subtitle": "Заморожені соуси, вареники та основні страви",
         "nav-shop": "Магазин",
         "nav-about": "Про нас",
@@ -693,7 +693,7 @@ const translations = {
         "feedback-submit-btn": "Надіслати відгук",
         "modal-title": "Прев'ю страви",
         "modal-disclaimer": "* Зображення може відрізнятися від фактичного вигляду страви.",
-        "footer-brand": "Just Add. © 2026",
+        "footer-brand": "Pelmen Perogies © 2026",
         "footer-tagline": "Домашні рецепти без наповнювачів та добавок.",
         "delivery-incentive": "🎉 <strong>Вітаємо!</strong> Ваше замовлення підходить для <strong>Безкоштовної доставки</strong>.",
         "delivery-incentive-pending": "🛒 Додайте <strong>$</strong> до замовлення для <strong>Безкоштовної доставки</strong>!",
