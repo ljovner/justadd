@@ -19,7 +19,7 @@
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
     <!-- Announcement Banner -->
-    <div class="bg-amber-600 text-white text-center py-2 text-xs font-semibold px-4 sticky top-0 z-50 shadow" data-i18n="announcement">
+    <div class="bg-[#5E2F26] text-white text-center py-2 text-xs font-semibold px-4 sticky top-0 z-50 shadow" data-i18n="announcement">
         🏡 100% Homestyle Small Batch Kitchen • No Fillers or Additives • Free Home Delivery on Orders Over $100
     </div>
 
@@ -31,10 +31,10 @@
             </div>
             
             <nav class="flex items-center space-x-6 text-sm font-semibold text-gray-600">
-                <button onclick="switchView('home-page')" class="nav-link text-amber-600 hover:text-amber-600 transition">Home</button>
-                <button onclick="switchView('store-page')" class="nav-link hover:text-amber-600 transition" data-i18n="nav-shop">Our Shop</button>
-                <button onclick="switchView('about-page')" class="nav-link hover:text-amber-600 transition" data-i18n="nav-about">About Us</button>
-                <button onclick="switchView('feedback-page')" class="nav-link hover:text-amber-600 transition" data-i18n="nav-feedback">Leave Feedback</button>
+                <button onclick="switchView('home-page')" class="nav-link text-[#8C292C] hover:text-[#8C292C] transition">Home</button>
+                <button onclick="switchView('store-page')" class="nav-link hover:text-[#8C292C] transition" data-i18n="nav-shop">Our Shop</button>
+                <button onclick="switchView('about-page')" class="nav-link hover:text-[#8C292C] transition" data-i18n="nav-about">About Us</button>
+                <button onclick="switchView('feedback-page')" class="nav-link hover:text-[#8C292C] transition" data-i18n="nav-feedback">Leave Feedback</button>
             </nav>
 
             <div class="flex items-center gap-4">
@@ -47,7 +47,7 @@
                     </select>
                 </div>
 
-                <a href="#checkout" onclick="switchView('store-page')" class="bg-amber-500 text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-amber-600 transition shadow-sm flex items-center gap-2">
+                <a href="#checkout" onclick="switchView('store-page')" class="bg-[#8C292C] text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-[#5E2F26] transition shadow-sm flex items-center gap-2">
                     🛒 <span data-i18n="cart-label">Cart:</span> <span id="nav-cart-total">$0.00</span> (<span id="nav-cart-count">0</span>)
                 </a>
             </div>
@@ -58,16 +58,17 @@
     <div id="home-page" class="page-view active-view animate-fade-in">
         <!-- Hero Section -->
         <section class="relative bg-gray-900 text-white overflow-hidden py-24 md:py-32 px-4 border-b-4 border-amber-600">
-            <div class="absolute inset-0 bg-black/50 bg-cover bg-center mix-blend-overlay" style="background-image: url('images/golubtsi.jpg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/golubtsi.jpg');"></div>
+            <div class="absolute inset-0 bg-[#5E2F26]/70"></div>
             <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-                <span class="text-xs uppercase tracking-widest font-bold bg-amber-600 text-white px-3 py-1 rounded-full" data-i18n="hero-badge">Old Town European Diner Quality</span>
+                <span class="text-xs uppercase tracking-widest font-bold bg-[#5E2F26] text-white px-3 py-1 rounded-full" data-i18n="hero-badge">Old Town European Diner Quality</span>
                 <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-none text-gray-100">
                     <span class="block" data-i18n="hero-heading-line1">We Handle the Hard Part.</span>
                     <span class="block md:inline text-amber-500" data-i18n="hero-heading-line2">You Just Add the Side.</span>
                 </h2>
                 <p class="text-md md:text-xl text-gray-300 max-w-2xl mx-auto font-medium" data-i18n="hero-desc">Authentic, hand-rolled Eastern European frozen classics and all-in-one meat sauces. Crafted using small-batch, 25-year family techniques with zero fillers or additives.</p>
                 <div class="pt-4">
-                    <button onclick="switchView('store-page')" class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-xl font-extrabold text-lg shadow-lg transition transform hover:-translate-y-0.5" data-i18n="hero-cta">Explore Menu & Order Online</button>
+                    <button onclick="switchView('store-page')" class="bg-[#8C292C] hover:bg-[#5E2F26] text-white px-8 py-4 rounded-xl font-extrabold text-lg shadow-lg transition transform hover:-translate-y-0.5" data-i18n="hero-cta">Explore Menu & Order Online</button>
                 </div>
             </div>
         </section>
@@ -76,7 +77,7 @@
         <section class="max-w-7xl mx-auto px-4 py-16 space-y-12">
             <div class="text-center space-y-2">
                 <h3 class="text-3xl font-extrabold text-gray-900" data-i18n="category-heading">How We Keep It Simple</h3>
-                <div class="w-12 h-1 bg-amber-600 mx-auto rounded-full"></div>
+                <div class="w-12 h-1 bg-[#5E2F26] mx-auto rounded-full"></div>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -138,15 +139,15 @@
                     <div class="space-y-3 border-t pt-4">
                         <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider" data-i18n="filter-dietary">Dietary Preferences</span>
                         <label class="flex items-center text-sm text-gray-600 gap-2.5 cursor-pointer select-none">
-                            <input type="checkbox" id="filter-vegetarian" onchange="applyFilters()" class="w-4 h-4 rounded text-amber-600 accent-amber-500 border-gray-300">
+                            <input type="checkbox" id="filter-vegetarian" onchange="applyFilters()" class="w-4 h-4 rounded text-[#8C292C] accent-amber-500 border-gray-300">
                             <span data-i18n="filter-vegetarian">Vegetarian Only</span>
                         </label>
                         <label class="flex items-center text-sm text-gray-600 gap-2.5 cursor-pointer select-none">
-                            <input type="checkbox" id="filter-dairy-free" onchange="applyFilters()" class="w-4 h-4 rounded text-amber-600 accent-amber-500 border-gray-300">
+                            <input type="checkbox" id="filter-dairy-free" onchange="applyFilters()" class="w-4 h-4 rounded text-[#8C292C] accent-amber-500 border-gray-300">
                             <span data-i18n="filter-dairy-free">Dairy-Free Options</span>
                         </label>
                         <label class="flex items-center text-sm text-gray-600 gap-2.5 cursor-pointer select-none">
-                            <input type="checkbox" id="filter-pork-free" onchange="applyFilters()" class="w-4 h-4 rounded text-amber-600 accent-amber-500 border-gray-300">
+                            <input type="checkbox" id="filter-pork-free" onchange="applyFilters()" class="w-4 h-4 rounded text-[#8C292C] accent-amber-500 border-gray-300">
                             <span data-i18n="filter-pork-free">100% Pork-Free</span>
                         </label>
                     </div>
@@ -182,15 +183,15 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="checkout-config-label">Order Configuration Style</label>
                         <div class="grid grid-cols-2 gap-4">
-                            <label class="border-2 border-amber-500 bg-amber-50 p-4 rounded-xl cursor-pointer flex flex-col justify-between">
-                                <input type="radio" name="order-style" value="cold" checked onchange="toggleCateringDetails(false)" class="accent-amber-600 self-end">
+                            <label class="border-2 border-[#8C292C] bg-[#E3D2B4] p-4 rounded-xl cursor-pointer flex flex-col justify-between" data-order-style="cold">
+                                <input type="radio" name="order-style" value="cold" checked onchange="toggleCateringDetails(false); updateOrderStyleStyling()" class="accent-amber-600 self-end">
                                 <div>
                                     <span class="block text-sm font-bold text-gray-900" data-i18n="checkout-standard-pack">Standard Pack</span>
                                     <span class="text-[11px] text-gray-500 block mt-0.5">Delivered deep frozen. Perfect for storage.</span>
                                 </div>
                             </label>
-                            <label class="border-2 border-gray-200 p-4 rounded-xl cursor-pointer flex flex-col justify-between hover:border-gray-300 transition">
-                                <input type="radio" name="order-style" value="hot" onchange="toggleCateringDetails(true)" class="accent-amber-600 self-end">
+                            <label class="border-2 border-gray-200 p-4 rounded-xl cursor-pointer flex flex-col justify-between hover:border-gray-300 transition" data-order-style="hot">
+                                <input type="radio" name="order-style" value="hot" onchange="toggleCateringDetails(true); updateOrderStyleStyling()" class="accent-amber-600 self-end">
                                 <div>
                                     <span class="block text-sm font-bold text-gray-900" data-i18n="checkout-catering">Catering Service</span>
                                     <span class="text-[11px] text-gray-500 block mt-0.5">Delivered steaming hot & table ready.</span>
@@ -199,7 +200,7 @@
                         </div>
                     </div>
 
-                    <div id="catering-time-panel" class="hidden bg-amber-50 p-4 rounded-xl border border-amber-200">
+                    <div id="catering-time-panel" class="hidden bg-[#E3D2B4] p-4 rounded-xl border border-amber-200">
                         <label class="block text-xs font-bold text-amber-900 mb-1" data-i18n="checkout-catering-time-label">Select Future Catering Delivery Date/Time</label>
                         <input type="datetime-local" id="catering-time-input" class="p-2 border rounded w-full bg-white text-sm">
                     </div>
@@ -207,15 +208,15 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="checkout-fulfillment-label">Fulfillment Method</label>
                         <div class="grid grid-cols-2 gap-4">
-                            <label class="border border-gray-300 p-3 rounded-lg cursor-pointer flex items-center gap-3">
-                                <input type="radio" name="delivery-opt" value="pickup" checked class="accent-amber-600">
+                            <label class="border-2 border-[#8C292C] bg-[#E3D2B4] p-3 rounded-lg cursor-pointer flex items-center gap-3" data-fulfillment="pickup">
+                                <input type="radio" name="delivery-opt" value="pickup" checked onchange="updateFulfillmentStyling()" class="accent-amber-600">
                                 <span class="text-sm font-medium" data-i18n="checkout-pickup">Kitchen Pickup</span>
                             </label>
-                            <label class="border border-gray-300 p-3 rounded-lg cursor-pointer flex items-center gap-3">
-                                <input type="radio" name="delivery-opt" value="delivery" class="accent-amber-600">
+                            <label class="border-2 border-gray-200 p-3 rounded-lg cursor-pointer flex items-center gap-3 hover:border-gray-300 transition" data-fulfillment="delivery">
+                                <input type="radio" name="delivery-opt" value="delivery" onchange="updateFulfillmentStyling()" class="accent-amber-600">
                                 <div>
                                     <span class="text-sm font-medium block" data-i18n="checkout-delivery">Home Delivery</span>
-                                    <span class="text-[10px] text-amber-700 font-bold block" data-i18n="checkout-free-delivery">Free over $100</span>
+                                    <span class="text-[10px] text-[#5E2F26] font-bold block" data-i18n="checkout-free-delivery">Free over $100</span>
                                 </div>
                             </label>
                         </div>
@@ -236,10 +237,10 @@
                             <div class="flex justify-between text-gray-600"><span data-i18n="checkout-delivery-label">Delivery Fee</span><span id="summary-delivery">$0.00</span></div>
                             <div class="flex justify-between font-bold text-base text-gray-900 pt-1"><span data-i18n="checkout-total-label">Total Cost</span><span id="summary-total">$0.00</span></div>
                         </div>
-                        <p id="delivery-incentive-msg" class="text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded p-2 mt-3 text-center hidden" data-i18n-html="delivery-incentive"></p>
+                        <p id="delivery-incentive-msg" class="text-[11px] text-[#5E2F26] bg-[#E3D2B4] border border-amber-200 rounded p-2 mt-3 text-center hidden" data-i18n-html="delivery-incentive"></p>
                     </div>
 
-                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white text-center py-3.5 rounded-xl font-bold transition text-md shadow-md" data-i18n="checkout-place-order">
+                    <button type="submit" class="w-full bg-[#8C292C] hover:bg-[#5E2F26] text-white text-center py-3.5 rounded-xl font-bold transition text-md shadow-md" data-i18n="checkout-place-order">
                         Place Order As Guest
                     </button>
                 </form>
@@ -252,19 +253,19 @@
         <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-8 md:p-12 space-y-8">
             <div class="text-center">
                 <img src="images/logo-full.jpg" alt="Just Add." class="max-w-xs mx-auto mb-6">
-                <span class="text-xs font-bold tracking-widest text-amber-600 uppercase bg-amber-50 border border-amber-200 px-3 py-1 rounded-full" data-i18n="about-badge">Our Story</span>
+                <span class="text-xs font-bold tracking-widest text-[#8C292C] uppercase bg-[#E3D2B4] border border-amber-200 px-3 py-1 rounded-full" data-i18n="about-badge">Our Story</span>
                 <h2 class="text-4xl font-extrabold text-gray-900 mt-3" data-i18n="about-title">25 Years of Artisan Quality</h2>
-                <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#8C292C] mx-auto mt-4 rounded-full"></div>
             </div>
             <div class="text-md text-gray-600 leading-relaxed space-y-6">
                 <p data-i18n="about-p1">For a quarter of a century, our family kitchen has stayed committed to one single, unchanging mission: preserving true, legacy European cooking traditions without compromises. What started as a small kitchen project built around hand-rolling authentic perogies has evolved into an established artisan community staple.</p>
-                <blockquote class="border-l-4 border-amber-500 bg-amber-50/50 p-4 font-medium italic text-gray-800 rounded-r-xl" data-i18n="about-quote">"We don't use machinery shortcuts, processing stabilizers, artificial powders, or generic food fillers. If it wouldn't be found inside an old country farmhouse kitchen pantry, it doesn't enter our products."</blockquote>
+                <blockquote class="border-l-4 border-[#8C292C] bg-[#E3D2B4]/50 p-4 font-medium italic text-gray-800 rounded-r-xl" data-i18n="about-quote">"We don't use machinery shortcuts, processing stabilizers, artificial powders, or generic food fillers. If it wouldn't be found inside an old country farmhouse kitchen pantry, it doesn't enter our products."</blockquote>
                 <p data-i18n="about-p2">Our new line of <strong>All-in-One ready sauces</strong> represents the next phase of home kitchen convenience. By packing slow-braised, top-tier meats directly inside rich, traditional sauce bases, we take care of the hard work. You simply choose the side—mash, fresh pasta, or steamed rice—and open a package to experience a true homestyle meal in minutes.</p>
             </div>
             <div class="grid grid-cols-3 gap-4 pt-6 text-center border-t border-gray-100">
-                <div><h5 class="text-3xl font-extrabold text-amber-600">25</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1" data-i18n="about-stat-heritage">Years of Heritage</p></div>
-                <div><h5 class="text-3xl font-extrabold text-amber-600">0%</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1" data-i18n="about-stat-fillers">Fillers / Additives</p></div>
-                <div><h5 class="text-3xl font-extrabold text-amber-600">100%</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1" data-i18n="about-stat-handrolled">Hand-Rolled Care</p></div>
+                <div><h5 class="text-3xl font-extrabold text-[#8C292C]">25</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1" data-i18n="about-stat-heritage">Years of Heritage</p></div>
+                <div><h5 class="text-3xl font-extrabold text-[#8C292C]">0%</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1" data-i18n="about-stat-fillers">Fillers / Additives</p></div>
+                <div><h5 class="text-3xl font-extrabold text-[#8C292C]">100%</h5><p class="text-xs text-gray-400 font-medium uppercase mt-1" data-i18n="about-stat-handrolled">Hand-Rolled Care</p></div>
             </div>
         </div>
     </div>
@@ -285,7 +286,7 @@
                 </div>
                 <div><label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-name-label">Your Name</label><input type="text" class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="feedback-name-placeholder" placeholder="Optional"></div>
                 <div><label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-review-label">Your Review Note *</label><textarea rows="4" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none placeholder-stone-400" data-i18n-placeholder="feedback-review-placeholder" placeholder="Tell us what you liked or what could be adjusted..."></textarea></div>
-                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl shadow-sm transition" data-i18n="feedback-submit-btn">Submit Product Review</button>
+                <button type="submit" class="w-full bg-[#8C292C] hover:bg-[#5E2F26] text-white font-bold py-3 rounded-xl shadow-sm transition" data-i18n="feedback-submit-btn">Submit Product Review</button>
             </form>
         </div>
     </div>
@@ -351,7 +352,7 @@
                                 <p class="text-xs text-gray-500">${prodDesc}</p>
                             </div>
                             <div class="p-4 pt-0">
-                                <button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-amber-600 hover:text-white rounded-lg text-xs font-bold transition text-amber-600">${orderBtnLabel}</button>
+                                <button onclick="switchView('store-page')" class="w-full text-center py-2 bg-gray-50 hover:bg-[#5E2F26] hover:text-white rounded-lg text-xs font-bold transition text-[#8C292C]">${orderBtnLabel}</button>
                             </div>
                         </div>`;
                 }).join('');
@@ -361,7 +362,7 @@
             navContainer.innerHTML = catalogData.sections.map(sec => {
                 const label = t[sec.navLabelKey] || sec.navLabelKey;
                 const count = sec.products.length;
-                return `<a href="#${sec.id}" class="text-amber-700 hover:bg-amber-50 px-3 py-1.5 rounded-lg transition">${sec.icon} ${label} (${count})</a>`;
+                return `<a href="#${sec.id}" class="text-[#5E2F26] hover:bg-[#E3D2B4] px-3 py-1.5 rounded-lg transition">${sec.icon} ${label} (${count})</a>`;
             }).join('');
 
             // Build feedback form product dropdown from catalog data
@@ -403,7 +404,7 @@
                     const ingredientsText = prod.about.ingredientsKey ? (t[prod.about.ingredientsKey] || '') : '';
                     let aboutHtml = `<p><strong>${ingredientsLabel}</strong> ${ingredientsText}</p>`;
                     if (prod.about.bestWithKey) {
-                        aboutHtml += `<p class="text-amber-600 font-medium mt-1">💡 ${t[prod.about.bestWithKey] || prod.about.bestWithKey}</p>`;
+                        aboutHtml += `<p class="text-[#8C292C] font-medium mt-1">💡 ${t[prod.about.bestWithKey] || prod.about.bestWithKey}</p>`;
                     }
 
                     // Nutrition tab
@@ -435,12 +436,12 @@
                     return `
                         <div class="product-card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between" data-veg="${veg}" data-df="${df}" data-pf="${pf}">
                             <div>
-                                <div onclick="openVisualModal('${prod.name.replace(/'/g, "\\'")}', '${prod.image}')" class="p-5 bg-amber-600 text-white cursor-pointer hover:bg-amber-700 transition">
+                                <div onclick="openVisualModal('${prod.name.replace(/'/g, "\\'")}', '${prod.image}')" class="p-5 bg-[#5E2F26] text-white cursor-pointer hover:bg-[#8C292C] transition">
                                     <h4 class="text-xl font-bold flex items-center justify-between">${prodName} <span class="text-sm opacity-90 p-1 hover:scale-110 transition">📷</span></h4>
                                     <p class="text-amber-100 text-xs mt-1">${prodDesc}</p>
                                 </div>
                                 <div class="flex border-b text-xs font-medium text-gray-400 bg-gray-50">
-                                    <button onclick="switchTab(this, '${aboutId}')" class="flex-1 py-2 text-amber-600 border-b-2 border-amber-500 font-bold tab-btn">${tabAboutLabel}</button>
+                                    <button onclick="switchTab(this, '${aboutId}')" class="flex-1 py-2 text-[#8C292C] border-b-2 border-[#8C292C] font-bold tab-btn">${tabAboutLabel}</button>
                                     <button onclick="switchTab(this, '${nutritionId}')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">${tabNutritionLabel}</button>
                                     <button onclick="switchTab(this, '${cookId}')" class="flex-1 py-2 border-b-2 border-transparent tab-btn">${tabCookingLabel}</button>
                                 </div>
@@ -452,7 +453,7 @@
                             </div>
                             <div class="p-4 bg-gray-50 border-t flex justify-between items-center">
                                 <span class="font-bold text-gray-900">$${prod.price.toFixed(2)} <span class="text-[10px] font-normal text-gray-400">${unitText}</span></span>
-                                <button onclick="addToCart('${prod.name.replace(/'/g, "\\'")}', ${prod.price})" class="bg-amber-500 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-amber-600 transition">${addBtnLabel}</button>
+                                <button onclick="addToCart('${prod.name.replace(/'/g, "\\'")}', ${prod.price})" class="bg-[#8C292C] text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-[#5E2F26] transition">${addBtnLabel}</button>
                             </div>
                         </div>`;
                 }).join('');
@@ -522,13 +523,13 @@
 
         function switchView(viewId) {
             document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-view'));
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-amber-600'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-[#8C292C]'));
             document.getElementById(viewId).classList.add('active-view');
             
             const targetButton = Array.from(document.querySelectorAll('.nav-link')).find(btn => 
                 btn.getAttribute('onclick').includes(viewId)
             );
-            if (targetButton) targetButton.classList.add('text-amber-600');
+            if (targetButton) targetButton.classList.add('text-[#8C292C]');
             window.scrollTo(0,0);
         }
 
@@ -658,12 +659,12 @@
         function switchTab(button, tabId) {
             const card = button.closest('.product-card');
             card.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('border-amber-500', 'text-amber-600', 'font-bold');
+                btn.classList.remove('border-[#8C292C]', 'text-[#8C292C]', 'font-bold');
                 btn.classList.add('border-transparent', 'text-gray-400');
             });
             card.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-            button.classList.add('border-amber-500', 'text-amber-600', 'font-bold');
+            button.classList.add('border-[#8C292C]', 'text-[#8C292C]', 'font-bold');
             button.classList.remove('border-transparent', 'text-gray-400');
             card.querySelector(`#${tabId}`).classList.add('active');
         }
@@ -724,6 +725,44 @@
                 submitBtn.disabled = false;
             });
         });
+
+        // ── Checkout Selection Styling ──
+        function toggleCateringDetails(show) {
+            const panel = document.getElementById('catering-time-panel');
+            if (show) {
+                panel.classList.remove('hidden');
+            } else {
+                panel.classList.add('hidden');
+            }
+        }
+
+        function updateOrderStyleStyling() {
+            const selected = document.querySelector('input[name="order-style"]:checked');
+            if (!selected) return;
+            document.querySelectorAll('[data-order-style]').forEach(label => {
+                if (label.dataset.orderStyle === selected.value) {
+                    label.classList.add('border-[#8C292C]', 'bg-[#E3D2B4]');
+                    label.classList.remove('border-gray-200');
+                } else {
+                    label.classList.remove('border-[#8C292C]', 'bg-[#E3D2B4]');
+                    label.classList.add('border-gray-200');
+                }
+            });
+        }
+
+        function updateFulfillmentStyling() {
+            const selected = document.querySelector('input[name="delivery-opt"]:checked');
+            if (!selected) return;
+            document.querySelectorAll('[data-fulfillment]').forEach(label => {
+                if (label.dataset.fulfillment === selected.value) {
+                    label.classList.add('border-[#8C292C]', 'bg-[#E3D2B4]');
+                    label.classList.remove('border-gray-200', 'border-gray-300');
+                } else {
+                    label.classList.remove('border-[#8C292C]', 'bg-[#E3D2B4]');
+                    label.classList.add('border-gray-200');
+                }
+            });
+        }
 
         loadCart();
         renderCart();
