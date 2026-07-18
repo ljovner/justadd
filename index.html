@@ -299,18 +299,8 @@
             <form onsubmit="event.preventDefault(); alert('Thank you for your feedback submission!'); this.reset();" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-product-label">Select Product to Review *</label>
-                    <select required class="w-full p-3 border rounded-xl bg-white text-sm focus:ring-2 focus:ring-amber-500 outline-none">
+                    <select id="feedback-product-select" required class="w-full p-3 border rounded-xl bg-white text-sm focus:ring-2 focus:ring-amber-500 outline-none">
                         <option value="" disabled selected data-i18n="feedback-select-placeholder">-- Choose an item from our menu --</option>
-                        <optgroup label="Ready-Made Sauce Bases" data-i18n="feedback-optgroup-sauces">
-                            <option>Beef Stroganoff</option>
-                            <option>Classic Bolognaise</option>
-                            <option>Chicken & Mushroom Cream</option>
-                            <option>Gourmet Meatballs in Marinara</option>
-                        </optgroup>
-                        <optgroup label="Artisanal Hand-Pinched Perogies" data-i18n="feedback-optgroup-perogies">
-                            <option>Potato & Cheddar Cheese</option>
-                            <option>Sweet Cinnamon Blueberry</option>
-                        </optgroup>
                     </select>
                 </div>
                 <div><label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="feedback-name-label">Your Name</label><input type="text" class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-amber-500 outline-none" data-i18n-placeholder="feedback-name-placeholder" placeholder="Optional"></div>
@@ -361,6 +351,7 @@
             if (!catalogData) return;
             const container = document.getElementById('product-catalog-container');
             const navContainer = document.getElementById('section-nav-links');
+            const feedbackSelect = document.getElementById('feedback-product-select');
             const t = (window.translations && translations[currentLang]) ? translations[currentLang] : {};
 
             // Build section navigation links (count calculated dynamically)
@@ -369,6 +360,27 @@
                 const count = sec.products.length;
                 return `<a href="#${sec.id}" class="text-amber-700 hover:bg-amber-50 px-3 py-1.5 rounded-lg transition">${sec.icon} ${label} (${count})</a>`;
             }).join('');
+
+            // Build feedback form product dropdown from catalog data
+            if (feedbackSelect) {
+                const placeholderOpt = feedbackSelect.querySelector('option[value=""]');
+                feedbackSelect.innerHTML = '';
+                if (placeholderOpt) feedbackSelect.appendChild(placeholderOpt);
+                else feedbackSelect.innerHTML = '<option value="" disabled selected data-i18n="feedback-select-placeholder">-- Choose an item from our menu --</option>';
+
+                catalogData.sections.forEach(sec => {
+                    const optgroup = document.createElement('optgroup');
+                    const groupLabel = t[sec.navLabelKey] || sec.navLabelKey;
+                    optgroup.label = groupLabel;
+                    sec.products.forEach(prod => {
+                        const nameKey = `${prod.id}-name`;
+                        const option = document.createElement('option');
+                        option.textContent = t[nameKey] || prod.name;
+                        optgroup.appendChild(option);
+                    });
+                    feedbackSelect.appendChild(optgroup);
+                });
+            }
 
             // Build product sections
             container.innerHTML = catalogData.sections.map(section => {
