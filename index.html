@@ -76,16 +76,11 @@
         <!-- Category Teaser Pitch Deck -->
         <section class="max-w-7xl mx-auto px-4 py-16 space-y-12">
             <div class="text-center space-y-2">
-                <h3 class="text-3xl font-extrabold text-gray-900" data-i18n="category-heading">How We Keep It Simple</h3>
+                <h3 class="text-3xl font-extrabold text-gray-900" data-i18n="category-heading">How We Keep It Authentic</h3>
                 <div class="w-12 h-1 bg-[#5E2F26] mx-auto rounded-full"></div>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center space-y-4">
-                    <span class="text-4xl block">🔥</span>
-                    <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-sauces-title">Gourmet Sauce Bases</h4>
-                    <p class="text-sm text-gray-600" data-i18n="cat-sauces-desc">Complete slow-simmered rich meats and veggies. Simply boil up your favorite pasta, rice, or mashed potatoes, mix together, and dinner is ready.</p>
-                </div>
                 <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center space-y-4">
                     <span class="text-4xl block">🥟</span>
                     <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-perogies-title">Hand-Pinched Perogies</h4>
@@ -95,6 +90,11 @@
                     <span class="text-4xl block">🥩</span>
                     <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-classics-title">Household Specialties</h4>
                     <p class="text-sm text-gray-600" data-i18n="cat-classics-desc">Authentic regional comfort entrées like crispy chebureke turnovers and cabbage rolls prepared exactly according to legacy methods.</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center space-y-4">
+                    <span class="text-4xl block">🔥</span>
+                    <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-sauces-title">Gourmet Sauce Bases</h4>
+                    <p class="text-sm text-gray-600" data-i18n="cat-sauces-desc">Complete slow-simmered rich meats and veggies. Simply boil up your favorite pasta, rice, or mashed potatoes, mix together, and dinner is ready.</p>
                 </div>
             </div>
         </section>
@@ -150,6 +150,12 @@
                             <input type="checkbox" id="filter-pork-free" onchange="applyFilters()" class="w-4 h-4 rounded text-[#8C292C] accent-amber-500 border-gray-300">
                             <span data-i18n="filter-pork-free">100% Pork-Free</span>
                         </label>
+                    </div>
+
+                    <div class="border-t pt-4 mt-4">
+                        <a href="files/Pelmen_Perogies_Menu.pdf" download class="block w-full text-center bg-[#8C292C] hover:bg-[#5E2F26] text-white py-2.5 rounded-xl font-bold text-xs transition shadow-sm">
+                            📄 Download Full Menu (PDF)
+                        </a>
                     </div>
                 </div>
             </aside>
@@ -219,6 +225,16 @@
                                     <span class="text-[10px] text-[#5E2F26] font-bold block" data-i18n="checkout-free-delivery">Free over $100</span>
                                 </div>
                             </label>
+                        </div>
+                    </div>
+
+                    <div id="pickup-address-box" class="bg-[#E3D2B4] border border-amber-200 rounded-xl p-4 text-sm">
+                        <span class="font-bold text-gray-900 block">📍 Kitchen Pickup Address</span>
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-gray-700">111 Martin Ross Ave, Unit 12, Toronto, ON</span>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=111+Martin+Ross+Ave+Unit+12+Toronto+ON" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#8C292C] hover:text-[#5E2F26] transition whitespace-nowrap">
+                                🗺️ Open in Google Maps
+                            </a>
                         </div>
                     </div>
 
@@ -807,6 +823,15 @@
                     label.classList.add('border-gray-200');
                 }
             });
+            // Toggle pickup address visibility
+            const pickupBox = document.getElementById('pickup-address-box');
+            if (pickupBox) {
+                if (selected.value === 'pickup') {
+                    pickupBox.classList.remove('hidden');
+                } else {
+                    pickupBox.classList.add('hidden');
+                }
+            }
         }
 
         loadCart();

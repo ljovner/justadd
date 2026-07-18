@@ -222,7 +222,7 @@ const translations = {
         "hero-heading-line2": "Frozen for Your Convenience.",
         "hero-desc": "Authentic, hand made classics. Crafted using small-batch, 25-year family techniques with zero fillers or additives.",
         "hero-cta": "Explore Menu & Order Online",
-        "category-heading": "How We Keep It Simple",
+        "category-heading": "How We Keep It Authentic",
         "cat-sauces-title": "Gourmet Sauce Bases",
         "cat-sauces-desc": "Complete slow-simmered rich meats and veggies. Simply boil up your favorite pasta, rice, or mashed potatoes, mix together, and dinner is ready.",
         "cat-perogies-title": "Hand-Pinched Perogies",
