@@ -153,7 +153,7 @@
                     </div>
 
                     <div class="border-t pt-4 mt-4">
-                        <a href="files/Pelmen_Perogies_Menu.pdf" download class="block w-full text-center bg-[#8C292C] hover:bg-[#5E2F26] text-white py-2.5 rounded-xl font-bold text-xs transition shadow-sm">
+                        <a href="files/English_Menu.pdf" download target="_blank" data-i18n-href="menu-pdf" data-i18n="menu-download" class="block w-full text-center bg-[#8C292C] hover:bg-[#5E2F26] text-white py-2.5 rounded-xl font-bold text-xs transition shadow-sm">
                             📄 Download Full Menu (PDF)
                         </a>
                     </div>
@@ -515,6 +515,12 @@
                 const key = el.getAttribute('data-i18n-html');
                 if (window.translations && translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('[data-i18n-href]').forEach(el => {
+                const key = el.getAttribute('data-i18n-href');
+                if (window.translations && translations[lang] && translations[lang][key]) {
+                    el.href = translations[lang][key];
                 }
             });
             // Re-render the store with translated labels

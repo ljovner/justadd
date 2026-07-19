@@ -239,7 +239,9 @@ const translations = {
         "popular-3-desc": "Turnovers filled with minced beef and hot broth juices.",
         "popular-4-name": "Classic Golubtse",
         "popular-4-desc": "Cabbage leaves wrapped over minced pork, beef, and rice.",
-        "popular-order-btn": "Order from Menu"
+        "popular-order-btn": "Order from Menu",
+        "menu-pdf": "files/English_Menu.pdf",
+        "menu-download": "📄 Download Full Menu (PDF)"
     },
     ru: {
         "page-title": "🥟 Pelmen Perogies — Аутентичные вкусы",
@@ -480,7 +482,9 @@ const translations = {
         "popular-3-desc": "Пирожки с говяжьим фаршем и горячим бульоном.",
         "popular-4-name": "Классические голубцы",
         "popular-4-desc": "Капустные листья с начинкой из свинины, говядины и риса.",
-        "popular-order-btn": "Заказать из меню"
+        "popular-order-btn": "Заказать из меню",
+        "menu-pdf": "files/Russian_Menu.pdf",
+        "menu-download": "📄 Скачать полное меню (PDF)"
     },    uk: {
         "page-title": "🥟 Pelmen Perogies — Автентичні смаки",
         "announcement": "🏡 На 100% домашня кухня малих партій • Без наповнювачів та добавок • Безкоштовна доставка додому при замовленні від $100",
@@ -720,7 +724,9 @@ const translations = {
         "popular-3-desc": "Пиріжки з яловичим фаршем та гарячим бульйоном.",
         "popular-4-name": "Класичні голубці",
         "popular-4-desc": "Капустяне листя з начинкою зі свинини, яловичини та рису.",
-        "popular-order-btn": "Замовити з меню"
+        "popular-order-btn": "Замовити з меню",
+        "menu-pdf": "files/Ukrainian_Menu.pdf",
+        "menu-download": "📄 Завантажити повне меню (PDF)"
     }
 };
 
