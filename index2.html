@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,103 +10,61 @@
         html { scroll-behavior: smooth; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
+        .product-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 16px; overflow: hidden; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
+        .product-card.hidden-filter { display: none !important; }
         .page-view { display: none; }
         .page-view.active-view { display: block; }
-
-        /* Product Cards */
-        .product-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 20px; overflow: hidden; }
-        .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
-        .product-card.hidden-filter { display: none !important; }
-
-        /* Buttons */
-        .btn-primary { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(198,93,71,0.4); }
+        .btn-primary { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(198,93,71,0.35); }
         .btn-primary:active { transform: translateY(0); }
-        .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent); pointer-events: none; }
-        .btn-outline { transition: all 0.3s ease; }
-        .btn-outline:hover { background: rgba(198,93,71,0.1); transform: translateY(-1px); }
-
-        /* Hero */
-        .hero-gradient { background: linear-gradient(145deg, rgba(30,28,27,0.92) 0%, rgba(61,58,56,0.7) 40%, rgba(198,93,71,0.25) 100%); }
-        .hero-shine { position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(ellipse at center, rgba(198,93,71,0.08) 0%, transparent 70%); pointer-events: none; }
-
-        /* Cards */
-        .glass-card { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); }
-        .dark-card { background: linear-gradient(145deg, rgba(61,58,56,0.95), rgba(40,38,36,0.98)); border: 1px solid rgba(255,255,255,0.06); }
-        .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-shadow:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
-
-        /* Section Dividers */
-        .section-divider { height: 2px; background: linear-gradient(to right, transparent, rgba(198,93,71,0.3), transparent); }
-        .glow-line { height: 1px; background: linear-gradient(to right, transparent, rgba(198,93,71,0.15), transparent); }
-
-        /* Animations */
-        .fade-in { animation: fadeIn 0.6s ease forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .float { animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        /* Form Elements */
-        input, select, textarea { transition: all 0.25s ease; border-color: #e5e7eb; }
-        input:focus, select:focus, textarea:focus { border-color: #C65D47; box-shadow: 0 0 0 4px rgba(198,93,71,0.12); outline: none; }
-        select option { background: white; color: #333; }
-
-        /* Search */
-        .search-icon { transition: all 0.2s ease; }
-        input:focus ~ .search-icon { color: #C65D47; }
-
-        /* Nav */
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 50%; width: 0; height: 2px; background: #C65D47; transition: all 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-        .nav-link:hover::after { width: 60%; }
-        .nav-link.text-[#C65D47]::after { width: 60%; }
-
-        /* Category icon container */
-        .cat-icon { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .group:hover .cat-icon { transform: scale(1.1) rotate(-3deg); }
-
-        /* Tab buttons */
-        .tab-btn { transition: all 0.25s ease; position: relative; }
-        .tab-btn:hover { color: #C65D47; }
+        .hero-gradient { background: linear-gradient(135deg, rgba(61,58,56,0.85) 0%, rgba(198,93,71,0.4) 100%); }
+        .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-shadow:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04); transform: translateY(-2px); }
+        .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s ease forwards; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .section-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(198,93,71,0.2), transparent); }
+        input, select, textarea { transition: all 0.2s ease; }
+        input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(198,93,71,0.15); }
     </style>
 </head>
 <body class="bg-[#FAF7F2] text-gray-800 font-sans antialiased">
 
     <!-- Announcement Banner -->
-    <div class="bg-[#3D3A38] text-white/90 text-center py-1.5 text-[11px] font-medium px-4 z-50 tracking-wide" data-i18n="announcement">
+    <div class="bg-[#3D3A38] text-white text-center py-1.5 text-[11px] font-medium px-4 sticky top-0 z-50 shadow-sm tracking-wide" data-i18n="announcement">
         🏡 100% Homestyle Small Batch Kitchen • No Fillers or Additives • Free Home Delivery on Orders Over $100
     </div>
 
     <!-- Main Navigation Header -->
-    <header class="sticky top-0 z-40 bg-[#3D3A38]/95 backdrop-blur-md shadow-lg shadow-black/10">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+    <header class="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-[28px] z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div>
-                <img src="images/logo-banner.jpg" alt="Pelmen Perogies" class="h-10 cursor-pointer brightness-110" onclick="switchView('home-page')">
+                <img src="images/logo-banner.jpg" alt="Pelmen Perogies" class="h-12 cursor-pointer" onclick="switchView('home-page')">
             </div>
             
-            <nav class="flex items-center gap-5 text-sm font-medium text-white/80">
-                <button onclick="switchView('home-page')" class="nav-link text-white hover:text-white transition">Home</button>
-                <button onclick="switchView('store-page')" class="nav-link hover:text-white transition" data-i18n="nav-shop">Our Shop</button>
-                <button onclick="switchView('about-page')" class="nav-link hover:text-white transition" data-i18n="nav-about">About Us</button>
-                <button onclick="switchView('feedback-page')" class="nav-link hover:text-white transition" data-i18n="nav-feedback">Leave Feedback</button>
-                <button onclick="switchView('signup-page')" class="nav-link hover:text-white transition">📬 Sign Up</button>
+            <nav class="flex items-center space-x-6 text-sm font-semibold text-gray-600">
+                <button onclick="switchView('home-page')" class="nav-link text-[#C65D47] hover:text-[#C65D47] transition">Home</button>
+                <button onclick="switchView('store-page')" class="nav-link hover:text-[#C65D47] transition" data-i18n="nav-shop">Our Shop</button>
+                <button onclick="switchView('about-page')" class="nav-link hover:text-[#C65D47] transition" data-i18n="nav-about">About Us</button>
+                <button onclick="switchView('feedback-page')" class="nav-link hover:text-[#C65D47] transition" data-i18n="nav-feedback">Leave Feedback</button>
+                <button onclick="switchView('signup-page')" class="nav-link hover:text-[#C65D47] transition">📬 Sign Up</button>
             </nav>
 
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-4">
                 <!-- Language Selector Dropdown -->
                 <div class="relative inline-block text-left">
-                    <select onchange="changeLanguage(this.value)" class="bg-white/10 border border-white/20 text-white text-[11px] rounded-xl font-semibold p-2 outline-none cursor-pointer backdrop-blur-sm">
-                        <option value="en" selected data-i18n="lang-en" class="text-gray-800">🇺🇸 EN</option>
-                        <option value="ru" data-i18n="lang-ru" class="text-gray-800">🇷🇺 RU</option>
-                        <option value="uk" data-i18n="lang-uk" class="text-gray-800">🇺🇦 UA</option>
+                    <select onchange="changeLanguage(this.value)" class="bg-gray-50 border border-gray-300 text-gray-700 text-xs rounded-xl font-semibold p-2 outline-none focus:ring-1 focus:ring-amber-500 cursor-pointer">
+                        <option value="en" selected data-i18n="lang-en">🇺🇸 English</option>
+                        <option value="ru" data-i18n="lang-ru">🇷🇺 Русский</option>
+                        <option value="uk" data-i18n="lang-uk">🇺🇦 Українська</option>
                     </select>
                 </div>
 
-                <a href="files/English_Menu.pdf" download target="_blank" data-i18n-href="menu-pdf" class="lg:hidden text-xs font-medium text-white/70 hover:text-white border border-white/20 px-3 py-1.5 rounded-full hover:bg-white/10 transition whitespace-nowrap">
+                <a href="files/English_Menu.pdf" download target="_blank" data-i18n-href="menu-pdf" class="lg:hidden text-xs font-semibold text-[#C65D47] hover:text-[#3D3A38] border border-[#C65D47] px-3 py-1.5 rounded-xl hover:bg-[#E3D2B4] transition whitespace-nowrap">
                     📄 Menu
                 </a>
 
-                <a href="#checkout" onclick="switchView('store-page')" class="btn-primary bg-[#C65D47] text-white px-4 py-2 rounded-full font-bold text-xs hover:bg-[#B04D37] shadow-lg shadow-black/20 flex items-center gap-1.5">
+                <a href="#checkout" onclick="switchView('store-page')" class="btn-primary bg-[#C65D47] text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-[#3D3A38] shadow-sm flex items-center gap-2">
                     🛒 <span data-i18n="cart-label">Cart:</span> <span id="nav-cart-total">$0.00</span> (<span id="nav-cart-count">0</span>)
                 </a>
             </div>
@@ -116,111 +74,68 @@
     <!-- FRONT HOMEPAGE LANDING VIEW -->
     <div id="home-page" class="page-view active-view">
         <!-- Hero Section -->
-        <section class="relative text-white overflow-hidden min-h-[85vh] flex items-center">
-            <div class="absolute inset-0 bg-cover bg-center scale-110" style="background-image: url('images/perogies.jpg');"></div>
+        <section class="relative text-white overflow-hidden min-h-[70vh] flex items-center">
+            <div class="absolute inset-0 bg-cover bg-center scale-105" style="background-image: url('images/perogies.jpg');"></div>
             <div class="absolute inset-0 hero-gradient"></div>
-            <div class="hero-shine"></div>
-            <!-- Decorative bottom glow -->
-            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C65D47]/60 to-transparent"></div>
-            <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[80%] h-40 bg-[#C65D47]/10 blur-3xl rounded-full"></div>
-            
-            <div class="max-w-6xl mx-auto relative z-10 px-4 w-full">
-                <div class="md:grid md:grid-cols-2 md:gap-12 items-center">
-                    <!-- Left: Text content -->
-                    <div class="text-center md:text-left md:pr-8 space-y-7 py-24 md:py-32">
-                        <span class="inline-block text-[10px] uppercase tracking-[0.25em] font-semibold text-amber-300/80 border border-amber-400/20 px-4 py-2 rounded-full backdrop-blur-sm" data-i18n="hero-badge"></span>
-                        <h2 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.05]">
-                            <span class="block text-white" data-i18n="hero-heading-line1">Authentic Flavors</span>
-                            <span class="block bg-gradient-to-r from-amber-300 via-amber-400 to-orange-300 bg-clip-text text-transparent" data-i18n="hero-heading-line2">Frozen for Your Convenience.</span>
-                        </h2>
-                        <p class="text-base md:text-lg text-gray-300/80 max-w-lg font-light leading-relaxed" data-i18n="hero-desc">Authentic, hand made classics. Crafted using small-batch, 25-year family techniques with zero fillers or additives.</p>
-                        <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <button onclick="switchView('store-page')" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-8 py-3.5 rounded-full font-extrabold text-base shadow-2xl shadow-[#C65D47]/30">
-                                🛒 <span data-i18n="hero-cta">Explore Menu & Order Online</span>
-                            </button>
-                            <a href="files/English_Menu.pdf" download target="_blank" data-i18n-href="menu-pdf" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-8 py-3.5 rounded-full font-extrabold text-base shadow-2xl shadow-[#C65D47]/30 flex items-center justify-center text-center">
-                                📄 Download Menu
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Right: Decorative element -->
-                    <div class="hidden md:flex items-center justify-center">
-                        <div class="relative w-72 h-72 lg:w-96 lg:h-96">
-                            <div class="absolute inset-0 bg-gradient-to-br from-[#C65D47]/20 to-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-                            <div class="absolute inset-4 border border-white/10 rounded-full backdrop-blur-sm overflow-hidden">
-                                <video autoplay muted playsinline class="w-full h-full object-cover rounded-full">
-                                    <source src="home_video.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-sm text-white/70 text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full">
-                                Handmade Daily
-                            </div>
-                            <div class="absolute top-3 right-4 w-3 h-3 bg-amber-400/50 rounded-full float"></div>
-                            <div class="absolute bottom-10 left-2 w-2 h-2 bg-[#C65D47]/30 rounded-full float" style="animation-delay: 2s;"></div>
-                        </div>
-                    </div>
+            <!-- Decorative accent -->
+            <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#C65D47] via-amber-400 to-[#C65D47]"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 px-4 py-24 md:py-32 space-y-8">
+                <span class="inline-block text-xs uppercase tracking-[0.2em] font-semibold text-amber-300/90 border border-amber-400/30 px-4 py-1.5 rounded-full backdrop-blur-sm" data-i18n="hero-badge"></span>
+                <h2 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.05]">
+                    <span class="block text-white" data-i18n="hero-heading-line1">Authentic Flavors</span>
+                    <span class="block md:inline bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent" data-i18n="hero-heading-line2">Frozen for Your Convenience.</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300/90 max-w-2xl mx-auto font-light leading-relaxed" data-i18n="hero-desc">Authentic, hand made classics. Crafted using small-batch, 25-year family techniques with zero fillers or additives.</p>
+                <div class="pt-4">
+                    <button onclick="switchView('store-page')" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-10 py-4 rounded-full font-extrabold text-lg shadow-2xl shadow-[#C65D47]/25" data-i18n="hero-cta">Explore Menu & Order Online</button>
                 </div>
             </div>
         </section>
 
         <!-- Category Teaser Pitch Deck -->
-        <section class="relative py-24 px-4 overflow-hidden bg-[#FAF7F2]">
-            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/50 to-transparent"></div>
-            <div class="max-w-7xl mx-auto space-y-16">
-                <div class="text-center space-y-5">
-                    <span class="inline-block text-[10px] uppercase tracking-[0.25em] font-semibold text-[#C65D47] border border-[#C65D47]/30 px-5 py-2 rounded-full">Our Craft</span>
-                    <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight" data-i18n="category-heading">How We Keep It Authentic</h3>
-                    <div class="section-divider max-w-[120px] mx-auto"></div>
+        <section class="max-w-7xl mx-auto px-4 py-20 space-y-14">
+            <div class="text-center space-y-4">
+                <span class="inline-block text-xs uppercase tracking-[0.15em] font-semibold text-[#C65D47] bg-[#C65D47]/10 px-4 py-1.5 rounded-full">Our Craft</span>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900" data-i18n="category-heading">How We Keep It Authentic</h3>
+                <div class="section-divider max-w-xs mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <div class="card-shadow bg-white rounded-2xl border border-gray-100 p-8 text-center space-y-5 group">
+                    <div class="w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-[#C65D47] group-hover:scale-110 transition-all duration-300">
+                        <span class="group-hover:scale-110 transition-transform duration-300">🥟</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-perogies-title">Hand-Pinched Perogies</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-perogies-desc">Over 30 traditional and modern sweet or savory styles whipped up by hand, par-frozen raw on dusting boards to preserve integrity.</p>
                 </div>
-                
-                <div class="grid md:grid-cols-3 gap-5 lg:gap-7">
-                    <div class="group relative bg-white rounded-3xl p-8 lg:p-10 text-center card-shadow border border-gray-100 overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-[#C65D47]/5 rounded-bl-[100px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-[#C65D47]/10"></div>
-                        <div class="relative space-y-5">
-                            <div class="cat-icon w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl">
-                                <span>🥟</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-perogies-title">Hand-Pinched Perogies</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-perogies-desc">Over 30 traditional and modern sweet or savory styles whipped up by hand, par-frozen raw on dusting boards to preserve integrity.</p>
-                        </div>
+                <div class="card-shadow bg-white rounded-2xl border border-gray-100 p-8 text-center space-y-5 group">
+                    <div class="w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-[#C65D47] group-hover:scale-110 transition-all duration-300">
+                        <span class="group-hover:scale-110 transition-transform duration-300">🥩</span>
                     </div>
-                    <div class="group relative bg-white rounded-3xl p-8 lg:p-10 text-center card-shadow border border-gray-100 overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-[#C65D47]/5 rounded-bl-[100px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-[#C65D47]/10"></div>
-                        <div class="relative space-y-5">
-                            <div class="cat-icon w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl">
-                                <span>🥩</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-classics-title">Household Specialties</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-classics-desc">Authentic regional comfort entrées like crispy chebureke turnovers and cabbage rolls prepared exactly according to legacy methods.</p>
-                        </div>
+                    <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-classics-title">Household Specialties</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-classics-desc">Authentic regional comfort entrées like crispy chebureke turnovers and cabbage rolls prepared exactly according to legacy methods.</p>
+                </div>
+                <div class="card-shadow bg-white rounded-2xl border border-gray-100 p-8 text-center space-y-5 group">
+                    <div class="w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-[#C65D47] group-hover:scale-110 transition-all duration-300">
+                        <span class="group-hover:scale-110 transition-transform duration-300">🔥</span>
                     </div>
-                    <div class="group relative bg-white rounded-3xl p-8 lg:p-10 text-center card-shadow border border-gray-100 overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-[#C65D47]/5 rounded-bl-[100px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-[#C65D47]/10"></div>
-                        <div class="relative space-y-5">
-                            <div class="cat-icon w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl">
-                                <span>🔥</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-sauces-title">Gourmet Sauce Bases</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-sauces-desc">Complete slow-simmered rich meats and veggies. Simply boil up your favorite pasta, rice, or mashed potatoes, mix together, and dinner is ready.</p>
-                        </div>
-                    </div>
+                    <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-sauces-title">Gourmet Sauce Bases</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-sauces-desc">Complete slow-simmered rich meats and veggies. Simply boil up your favorite pasta, rice, or mashed potatoes, mix together, and dinner is ready.</p>
                 </div>
             </div>
         </section>
 
         <!-- Popular Appetizers Highlight Grid -->
-        <section class="relative py-24 px-4 overflow-hidden bg-[#3D3A38]">
-            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C65D47]/5 rounded-full blur-3xl"></div>
-            <div class="max-w-7xl mx-auto relative z-10 space-y-14">
-                <div class="text-center space-y-4">
-                    <span class="inline-block text-[10px] uppercase tracking-[0.25em] font-semibold text-amber-300/80 border border-amber-400/20 px-5 py-2 rounded-full backdrop-blur-sm">Best Sellers</span>
-                    <h3 class="text-3xl md:text-5xl font-black text-white tracking-tight" data-i18n="popular-heading">Our Kitchen Staples</h3>
-                    <p class="text-sm text-white/40 font-medium uppercase tracking-wider" data-i18n="popular-subtitle">Customer Favorites from the Counter</p>
+        <section class="bg-[#F5F0EB] py-20 px-4 relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#C65D47]/[0.02] to-transparent pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3">
+                    <span class="inline-block text-xs uppercase tracking-[0.15em] font-semibold text-[#C65D47] bg-[#C65D47]/10 px-4 py-1.5 rounded-full">Best Sellers</span>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900" data-i18n="popular-heading">Our Kitchen Staples</h3>
+                    <p class="text-sm text-gray-400 font-medium uppercase tracking-wider" data-i18n="popular-subtitle">Customer Favorites from the Counter</p>
                 </div>
                 
-                <div id="popular-product-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div id="popular-product-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 </div>
             </div>
         </section>
@@ -228,15 +143,15 @@
 
     <!-- PAGE VIEW 2: THE STOREFRONT CATALOG -->
     <div id="store-page" class="page-view">
-        <div class="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-[56px] z-40 shadow-sm overflow-x-auto">
-            <div id="section-nav-links" class="max-w-7xl mx-auto px-4 py-3 flex gap-5 text-sm whitespace-nowrap">
+        <div class="bg-white border-b border-gray-200 sticky top-[100px] z-40 shadow-md overflow-x-auto">
+            <div id="section-nav-links" class="max-w-7xl mx-auto px-4 py-3 flex gap-4 text-sm font-semibold whitespace-nowrap">
             </div>
         </div>
 
         <main class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Sidebar Filtering System -->
             <aside class="hidden lg:block space-y-6">
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 shadow-lg sticky top-[120px]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-md sticky top-[140px]">
                     <h3 class="font-bold text-gray-900 mb-2 text-md" data-i18n="filter-title">Kitchen Filter</h3>
                     <p class="text-xs text-gray-400 mb-4" data-i18n="filter-subtitle">Toggle preferences to filter items out in real-time:</p>
 
@@ -244,8 +159,8 @@
                     <div class="mb-4">
                         <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="filter-search-label">Search Products</label>
                         <div class="relative">
-                            <input type="text" id="search-input" oninput="applyFilters()" data-i18n-placeholder="filter-search-placeholder" placeholder="Type to search by name..." class="w-full p-2.5 pl-8 border border-gray-200 rounded-xl text-xs outline-none bg-[#FAF7F2]">
-                            <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm search-icon">🔍</span>
+                            <input type="text" id="search-input" oninput="applyFilters()" data-i18n-placeholder="filter-search-placeholder" placeholder="Type to search by name..." class="w-full p-2.5 pl-8 border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-amber-500 outline-none bg-gray-50">
+                            <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm">🔍</span>
                         </div>
                     </div>
                     
@@ -282,8 +197,8 @@
         </main>
 
         <!-- Checkout Form Module Component -->
-        <section id="checkout" class="bg-gradient-to-b from-[#FAF7F2] to-white py-20 px-4">
-            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl shadow-black/5 p-8 md:p-10 border border-gray-100">
+        <section id="checkout" class="bg-[#F5F0EB] py-20 px-4">
+            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-lg shadow-[#C65D47]/5 p-8 md:p-10 border border-gray-100">
                 <h3 class="text-2xl font-bold text-gray-900 mb-1" data-i18n="checkout-title">No-Login Checkout</h3>
                 <p class="text-sm text-gray-500 mb-6" data-i18n="checkout-subtitle">Simple and seamless. No accounts required.</p>
                 
@@ -378,8 +293,8 @@
     </div>
 
     <!-- PAGE VIEW 3: ABOUT US -->
-    <div id="about-page" class="page-view max-w-4xl mx-auto px-4 py-20">
-        <div class="bg-white rounded-3xl shadow-xl shadow-black/5 p-8 md:p-12 space-y-8 border border-gray-100">
+    <div id="about-page" class="page-view max-w-4xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-3xl border border-gray-200 shadow-md p-8 md:p-12 space-y-8">
             <div class="text-center">
                 <img src="images/logo-full.jpg" alt="Pelmen Perogies" class="max-w-xs mx-auto mb-6">
                 <span class="text-xs font-bold tracking-widest text-[#C65D47] uppercase bg-[#E3D2B4] border border-amber-100 px-3 py-1 rounded-full" data-i18n="about-badge">Our Story</span>
@@ -400,8 +315,8 @@
     </div>
 
     <!-- PAGE VIEW 4: FEEDBACK PAGE -->
-    <div id="feedback-page" class="page-view max-w-xl mx-auto px-4 py-20">
-        <div class="bg-white rounded-3xl shadow-xl shadow-black/5 p-8 space-y-6 border border-gray-100">
+    <div id="feedback-page" class="page-view max-w-xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-3xl border border-gray-200 shadow-md p-8 space-y-6">
             <div>
                 <h3 class="text-2xl font-bold text-gray-900" data-i18n="feedback-title">Product Feedback Desk</h3>
                 <p class="text-sm text-gray-500 mt-1" data-i18n="feedback-subtitle">Your honest reviews help our kitchen team constantly improve recipes.</p>
@@ -421,8 +336,8 @@
     </div>
 
     <!-- SIGNUP / NEWSLETTER SECTION -->
-    <div id="signup-page" class="page-view max-w-xl mx-auto px-4 py-20">
-        <div class="bg-white rounded-3xl shadow-xl shadow-black/5 p-8 space-y-6 text-center border border-gray-100">
+    <div id="signup-page" class="page-view max-w-xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-8 space-y-6 text-center">
             <h3 class="text-2xl font-bold text-gray-900">📬 Stay in the Loop</h3>
             <p class="text-sm text-gray-500 max-w-md mx-auto">
                 Sign up to receive exclusive <strong>specials, promotions, and homemade recipes</strong> 
@@ -449,12 +364,10 @@
     </div>
 
     <!-- Footer Area -->
-    <!-- Footer Area -->
-    <footer class="bg-[#3D3A38] text-gray-400 py-8 px-4 text-center text-xs relative">
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-        <div class="max-w-xl mx-auto space-y-2">
-            <p class="font-bold text-white/90 text-sm" data-i18n="footer-brand">🥟 Pelmen Perogies © 2026</p>
-            <p class="max-w-md mx-auto" data-i18n="footer-tagline">Homemade recipes without fillers or additives, flash-packed for exceptional home cooking convenience.</p>
+    <footer class="bg-[#3D3A38] text-gray-400 py-6 px-4 text-center text-xs">
+        <div class="max-w-xl mx-auto space-y-1.5">
+            <p class="font-bold text-white" data-i18n="footer-brand">🥟 Pelmen Perogies © 2026</p>
+            <p data-i18n="footer-tagline">Homemade recipes without fillers or additives, flash-packed for exceptional home cooking convenience.</p>
         </div>
     </footer>
 
@@ -498,14 +411,14 @@
                     const prodDesc = descKey ? (t[descKey] || '') : '';
                     const orderBtnLabel = t['popular-order-btn'] || 'Order from Menu';
                     return `
-                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden flex flex-col justify-between group hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-                            <img class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100" src="${prod.image}" alt="${prod.name}">
+                        <div class="card-shadow bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col justify-between group">
+                            <img class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" src="${prod.image}" alt="${prod.name}">
                             <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-white">${prodName}</h4>
-                                <p class="text-xs text-white/50">${prodDesc}</p>
+                                <h4 class="font-bold text-gray-900">${prodName}</h4>
+                                <p class="text-xs text-gray-500">${prodDesc}</p>
                             </div>
                             <div class="p-4 pt-0">
-                                <button onclick="switchView('store-page')" class="w-full text-center py-2 bg-[#C65D47]/20 hover:bg-[#C65D47] text-white/80 hover:text-white rounded-full text-xs font-bold transition-all">${orderBtnLabel}</button>
+                                <button onclick="switchView('store-page')" class="w-full text-center py-2 bg-[#C65D47]/10 hover:bg-[#C65D47] hover:text-white rounded-full text-xs font-bold transition-all text-[#C65D47]">${orderBtnLabel}</button>
                             </div>
                         </div>`;
                 }).join('');
