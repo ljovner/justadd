@@ -1,0 +1,30 @@
+section_id,section_title_key,section_nav_label_key,section_icon,product_id,name,description_key,price,unit_key,veg,df,pf,image,ingredients_key,best_with_key,calories,protein,carbs,cooking_key
+sauces,section-sauces-title,cat-sauces,🔥,s1,Beef Stroganoff,s1-desc,18.5,per-unit,FALSE,FALSE,TRUE,images/beefStroganoff.jpg,s1-ingredients,s1-bestwith,380,28g,8g,s1-cook
+sauces,section-sauces-title,cat-sauces,🔥,s2,Classic Bolognaise,s2-desc,16,per-unit,FALSE,TRUE,FALSE,images/beefStroganoff.jpg,s2-ingredients,s2-bestwith,340,22g,12g,s2-cook
+sauces,section-sauces-title,cat-sauces,🔥,s3,Chicken & Mushroom Cream,s3-desc,17.5,per-unit,FALSE,FALSE,TRUE,images/beefStroganoff.jpg,s3-ingredients,s3-bestwith,410,31g,5g,s3-cook
+sauces,section-sauces-title,cat-sauces,🔥,s4,Meatballs in Marinara,s4-desc,16.75,per-unit,FALSE,TRUE,FALSE,images/beefStroganoff.jpg,s4-ingredients,s4-bestwith,360,24g,11g,s4-cook
+sauces,section-sauces-title,cat-sauces,🔥,s5,Creamy Four-Cheese & Spinach,s5-desc,15.25,per-unit,TRUE,FALSE,TRUE,images/beefStroganoff.jpg,s5-ingredients,s5-bestwith,450,14g,6g,s5-cook
+sauces,section-sauces-title,cat-sauces,🔥,s6,Hunter's Pork Stew Base,s6-desc,17,per-unit,FALSE,TRUE,FALSE,images/beefStroganoff.jpg,s6-ingredients,s6-bestwith,390,26g,4g,s6-cook
+sauces,section-sauces-title,cat-sauces,🔥,s7,Hungarian Beef Paprikash,s7-desc,18,per-unit,FALSE,FALSE,TRUE,images/beefStroganoff.jpg,s7-ingredients,s7-bestwith,410,29g,9g,s7-cook
+sauces,section-sauces-title,cat-sauces,🔥,s8,Dill Garlic Lemon Chicken,s8-desc,15.75,per-unit,FALSE,TRUE,TRUE,images/beefStroganoff.jpg,s8-ingredients,s8-bestwith,320,27g,3g,s8-cook
+sauces,section-sauces-title,cat-sauces,🔥,s9,Roasted Root Vegetable Mix,s9-desc,14.5,per-unit,TRUE,TRUE,TRUE,images/beefStroganoff.jpg,s9-ingredients,s9-bestwith,180,4g,24g,s9-cook
+sauces,section-sauces-title,cat-sauces,🔥,s10,Smoked Bacon Cream & Leek,s10-desc,16.5,per-unit,FALSE,TRUE,FALSE,images/beefStroganoff.jpg,s10-ingredients,s10-bestwith,420,16g,7g,s10-cook
+perogies,section-perogies-title,cat-perogies,🥟,p1,Potato & Cheddar Cheese,p1-desc,12,per-dozen,TRUE,FALSE,TRUE,images/perogies.jpg,p1-ingredients,,290,10g,44g,p1-cook
+perogies,section-perogies-title,cat-perogies,🥟,p2,Sauerkraut & Field Mushroom,p2-desc,13.5,per-dozen,TRUE,TRUE,TRUE,images/perogies.jpg,p2-ingredients,,240,7g,42g,p2-cook
+perogies,section-perogies-title,cat-perogies,🥟,p3,Sweet Cinnamon Blueberry,p3-desc,14,per-dozen,TRUE,TRUE,TRUE,images/perogies.jpg,p3-ingredients,,260,5g,52g,p3-cook
+perogies,section-perogies-title,cat-perogies,🥟,p4,"Potato, Bacon & Onion",p4-desc,13,per-dozen,FALSE,TRUE,FALSE,images/perogies.jpg,p4-ingredients,,310,12g,43g,p4-cook
+perogies,section-perogies-title,cat-perogies,🥟,p5,Cottage Cheese & Dill,p5-desc,12.5,per-dozen,TRUE,FALSE,TRUE,images/perogies.jpg,p5-ingredients,,270,13g,39g,p5-cook
+perogies,section-perogies-title,cat-perogies,🥟,p6,Seasoned Minced Beef,p6-desc,14.5,per-dozen,FALSE,TRUE,TRUE,images/perogies.jpg,p6-ingredients,,320,16g,41g,p6-cook
+perogies,section-perogies-title,cat-perogies,🥟,p7,Roasted Pumpkin & Goat Cheese,p7-desc,13.75,per-dozen,TRUE,FALSE,TRUE,images/perogies.jpg,p7-ingredients,,280,9g,45g,p7-cook
+perogies,section-perogies-title,cat-perogies,🥟,p8,Pork & Caramelized Cabbage,p8-desc,13.25,per-dozen,FALSE,TRUE,FALSE,images/perogies.jpg,p8-ingredients,,330,14g,40g,p8-cook
+perogies,section-perogies-title,cat-perogies,🥟,p9,Tart Orchard Sour Cherry,p9-desc,14,per-dozen,TRUE,TRUE,TRUE,images/perogies.jpg,p9-ingredients,,250,4g,55g,p9-cook
+perogies,section-perogies-title,cat-perogies,🥟,p10,Jalapeno Cheddar Popper,p10-desc,12.75,per-dozen,TRUE,FALSE,TRUE,images/perogies.jpg,p10-ingredients,,300,11g,44g,p10-cook
+perogies,section-perogies-title,cat-perogies,🥟,p11,"Spinach, Ricotta & Feta",p11-desc,13.5,per-dozen,TRUE,FALSE,TRUE,images/perogies.jpg,p11-ingredients,,280,11g,41g,p11-cook
+perogies,section-perogies-title,cat-perogies,🥟,p12,Smoked Salmon & Chive,p12-desc,16,per-dozen,FALSE,TRUE,TRUE,images/perogies.jpg,p12-ingredients,,295,15g,39g,p12-cook
+perogies,section-perogies-title,cat-perogies,🥟,p13,Cherry,p13-desc,16,per-dozen,TRUE,TRUE,TRUE,images/perogies.jpg,p13-ingredients,,295,15g,39g,p13-cook
+classics,section-classics-title,cat-classics,🥩,c1,Crispy Meat Chebureke,c1-desc,15,per-4pcs,FALSE,TRUE,FALSE,images/cheburiki.jpg,c1-ingredients,,380,18g,32g,c1-cook
+classics,section-classics-title,cat-classics,🥩,c2,Garlic Chicken Kotlete,c2-desc,16.5,per-6pcs,FALSE,FALSE,TRUE,images/cheburiki.jpg,c2-ingredients,,290,24g,8g,c2-cook
+classics,section-classics-title,cat-classics,🥩,c3,Classic Golubtse,c3-desc,16,per-4pack,FALSE,TRUE,FALSE,images/golubtsi.jpg,c3-ingredients,,210,14g,19g,c3-cook
+classics,section-classics-title,cat-classics,🥩,c4,Vegetarian Cabbage Rolls,c4-desc,14.5,per-4pack,TRUE,TRUE,TRUE,images/golubtsi.jpg,c4-ingredients,,160,6g,28g,c4-cook
+classics,section-classics-title,cat-classics,🥩,c5,Pork & Herb Pelmeni,c5-desc,11.5,per-500gbag,FALSE,TRUE,FALSE,images/golubtsi.jpg,c5-ingredients,,310,15g,35g,c5-cook
+classics,section-classics-title,cat-classics,🥩,c6,Cheese Blintzes,c6-desc,13,per-6pack,TRUE,FALSE,TRUE,images/golubtsi.jpg,c6-ingredients,,280,11g,34g,c6-cook
