@@ -11,6 +11,7 @@ window.catalogData = {
       "products": [
         {
           "id": "p1",
+          "isVisible": true,
           "name": "Siberian (Beef & Pork) — Hand Made",
           "descriptionKey": "p1-desc",
           "price": 12.00,
@@ -24,6 +25,7 @@ window.catalogData = {
         },
         {
           "id": "p2",
+          "isVisible": true,
           "name": "Chicken (Chicken Breast) — Hand Made",
           "descriptionKey": "p2-desc",
           "price": 12.00,
@@ -37,6 +39,7 @@ window.catalogData = {
         },
         {
           "id": "p3",
+          "isVisible": true,
           "name": "Veal — Hand Made",
           "descriptionKey": "p3-desc",
           "price": 12.00,
@@ -50,6 +53,7 @@ window.catalogData = {
         },
         {
           "id": "p4",
+          "isVisible": true,
           "name": "Turkey — Hand Made",
           "descriptionKey": "p4-desc",
           "price": 12.00,
@@ -63,6 +67,7 @@ window.catalogData = {
         },
         {
           "id": "p5",
+          "isVisible": true,
           "name": "Siberian (Beef & Pork) — Machine Made",
           "descriptionKey": "p5-desc",
           "price": 10.00,
@@ -76,6 +81,7 @@ window.catalogData = {
         },
         {
           "id": "p6",
+          "isVisible": true,
           "name": "Chicken (Chicken Breast) — Machine Made",
           "descriptionKey": "p6-desc",
           "price": 10.00,
@@ -89,6 +95,7 @@ window.catalogData = {
         },
         {
           "id": "p7",
+          "isVisible": true,
           "name": "Veal — Machine Made",
           "descriptionKey": "p7-desc",
           "price": 10.00,
@@ -102,6 +109,7 @@ window.catalogData = {
         },
         {
           "id": "p8",
+          "isVisible": true,
           "name": "Turkey — Machine Made",
           "descriptionKey": "p8-desc",
           "price": 10.00,
@@ -115,6 +123,7 @@ window.catalogData = {
         },
         {
           "id": "p9",
+          "isVisible": true,
           "name": "Lamb",
           "descriptionKey": "p9-desc",
           "price": 12.00,
@@ -128,6 +137,7 @@ window.catalogData = {
         },
         {
           "id": "p10",
+          "isVisible": true,
           "name": "Meat Perogies",
           "descriptionKey": "p10-desc",
           "price": 12.00,
@@ -141,6 +151,7 @@ window.catalogData = {
         },
         {
           "id": "p11",
+          "isVisible": true,
           "name": "Potato & Fried Onions",
           "descriptionKey": "p11-desc",
           "price": 9.00,
@@ -154,6 +165,7 @@ window.catalogData = {
         },
         {
           "id": "p12",
+          "isVisible": true,
           "name": "Potato & Mushrooms",
           "descriptionKey": "p12-desc",
           "price": 9.00,
@@ -167,6 +179,7 @@ window.catalogData = {
         },
         {
           "id": "p13",
+          "isVisible": true,
           "name": "Potato & Bacon",
           "descriptionKey": "p13-desc",
           "price": 9.00,
@@ -180,6 +193,7 @@ window.catalogData = {
         },
         {
           "id": "p14",
+          "isVisible": true,
           "name": "Potato & Cheddar",
           "descriptionKey": "p14-desc",
           "price": 9.00,
@@ -193,6 +207,7 @@ window.catalogData = {
         },
         {
           "id": "p15",
+          "isVisible": true,
           "name": "Potato, Cheddar & Onions",
           "descriptionKey": "p15-desc",
           "price": 9.00,
@@ -206,6 +221,7 @@ window.catalogData = {
         },
         {
           "id": "p16",
+          "isVisible": true,
           "name": "Potato, Cheddar & Jalapeno",
           "descriptionKey": "p16-desc",
           "price": 9.00,
@@ -219,6 +235,7 @@ window.catalogData = {
         },
         {
           "id": "p17",
+          "isVisible": true,
           "name": "Potato & Cottage Cheese",
           "descriptionKey": "p17-desc",
           "price": 9.00,
@@ -232,6 +249,7 @@ window.catalogData = {
         },
         {
           "id": "p18",
+          "isVisible": true,
           "name": "Potato, Spinach & Feta",
           "descriptionKey": "p18-desc",
           "price": 9.00,
@@ -245,6 +263,7 @@ window.catalogData = {
         },
         {
           "id": "p19",
+          "isVisible": true,
           "name": "Potato & Beef Brisket",
           "descriptionKey": "p19-desc",
           "price": 9.00,
@@ -258,6 +277,7 @@ window.catalogData = {
         },
         {
           "id": "p20",
+          "isVisible": true,
           "name": "Sweet Cottage Cheese",
           "descriptionKey": "p20-desc",
           "price": 10.00,
@@ -271,6 +291,7 @@ window.catalogData = {
         },
         {
           "id": "p21",
+          "isVisible": true,
           "name": "Cottage Cheese (No Sugar)",
           "descriptionKey": "p21-desc",
           "price": 10.00,
@@ -284,6 +305,7 @@ window.catalogData = {
         },
         {
           "id": "p22",
+          "isVisible": true,
           "name": "Cherry",
           "descriptionKey": "p22-desc",
           "price": 10.00,
@@ -297,6 +319,7 @@ window.catalogData = {
         },
         {
           "id": "p23",
+          "isVisible": true,
           "name": "Blueberry",
           "descriptionKey": "p23-desc",
           "price": 10.00,
@@ -310,6 +333,7 @@ window.catalogData = {
         },
         {
           "id": "p24",
+          "isVisible": true,
           "name": "Strawberry",
           "descriptionKey": "p24-desc",
           "price": 10.00,
@@ -323,6 +347,7 @@ window.catalogData = {
         },
         {
           "id": "p25",
+          "isVisible": true,
           "name": "Apple Cinnamon",
           "descriptionKey": "p25-desc",
           "price": 9.00,
@@ -336,6 +361,7 @@ window.catalogData = {
         },
         {
           "id": "p26",
+          "isVisible": true,
           "name": "Sauerkraut",
           "descriptionKey": "p26-desc",
           "price": 9.00,
@@ -349,6 +375,7 @@ window.catalogData = {
         },
         {
           "id": "p27",
+          "isVisible": true,
           "name": "Sauerkraut & Mushroom",
           "descriptionKey": "p27-desc",
           "price": 9.00,
@@ -362,6 +389,7 @@ window.catalogData = {
         },
         {
           "id": "p28",
+          "isVisible": true,
           "name": "Mushroom",
           "descriptionKey": "p28-desc",
           "price": 12.00,
@@ -375,6 +403,7 @@ window.catalogData = {
         },
         {
           "id": "p29",
+          "isVisible": true,
           "name": "Kasha & Mushroom",
           "descriptionKey": "p29-desc",
           "price": 9.00,
@@ -397,6 +426,7 @@ window.catalogData = {
       "products": [
         {
           "id": "c1",
+          "isVisible": true,
           "name": "Manti (Beef & Pork)",
           "descriptionKey": "c1-desc",
           "price": 20.00,
@@ -410,6 +440,7 @@ window.catalogData = {
         },
         {
           "id": "c2",
+          "isVisible": true,
           "name": "Khinkali (Beef & Pork)",
           "descriptionKey": "c2-desc",
           "price": 22.00,
@@ -423,6 +454,7 @@ window.catalogData = {
         },
         {
           "id": "c3",
+          "isVisible": true,
           "name": "Cabbage Rolls (Beef & Pork)",
           "descriptionKey": "c3-desc",
           "price": 20.00,
@@ -436,6 +468,7 @@ window.catalogData = {
         },
         {
           "id": "c4",
+          "isVisible": true,
           "name": "Cabbage Rolls (Veal)",
           "descriptionKey": "c4-desc",
           "price": 20.00,
@@ -449,6 +482,7 @@ window.catalogData = {
         },
         {
           "id": "c5",
+          "isVisible": true,
           "name": "Cabbage Rolls (Chicken)",
           "descriptionKey": "c5-desc",
           "price": 20.00,
@@ -462,6 +496,7 @@ window.catalogData = {
         },
         {
           "id": "c6",
+          "isVisible": true,
           "name": "Cabbage Rolls (Vegetable)",
           "descriptionKey": "c6-desc",
           "price": 20.00,
@@ -475,6 +510,7 @@ window.catalogData = {
         },
         {
           "id": "c7",
+          "isVisible": true,
           "name": "Chebureki (Chicken)",
           "descriptionKey": "c7-desc",
           "price": 20.00,
@@ -488,6 +524,7 @@ window.catalogData = {
         },
         {
           "id": "c8",
+          "isVisible": true,
           "name": "Chebureki (Beef & Pork)",
           "descriptionKey": "c8-desc",
           "price": 20.00,
@@ -501,6 +538,7 @@ window.catalogData = {
         },
         {
           "id": "c9",
+          "isVisible": true,
           "name": "Chebureki (Veal)",
           "descriptionKey": "c9-desc",
           "price": 20.00,
@@ -514,6 +552,7 @@ window.catalogData = {
         },
         {
           "id": "c10",
+          "isVisible": true,
           "name": "Chebureki (Lamb)",
           "descriptionKey": "c10-desc",
           "price": 22.00,
@@ -527,6 +566,7 @@ window.catalogData = {
         },
         {
           "id": "c11",
+          "isVisible": true,
           "name": "Kotlete — Chicken (Raw)",
           "descriptionKey": "c11-desc",
           "price": 12.00,
@@ -540,6 +580,7 @@ window.catalogData = {
         },
         {
           "id": "c12",
+          "isVisible": true,
           "name": "Kotlete — Chicken (Fried)",
           "descriptionKey": "c12-desc",
           "price": 15.00,
@@ -553,6 +594,7 @@ window.catalogData = {
         },
         {
           "id": "c13",
+          "isVisible": true,
           "name": "Pirozhki — Beef & Pork",
           "descriptionKey": "c13-desc",
           "price": 20.00,
@@ -566,6 +608,7 @@ window.catalogData = {
         },
         {
           "id": "c14",
+          "isVisible": true,
           "name": "Pirozhki — Beef & Chicken",
           "descriptionKey": "c14-desc",
           "price": 20.00,
@@ -579,6 +622,7 @@ window.catalogData = {
         },
         {
           "id": "c15",
+          "isVisible": true,
           "name": "Pirozhki — Cabbage",
           "descriptionKey": "c15-desc",
           "price": 18.00,
@@ -592,6 +636,7 @@ window.catalogData = {
         },
         {
           "id": "c16",
+          "isVisible": true,
           "name": "Pirozhki — Potato",
           "descriptionKey": "c16-desc",
           "price": 16.00,
@@ -605,6 +650,7 @@ window.catalogData = {
         },
         {
           "id": "c17",
+          "isVisible": true,
           "name": "Pampushki with Garlic",
           "descriptionKey": "c17-desc",
           "price": 16.00,
@@ -618,6 +664,7 @@ window.catalogData = {
         },
         {
           "id": "c18",
+          "isVisible": true,
           "name": "Savoury Crepes — Plain",
           "descriptionKey": "c18-desc",
           "price": 10.00,
@@ -631,6 +678,7 @@ window.catalogData = {
         },
         {
           "id": "c19",
+          "isVisible": true,
           "name": "Savoury Crepes — Chicken",
           "descriptionKey": "c19-desc",
           "price": 10.00,
@@ -644,6 +692,7 @@ window.catalogData = {
         },
         {
           "id": "c20",
+          "isVisible": true,
           "name": "Savoury Crepes — Cheese & Salmon",
           "descriptionKey": "c20-desc",
           "price": 10.00,
@@ -657,6 +706,7 @@ window.catalogData = {
         },
         {
           "id": "c21",
+          "isVisible": true,
           "name": "Savoury Crepes — Chicken & Mushroom",
           "descriptionKey": "c21-desc",
           "price": 10.00,
@@ -670,6 +720,7 @@ window.catalogData = {
         },
         {
           "id": "c22",
+          "isVisible": true,
           "name": "Savoury Crepes — Cabbage & Mushroom",
           "descriptionKey": "c22-desc",
           "price": 10.00,
@@ -683,6 +734,7 @@ window.catalogData = {
         },
         {
           "id": "c23",
+          "isVisible": true,
           "name": "Savoury Crepes — Egg & Green Onion",
           "descriptionKey": "c23-desc",
           "price": 10.00,
@@ -696,6 +748,7 @@ window.catalogData = {
         },
         {
           "id": "c24",
+          "isVisible": true,
           "name": "Dessert Crepes — Cherry",
           "descriptionKey": "c24-desc",
           "price": 10.00,
@@ -709,6 +762,7 @@ window.catalogData = {
         },
         {
           "id": "c25",
+          "isVisible": true,
           "name": "Dessert Crepes — Cottage Cheese",
           "descriptionKey": "c25-desc",
           "price": 10.00,
@@ -722,6 +776,7 @@ window.catalogData = {
         },
         {
           "id": "c26",
+          "isVisible": true,
           "name": "Dessert Crepes — Cottage Cheese & Raspberry",
           "descriptionKey": "c26-desc",
           "price": 10.00,
@@ -735,6 +790,7 @@ window.catalogData = {
         },
         {
           "id": "c27",
+          "isVisible": true,
           "name": "Dessert Crepes — Apple",
           "descriptionKey": "c27-desc",
           "price": 10.00,
@@ -748,6 +804,7 @@ window.catalogData = {
         },
         {
           "id": "c28",
+          "isVisible": true,
           "name": "Dessert Crepes — Pear",
           "descriptionKey": "c28-desc",
           "price": 10.00,
@@ -761,6 +818,7 @@ window.catalogData = {
         },
         {
           "id": "c29",
+          "isVisible": true,
           "name": "Dessert Crepes — Plum",
           "descriptionKey": "c29-desc",
           "price": 10.00,
@@ -774,6 +832,7 @@ window.catalogData = {
         },
         {
           "id": "c30",
+          "isVisible": true,
           "name": "Dessert Crepes — Poppy Seed",
           "descriptionKey": "c30-desc",
           "price": 10.00,
@@ -787,6 +846,7 @@ window.catalogData = {
         },
         {
           "id": "c31",
+          "isVisible": true,
           "name": "Cheese Pancakes (Syrniki)",
           "descriptionKey": "c31-desc",
           "price": 6.00,
@@ -799,6 +859,7 @@ window.catalogData = {
         },
         {
           "id": "c32",
+          "isVisible": true,
           "name": "Khachapuri Ajarski",
           "descriptionKey": "c32-desc",
           "price": 14.00,
@@ -811,6 +872,7 @@ window.catalogData = {
         },
         {
           "id": "c33",
+          "isVisible": true,
           "name": "Belyashi",
           "descriptionKey": "c33-desc",
           "price": 6.00,
@@ -823,6 +885,7 @@ window.catalogData = {
         },
         {
           "id": "c34",
+          "isVisible": true,
           "name": "Samsa",
           "descriptionKey": "c34-desc",
           "price": 12.00,
@@ -835,6 +898,7 @@ window.catalogData = {
         },
         {
           "id": "c35",
+          "isVisible": true,
           "name": "Lula Kebab",
           "descriptionKey": "c35-desc",
           "price": 14.00,
@@ -847,6 +911,7 @@ window.catalogData = {
         },
         {
           "id": "c36",
+          "isVisible": true,
           "name": "Mititei",
           "descriptionKey": "c36-desc",
           "price": 14.00,
@@ -859,6 +924,7 @@ window.catalogData = {
         },
         {
           "id": "c37",
+          "isVisible": true,
           "name": "Chicken Meatballs (1 kg)",
           "descriptionKey": "c37-desc",
           "price": 12.00,
@@ -871,6 +937,7 @@ window.catalogData = {
         },
         {
           "id": "c38",
+          "isVisible": true,
           "name": "Maina (Jewish Wedding Pie)",
           "descriptionKey": "c38-desc",
           "price": 12.00,
@@ -883,6 +950,7 @@ window.catalogData = {
         },
         {
           "id": "c39",
+          "isVisible": true,
           "name": "Kutaby",
           "descriptionKey": "c39-desc",
           "price": 6.00,
@@ -895,6 +963,7 @@ window.catalogData = {
         },
         {
           "id": "c40",
+          "isVisible": true,
           "name": "Potato Latkes (4 pc)",
           "descriptionKey": "c40-desc",
           "price": 6.00,
@@ -916,6 +985,7 @@ window.catalogData = {
       "products": [
         {
           "id": "f1",
+          "isVisible": true,
           "name": "Aspic (Kholodets)",
           "descriptionKey": "f1-desc",
           "price": 16.00,
@@ -928,6 +998,7 @@ window.catalogData = {
         },
         {
           "id": "f2",
+          "isVisible": true,
           "name": "Gefilte Fish (4 pc)",
           "descriptionKey": "f2-desc",
           "price": 10.00,
@@ -940,6 +1011,7 @@ window.catalogData = {
         },
         {
           "id": "f3",
+          "isVisible": true,
           "name": "Gefilte Fish (8 pc)",
           "descriptionKey": "f3-desc",
           "price": 19.00,
@@ -952,6 +1024,7 @@ window.catalogData = {
         },
         {
           "id": "f4",
+          "isVisible": true,
           "name": "Babaganoush",
           "descriptionKey": "f4-desc",
           "price": 6.00,
@@ -965,6 +1038,7 @@ window.catalogData = {
         },
         {
           "id": "f5",
+          "isVisible": true,
           "name": "Beet Salad with Nuts",
           "descriptionKey": "f5-desc",
           "price": 6.00,
@@ -978,6 +1052,7 @@ window.catalogData = {
         },
         {
           "id": "f6",
+          "isVisible": true,
           "name": "Beet Salad with Sesame",
           "descriptionKey": "f6-desc",
           "price": 6.00,
@@ -991,6 +1066,7 @@ window.catalogData = {
         },
         {
           "id": "f7",
+          "isVisible": true,
           "name": "Korean Carrots",
           "descriptionKey": "f7-desc",
           "price": 6.00,
@@ -1004,6 +1080,7 @@ window.catalogData = {
         },
         {
           "id": "f8",
+          "isVisible": true,
           "name": "Salted Cabbage",
           "descriptionKey": "f8-desc",
           "price": 6.00,
@@ -1017,6 +1094,7 @@ window.catalogData = {
         },
         {
           "id": "f9",
+          "isVisible": true,
           "name": "Lecho Vegetable",
           "descriptionKey": "f9-desc",
           "price": 6.00,
@@ -1030,6 +1108,7 @@ window.catalogData = {
         },
         {
           "id": "f10",
+          "isVisible": true,
           "name": "Georgian Salad",
           "descriptionKey": "f10-desc",
           "price": 6.00,
@@ -1043,6 +1122,7 @@ window.catalogData = {
         },
         {
           "id": "f11",
+          "isVisible": true,
           "name": "Eggplant Sweet & Sour",
           "descriptionKey": "f11-desc",
           "price": 6.00,
@@ -1056,6 +1136,7 @@ window.catalogData = {
         },
         {
           "id": "f12",
+          "isVisible": true,
           "name": "Eggplant with Tomatoes",
           "descriptionKey": "f12-desc",
           "price": 6.00,
@@ -1069,6 +1150,7 @@ window.catalogData = {
         },
         {
           "id": "f13",
+          "isVisible": true,
           "name": "Mushroom Spread",
           "descriptionKey": "f13-desc",
           "price": 6.00,
@@ -1082,6 +1164,7 @@ window.catalogData = {
         },
         {
           "id": "f14",
+          "isVisible": true,
           "name": "Liver Pâté",
           "descriptionKey": "f14-desc",
           "price": 6.00,
@@ -1095,6 +1178,7 @@ window.catalogData = {
         },
         {
           "id": "f15",
+          "isVisible": true,
           "name": "Herring Pâté",
           "descriptionKey": "f15-desc",
           "price": 6.00,
@@ -1108,6 +1192,7 @@ window.catalogData = {
         },
         {
           "id": "f16",
+          "isVisible": true,
           "name": "Beet & Potato Salad",
           "descriptionKey": "f16-desc",
           "price": 6.00,
@@ -1121,6 +1206,7 @@ window.catalogData = {
         },
         {
           "id": "f17",
+          "isVisible": true,
           "name": "Olivier Potato Salad",
           "descriptionKey": "f17-desc",
           "price": 6.00,
@@ -1134,6 +1220,7 @@ window.catalogData = {
         },
         {
           "id": "f18",
+          "isVisible": true,
           "name": "Borscht",
           "descriptionKey": "f18-desc",
           "price": 8.00,
@@ -1147,6 +1234,7 @@ window.catalogData = {
         },
         {
           "id": "f19",
+          "isVisible": true,
           "name": "Split Pea Soup",
           "descriptionKey": "f19-desc",
           "price": 8.00,
@@ -1160,6 +1248,7 @@ window.catalogData = {
         },
         {
           "id": "f20",
+          "isVisible": true,
           "name": "Meatball Soup",
           "descriptionKey": "f20-desc",
           "price": 8.00,
@@ -1173,6 +1262,7 @@ window.catalogData = {
         },
         {
           "id": "f21",
+          "isVisible": true,
           "name": "Cold Borscht",
           "descriptionKey": "f21-desc",
           "price": 8.00,
@@ -1186,6 +1276,7 @@ window.catalogData = {
         },
         {
           "id": "f22",
+          "isVisible": true,
           "name": "Green Borscht",
           "descriptionKey": "f22-desc",
           "price": 8.00,
@@ -1199,6 +1290,7 @@ window.catalogData = {
         },
         {
           "id": "f23",
+          "isVisible": true,
           "name": "Pilaf with Lamb",
           "descriptionKey": "f23-desc",
           "price": 14.00,
@@ -1220,6 +1312,7 @@ window.catalogData = {
       "products": [
         {
           "id": "s1",
+          "isVisible": true,
           "name": "Beef Stroganoff",
           "descriptionKey": "s1-desc",
           "price": 10.00,
@@ -1232,6 +1325,7 @@ window.catalogData = {
         },
         {
           "id": "s2",
+          "isVisible": true,
           "name": "Creamy Chicken Mushroom",
           "descriptionKey": "s2-desc",
           "price": 10.00,
@@ -1244,6 +1338,7 @@ window.catalogData = {
         },
         {
           "id": "s3",
+          "isVisible": true,
           "name": "Navy Style",
           "descriptionKey": "s3-desc",
           "price": 10.00,
@@ -1256,6 +1351,7 @@ window.catalogData = {
         },
         {
           "id": "s4",
+          "isVisible": true,
           "name": "Thai Green Chicken Curry",
           "descriptionKey": "s4-desc",
           "price": 10.00,
@@ -1268,6 +1364,7 @@ window.catalogData = {
         },
         {
           "id": "s5",
+          "isVisible": true,
           "name": "Butter Chicken",
           "descriptionKey": "s5-desc",
           "price": 10.00,
@@ -1280,6 +1377,7 @@ window.catalogData = {
         },
         {
           "id": "s6",
+          "isVisible": true,
           "name": "Goulash",
           "descriptionKey": "s6-desc",
           "price": 10.00,

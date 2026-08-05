@@ -481,6 +481,11 @@
         // ── Store Renderer ──
         function renderStore() {
             if (!catalogData) return;
+            // Only render products flagged as visible (isVisible !== false).
+            // Set "isVisible": false in data.js to hide a product without deleting it.
+            const visibleSections = catalogData.sections
+                .map(sec => ({ ...sec, products: sec.products.filter(p => p.isVisible !== false) }))
+                .filter(sec => sec.products.length > 0);
             const container = document.getElementById('product-catalog-container');
             const navContainer = document.getElementById('section-nav-links');
             const feedbackSelect = document.getElementById('feedback-product-select');
@@ -489,7 +494,7 @@
             // Build popular picks (4 random products)
             const popularGrid = document.getElementById('popular-product-grid');
             if (popularGrid) {
-                const allProducts = catalogData.sections.flatMap(sec => sec.products);
+                const allProducts = visibleSections.flatMap(sec => sec.products);
                 const shuffled = [...allProducts].sort(() => Math.random() - 0.5);
                 const picks = shuffled.slice(0, 4);
                 popularGrid.innerHTML = picks.map(prod => {
@@ -513,7 +518,7 @@
             }
 
             // Build section navigation links (count calculated dynamically)
-            navContainer.innerHTML = catalogData.sections.map(sec => {
+            navContainer.innerHTML = visibleSections.map(sec => {
                 const label = t[sec.navLabelKey] || sec.navLabelKey;
                 const count = sec.products.length;
                 return `<a href="#${sec.id}" class="text-[#3D3A38] hover:bg-[#C65D47]/10 hover:text-[#C65D47] px-3 py-1.5 rounded-lg transition font-medium">${sec.icon} ${label} (${count})</a>`;
@@ -526,7 +531,7 @@
                 if (placeholderOpt) feedbackSelect.appendChild(placeholderOpt);
                 else feedbackSelect.innerHTML = '<option value="" disabled selected data-i18n="feedback-select-placeholder">-- Choose an item from our menu --</option>';
 
-                catalogData.sections.forEach(sec => {
+                visibleSections.forEach(sec => {
                     const optgroup = document.createElement('optgroup');
                     const groupLabel = t[sec.navLabelKey] || sec.navLabelKey;
                     optgroup.label = groupLabel;
@@ -541,7 +546,7 @@
             }
 
             // Build product sections
-            container.innerHTML = catalogData.sections.map(section => {
+            container.innerHTML = visibleSections.map(section => {
                 const sectionTitle = t[section.titleKey] || section.titleKey;
 
                 // Build a single product card
