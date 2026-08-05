@@ -17,6 +17,7 @@
         .product-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 20px; overflow: hidden; }
         .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
         .product-card.hidden-filter { display: none !important; }
+        .product-group.hidden-group { display: none !important; }
 
         /* Buttons */
         .btn-primary { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
@@ -228,15 +229,15 @@
 
     <!-- PAGE VIEW 2: THE STOREFRONT CATALOG -->
     <div id="store-page" class="page-view">
-        <div class="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-[56px] z-40 shadow-sm overflow-x-auto">
-            <div id="section-nav-links" class="max-w-7xl mx-auto px-4 py-3 flex gap-5 text-sm whitespace-nowrap">
+        <div class="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky z-40 shadow-sm overflow-x-auto" style="top: var(--header-h, 64px)">
+            <div id="section-nav-links" class="max-w-7xl mx-auto px-4 py-4 flex gap-5 text-sm whitespace-nowrap">
             </div>
         </div>
 
         <main class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Sidebar Filtering System -->
             <aside class="hidden lg:block space-y-6">
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 shadow-lg sticky top-[120px]">
+                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 shadow-lg sticky" style="top: calc(var(--header-h, 64px) + var(--nav-h, 56px) + 12px)">
                     <h3 class="font-bold text-gray-900 mb-2 text-md" data-i18n="filter-title">Kitchen Filter</h3>
                     <p class="text-xs text-gray-400 mb-4" data-i18n="filter-subtitle">Toggle preferences to filter items out in real-time:</p>
 
@@ -542,7 +543,9 @@
             // Build product sections
             container.innerHTML = catalogData.sections.map(section => {
                 const sectionTitle = t[section.titleKey] || section.titleKey;
-                const productsHtml = section.products.map((prod, idx) => {
+
+                // Build a single product card
+                const buildCard = (prod) => {
                     const nameKey = `${prod.id}-name`;
                     const prodName = t[nameKey] || prod.name;
                     const prodDesc = prod.descriptionKey ? (t[prod.descriptionKey] || '') : '';
@@ -609,16 +612,71 @@
                                 <button onclick="addToCart('${prod.name.replace(/'/g, "\\'")}', ${prod.price})" class="btn-primary bg-[#C65D47] text-white px-4 py-1.5 rounded-full text-xs font-bold hover:bg-[#3D3A38] shadow-sm">${addBtnLabel}</button>
                             </div>
                         </div>`;
-                }).join('');
+                };
+
+                // Check whether this section is organized into subgroups
+                const hasSubgroups = section.products.some(p => p.subgroup);
+
+                let contentHtml;
+                if (hasSubgroups) {
+                    // Group products by subgroup, preserving menu order
+                    const groups = [];
+                    const groupIndex = {};
+                    section.products.forEach(prod => {
+                        const key = prod.subgroup || 'subgroup-other';
+                        if (!(key in groupIndex)) {
+                            groupIndex[key] = groups.length;
+                            groups.push({ key, products: [] });
+                        }
+                        groups[groupIndex[key]].products.push(prod);
+                    });
+
+                    // Quick-jump pill bar (sticky below the header + section nav)
+                    const pillsHtml = `
+                        <div class="sticky z-30 -mx-1 px-1 pb-3 mb-2 bg-[#FAF7F2]/95 backdrop-blur-sm overflow-x-auto whitespace-nowrap" style="top: calc(var(--header-h, 64px) + var(--nav-h, 56px) + 4px)">
+                            <div class="flex gap-2">
+                                ${groups.map(g => {
+                                    const label = t[g.key] || g.key;
+                                    const id = `${section.id}-${g.key}`;
+                                    return `<a href="#${id}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#C65D47]/30 bg-white text-[#3D3A38] hover:bg-[#C65D47] hover:text-white transition text-xs font-bold whitespace-nowrap shadow-sm">${label} <span class="opacity-60">(${g.products.length})</span></a>`;
+                                }).join('')}
+                            </div>
+                        </div>`;
+
+                    // Render each subgroup as its own block with a header + price range
+                    const groupsHtml = groups.map(g => {
+                        const label = t[g.key] || g.key;
+                        const id = `${section.id}-${g.key}`;
+                        const prices = g.products.map(p => p.price);
+                        const min = Math.min(...prices);
+                        const max = Math.max(...prices);
+                        const priceLabel = min === max ? `$${min.toFixed(2)}` : `$${min.toFixed(2)}–$${max.toFixed(2)}`;
+                        const unitText = g.products[0].unitKey ? (t[g.products[0].unitKey] || g.products[0].unitKey) : '';
+                        const cards = g.products.map(buildCard).join('');
+                        return `
+                            <div id="${id}" class="product-group scroll-mt-40 mb-10" style="scroll-margin-top: calc(var(--header-h, 64px) + var(--nav-h, 56px) + 54px)">
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4 border-b border-gray-200 pb-3">
+                                    <h3 class="text-lg font-extrabold text-gray-900">${label}</h3>
+                                    <span class="text-xs font-bold text-[#C65D47] bg-[#C65D47]/10 px-2.5 py-1 rounded-full">${g.products.length} · ${priceLabel}${unitText}</span>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    ${cards}
+                                </div>
+                            </div>`;
+                    }).join('');
+
+                    contentHtml = pillsHtml + groupsHtml;
+                } else {
+                    const cards = section.products.map(buildCard).join('');
+                    contentHtml = `<div class="grid md:grid-cols-2 gap-6">${cards}</div>`;
+                }
 
                 return `
-                    <section id="${section.id}" class="${section.scrollMargin || 'scroll-mt-40'}">
+                    <section id="${section.id}" class="${section.scrollMargin || 'scroll-mt-40'}" style="scroll-margin-top: calc(var(--header-h, 64px) + var(--nav-h, 56px) + 12px)">
                         <div class="border-b border-gray-200 pb-4 mb-6">
                             <h2 class="text-2xl font-extrabold text-gray-900">${section.icon} ${sectionTitle}</h2>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            ${productsHtml}
-                        </div>
+                        ${contentHtml}
                     </section>`;
             }).join('');
         }
@@ -689,6 +747,8 @@
                 btn.getAttribute('onclick').includes(viewId)
             );
             if (targetButton) targetButton.classList.add('text-[#C65D47]');
+            // Re-measure sticky offsets now that the target view is visible
+            if (typeof updateStickyOffsets === 'function') updateStickyOffsets();
             window.scrollTo(0,0);
         }
 
@@ -713,6 +773,12 @@
 
                 if (matchesFilter) card.classList.remove('hidden-filter');
                 else card.classList.add('hidden-filter');
+            });
+
+            // Hide any subgroup block that has no visible cards (e.g. after search/filters)
+            document.querySelectorAll('.product-group').forEach(group => {
+                const visibleCards = group.querySelectorAll('.product-card:not(.hidden-filter)').length;
+                group.classList.toggle('hidden-group', visibleCards === 0);
             });
 
             // Use catalog data to find which section is in view
@@ -982,6 +1048,38 @@
         renderStore();
         // Sync all data-i18n elements with English translations on load
         changeLanguage(currentLang);
+
+        // ── Sticky Offset Sync ──
+        // Keep sticky bars below the header/nav using measured heights so
+        // pills are never clipped behind the sticky header (responsive-safe).
+        // Only apply heights > 0: hidden views (display:none) measure 0 and
+        // must not overwrite the real values.
+        function updateStickyOffsets() {
+            const root = document.documentElement;
+            const header = document.querySelector('header');
+            const headerH = header ? header.offsetHeight : 0;
+            if (headerH > 0) root.style.setProperty('--header-h', headerH + 'px');
+            // Measure the OUTER sticky bar (includes its border) so pills sit flush below it
+            const navLinks = document.getElementById('section-nav-links');
+            const navBar = navLinks ? navLinks.parentElement : null;
+            const navH = navBar ? navBar.offsetHeight : 0;
+            if (navH > 0) root.style.setProperty('--nav-h', navH + 'px');
+        }
+        window.addEventListener('load', updateStickyOffsets);
+        window.addEventListener('resize', updateStickyOffsets);
+        window.addEventListener('orientationchange', updateStickyOffsets);
+        // Re-measure shortly after load too (fonts/images can shift layout)
+        window.addEventListener('load', () => { setTimeout(updateStickyOffsets, 300); setTimeout(updateStickyOffsets, 1000); });
+        // Keep offsets in sync with the real header/nav size at ALL times
+        if (window.ResizeObserver) {
+            const ro = new ResizeObserver(updateStickyOffsets);
+            const headerEl = document.querySelector('header');
+            if (headerEl) ro.observe(headerEl);
+            const navLinks = document.getElementById('section-nav-links');
+            const navBar = navLinks ? navLinks.parentElement : null;
+            if (navBar) ro.observe(navBar);
+        }
+        updateStickyOffsets();
     </script>
 </body>
 </html>
