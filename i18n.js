@@ -9,6 +9,7 @@ const translations = {
         "nav-about": "About",
         "nav-feedback": "Feedback",
         "nav-signup": "📬 Sign Up",
+        "nav-contact": "Contact Us",
         "lang-en": "🇺🇸 English",
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
@@ -545,7 +546,14 @@ const translations = {
         "menu-pdf": "files/English_Menu.pdf",
         "menu-download": "📄 Download Full Menu (PDF)",
         "signup-title": "📬 Stay in the Loop",
-        "signup-desc": "Sign up to receive exclusive <strong>specials, promotions, and homemade recipes</strong> delivered straight to your inbox. Don't miss out on new menu drops and seasonal treats!"
+        "signup-desc": "Sign up to receive exclusive <strong>specials, promotions, and homemade recipes</strong> delivered straight to your inbox. Don't miss out on new menu drops and seasonal treats!",
+        "contact-title": "Get in Touch",
+        "contact-badge": "Contact",
+        "contact-details-title": "Our Kitchen",
+        "contact-phone-label": "Phone",
+        "contact-email-label": "Email",
+        "contact-address-label": "Address",
+        "contact-maps": "Open in Google Maps",
     },
     ru: {
         "page-title": "🥟 Pelmen Perogies — Аутентичные вкусы",
@@ -556,6 +564,7 @@ const translations = {
         "nav-about": "О нас",
         "nav-feedback": "Отзывы",
         "nav-signup": "📬 Подписаться",
+        "nav-contact": "Связаться с нами",
         "lang-en": "🇺🇸 English",
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
@@ -1092,7 +1101,14 @@ const translations = {
         "menu-pdf": "files/Russian_Menu.pdf",
         "menu-download": "📄 Скачать полное меню (PDF)",
         "signup-title": "📬 Оставайтесь на связи",
-        "signup-desc": "Подпишитесь, чтобы получать эксклюзивные <strong>акции, скидки и домашние рецепты</strong> прямо на вашу почту. Не пропустите новые позиции меню и сезонные угощения!"
+        "signup-desc": "Подпишитесь, чтобы получать эксклюзивные <strong>акции, скидки и домашние рецепты</strong> прямо на вашу почту. Не пропустите новые позиции меню и сезонные угощения!",
+        "contact-title": "Связаться с нами",
+        "contact-badge": "Контакты",
+        "contact-details-title": "Наша кухня",
+        "contact-phone-label": "Телефон",
+        "contact-email-label": "Эл. почта",
+        "contact-address-label": "Адрес",
+        "contact-maps": "Открыть в Google Картах",
     },    uk: {
         "page-title": "🥟 Pelmen Perogies — Автентичні смаки",
         "announcement": "🏡 На 100% домашня кухня малих партій • Без наповнювачів та добавок • Безкоштовна доставка додому при замовленні від $100",
@@ -1102,6 +1118,7 @@ const translations = {
         "nav-about": "Про нас",
         "nav-feedback": "Відгуки",
         "nav-signup": "📬 Підписатися",
+        "nav-contact": "Зв'язатися з нами",
         "lang-en": "🇺🇸 English",
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
@@ -1638,7 +1655,14 @@ const translations = {
         "menu-pdf": "files/Ukrainian_Menu.pdf",
         "menu-download": "📄 Завантажити повне меню (PDF)",
         "signup-title": "📬 Залишайтеся на зв'язку",
-        "signup-desc": "Підпишіться, щоб отримувати ексклюзивні <strong>акції, знижки та домашні рецепти</strong> прямо на вашу пошту. Не пропустіть нові позиції меню та сезонні частування!"
+        "signup-desc": "Підпишіться, щоб отримувати ексклюзивні <strong>акції, знижки та домашні рецепти</strong> прямо на вашу пошту. Не пропустіть нові позиції меню та сезонні частування!",
+        "contact-title": "Зв'язатися з нами",
+        "contact-badge": "Контакти",
+        "contact-details-title": "Наша кухня",
+        "contact-phone-label": "Телефон",
+        "contact-email-label": "Електронна пошта",
+        "contact-address-label": "Адреса",
+        "contact-maps": "Відкрити в Google Картах",
     }
 };
 

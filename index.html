@@ -91,6 +91,7 @@
                 <button onclick="switchView('about-page')" class="nav-link hover:text-white transition" data-i18n="nav-about">About Us</button>
                 <button onclick="switchView('feedback-page')" class="nav-link hover:text-white transition" data-i18n="nav-feedback">Leave Feedback</button>
                 <button onclick="switchView('signup-page')" class="nav-link hover:text-white transition" data-i18n="nav-signup">📬 Sign Up</button>
+                <button onclick="switchView('contact-page')" class="nav-link hover:text-white transition" data-i18n="nav-contact">Contact Us</button>
             </nav>
 
             <div class="flex items-center gap-3">
@@ -432,6 +433,51 @@
             <div class="ml-embedded" data-form="gG0s9I" data-lang="en"></div>
             <div class="ml-embedded hidden" data-form="6IQECv" data-lang="ru"></div>
             <div class="ml-embedded hidden" data-form="bwQYwj" data-lang="uk"></div>
+        </div>
+    </div>
+
+    <!-- PAGE VIEW 6: CONTACT US -->
+    <div id="contact-page" class="page-view max-w-6xl mx-auto px-4 py-20">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold tracking-widest text-[#C65D47] uppercase bg-[#E3D2B4] border border-amber-100 px-3 py-1 rounded-full" data-i18n="contact-badge">Contact</span>
+            <h2 class="text-4xl font-extrabold text-gray-900 mt-3" data-i18n="contact-title">Get in Touch</h2>
+            <div class="w-16 h-1 bg-[#C65D47] mx-auto mt-4 rounded-full"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+            <!-- Google Map -->
+            <div class="rounded-3xl overflow-hidden shadow-xl shadow-black/5 border border-gray-100 min-h-[380px] bg-gray-100">
+                <iframe src="https://www.google.com/maps?q=111+Martin+Ross+Ave+Unit+12+Toronto+ON&output=embed" width="100%" height="100%" style="border:0; min-height:380px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pelmen Perogies — 111 Martin Ross Ave, Unit 12, Toronto, ON"></iframe>
+            </div>
+            <!-- Contact Details -->
+            <div class="bg-white rounded-3xl shadow-xl shadow-black/5 p-8 md:p-10 border border-gray-100 flex flex-col justify-center gap-6">
+                <h3 class="text-2xl font-bold text-gray-900 flex items-center gap-2">🥟 <span data-i18n="contact-details-title">Our Kitchen</span></h3>
+                <ul class="space-y-5 text-sm text-gray-700">
+                    <li class="flex items-start gap-4">
+                        <span class="w-10 h-10 bg-[#C65D47]/10 rounded-xl flex items-center justify-center text-lg shrink-0">📞</span>
+                        <div>
+                            <p class="font-bold text-gray-900 text-xs uppercase tracking-wider mb-0.5" data-i18n="contact-phone-label">Phone</p>
+                            <a href="tel:4169095366" class="hover:text-[#C65D47] transition">(416) 909-5366</a>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="w-10 h-10 bg-[#C65D47]/10 rounded-xl flex items-center justify-center text-lg shrink-0">✉️</span>
+                        <div>
+                            <p class="font-bold text-gray-900 text-xs uppercase tracking-wider mb-0.5" data-i18n="contact-email-label">Email</p>
+                            <a href="mailto:info@pelmenperogies.com" class="hover:text-[#C65D47] transition">info@pelmenperogies.com</a>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="w-10 h-10 bg-[#C65D47]/10 rounded-xl flex items-center justify-center text-lg shrink-0">📍</span>
+                        <div>
+                            <p class="font-bold text-gray-900 text-xs uppercase tracking-wider mb-0.5" data-i18n="contact-address-label">Address</p>
+                            <p>111 Martin Ross Ave, Unit 12, Toronto, ON</p>
+                        </div>
+                    </li>
+                </ul>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=111+Martin+Ross+Ave+Unit+12+Toronto+ON" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 btn-primary bg-[#C65D47] text-white px-6 py-3 rounded-full font-bold text-sm shadow-md hover:bg-[#3D3A38]">
+                    🗺️ <span data-i18n="contact-maps">Open in Google Maps</span>
+                </a>
+            </div>
         </div>
     </div>
 
