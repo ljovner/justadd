@@ -1106,6 +1106,34 @@
         // Sync all data-i18n elements with English translations on load
         changeLanguage(currentLang);
 
+        // ── Direct Landing via URL ──
+        // Land directly on a page using a query param or hash:
+        //   index.html?view=shop   |   index.html#shop
+        // Accepted names: home, store, shop, about, feedback, signup, contact
+        // (raw page-view ids like "store-page" are also accepted)
+        function viewIdFromUrl() {
+            const aliases = {
+                home: 'home-page', store: 'store-page', shop: 'store-page',
+                about: 'about-page', feedback: 'feedback-page',
+                signup: 'signup-page', contact: 'contact-page'
+            };
+            const params = new URLSearchParams(window.location.search);
+            const view = params.get('view');
+            if (view) {
+                const v = view.toLowerCase();
+                if (aliases[v]) return aliases[v];
+                if (document.getElementById(v)) return v;
+            }
+            const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase();
+            if (hash) {
+                if (aliases[hash]) return aliases[hash];
+                if (document.getElementById(hash)) return hash;
+            }
+            return null;
+        }
+        const landingView = viewIdFromUrl();
+        if (landingView) switchView(landingView);
+
         // ── Sticky Offset Sync ──
         // Keep sticky bars below the header/nav using measured heights so
         // pills are never clipped behind the sticky header (responsive-safe).
