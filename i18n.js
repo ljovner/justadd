@@ -8,6 +8,7 @@ const translations = {
         "nav-shop": "Shop",
         "nav-about": "About",
         "nav-feedback": "Feedback",
+        "nav-signup": "📬 Sign Up",
         "lang-en": "🇺🇸 English",
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
@@ -522,6 +523,7 @@ const translations = {
         "hero-heading-line2": "Frozen for Your Convenience.",
         "hero-desc": "Authentic, hand made classics. Crafted using small-batch, 25-year family techniques with zero fillers or additives.",
         "hero-cta": "Explore Menu & Order Online",
+        "hero-menu-download": "📄 Download Menu",
         "category-heading": "How We Keep It Authentic",
         "cat-sauces-title": "Gourmet Sauce Bases",
         "cat-sauces-desc": "Complete slow-simmered rich meats and veggies. Simply boil up your favorite pasta, rice, or mashed potatoes, mix together, and dinner is ready.",
@@ -541,7 +543,9 @@ const translations = {
         "popular-4-desc": "Cabbage leaves wrapped over minced pork, beef, and rice.",
         "popular-order-btn": "Order from Menu",
         "menu-pdf": "files/English_Menu.pdf",
-        "menu-download": "📄 Download Full Menu (PDF)"
+        "menu-download": "📄 Download Full Menu (PDF)",
+        "signup-title": "📬 Stay in the Loop",
+        "signup-desc": "Sign up to receive exclusive <strong>specials, promotions, and homemade recipes</strong> delivered straight to your inbox. Don't miss out on new menu drops and seasonal treats!"
     },
     ru: {
         "page-title": "🥟 Pelmen Perogies — Аутентичные вкусы",
@@ -551,6 +555,7 @@ const translations = {
         "nav-shop": "Магазин",
         "nav-about": "О нас",
         "nav-feedback": "Отзывы",
+        "nav-signup": "📬 Подписаться",
         "lang-en": "🇺🇸 English",
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
@@ -1065,6 +1070,7 @@ const translations = {
         "hero-heading-line2": "Заморожено для вашего удобства.",
         "hero-desc": "Аутентичная классика ручной работы. Создано по 25-летним семейным рецептам малыми партиями без наполнителей и добавок.",
         "hero-cta": "Посмотреть меню и заказать онлайн",
+        "hero-menu-download": "📄 Скачать меню",
         "category-heading": "Как мы упрощаем процесс",
         "cat-sauces-title": "Готовые соусы",
         "cat-sauces-desc": "Полноценные медленно тушеные мясные и овощные соусы. Просто сварите любимые макароны, рис или картофельное пюре, смешайте — и ужин готов.",
@@ -1084,7 +1090,9 @@ const translations = {
         "popular-4-desc": "Капустные листья с начинкой из свинины, говядины и риса.",
         "popular-order-btn": "Заказать из меню",
         "menu-pdf": "files/Russian_Menu.pdf",
-        "menu-download": "📄 Скачать полное меню (PDF)"
+        "menu-download": "📄 Скачать полное меню (PDF)",
+        "signup-title": "📬 Оставайтесь на связи",
+        "signup-desc": "Подпишитесь, чтобы получать эксклюзивные <strong>акции, скидки и домашние рецепты</strong> прямо на вашу почту. Не пропустите новые позиции меню и сезонные угощения!"
     },    uk: {
         "page-title": "🥟 Pelmen Perogies — Автентичні смаки",
         "announcement": "🏡 На 100% домашня кухня малих партій • Без наповнювачів та добавок • Безкоштовна доставка додому при замовленні від $100",
@@ -1093,6 +1101,7 @@ const translations = {
         "nav-shop": "Магазин",
         "nav-about": "Про нас",
         "nav-feedback": "Відгуки",
+        "nav-signup": "📬 Підписатися",
         "lang-en": "🇺🇸 English",
         "lang-ru": "🇷🇺 Русский",
         "lang-uk": "🇺🇦 Українська",
@@ -1607,6 +1616,7 @@ const translations = {
         "hero-heading-line2": "Заморожено для вашої зручності.",
         "hero-desc": "Автентична класика ручної роботи. Створено за 25-річними сімейними рецептами малими партіями без наповнювачів та добавок.",
         "hero-cta": "Переглянути меню та замовити онлайн",
+        "hero-menu-download": "📄 Завантажити меню",
         "category-heading": "Як ми спрощуємо процес",
         "cat-sauces-title": "Готові соуси",
         "cat-sauces-desc": "Повноцінні повільно тушковані м'ясні та овочеві соуси. Просто зваріть улюблені макарони, рис або картопляне пюре, змішайте — і вечеря готова.",
@@ -1626,7 +1636,9 @@ const translations = {
         "popular-4-desc": "Капустяне листя з начинкою зі свинини, яловичини та рису.",
         "popular-order-btn": "Замовити з меню",
         "menu-pdf": "files/Ukrainian_Menu.pdf",
-        "menu-download": "📄 Завантажити повне меню (PDF)"
+        "menu-download": "📄 Завантажити повне меню (PDF)",
+        "signup-title": "📬 Залишайтеся на зв'язку",
+        "signup-desc": "Підпишіться, щоб отримувати ексклюзивні <strong>акції, знижки та домашні рецепти</strong> прямо на вашу пошту. Не пропустіть нові позиції меню та сезонні частування!"
     }
 };
 

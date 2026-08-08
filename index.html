@@ -90,7 +90,7 @@
                 <button onclick="switchView('store-page')" class="nav-link hover:text-white transition" data-i18n="nav-shop">Our Shop</button>
                 <button onclick="switchView('about-page')" class="nav-link hover:text-white transition" data-i18n="nav-about">About Us</button>
                 <button onclick="switchView('feedback-page')" class="nav-link hover:text-white transition" data-i18n="nav-feedback">Leave Feedback</button>
-                <button onclick="switchView('signup-page')" class="nav-link hover:text-white transition">📬 Sign Up</button>
+                <button onclick="switchView('signup-page')" class="nav-link hover:text-white transition" data-i18n="nav-signup">📬 Sign Up</button>
             </nav>
 
             <div class="flex items-center gap-3">
@@ -139,7 +139,7 @@
                             <button onclick="switchView('store-page')" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-8 py-3.5 rounded-full font-extrabold text-base shadow-2xl shadow-[#C65D47]/30">
                                 🛒 <span data-i18n="hero-cta">Explore Menu & Order Online</span>
                             </button>
-                            <a href="files/English_Menu.pdf" download target="_blank" data-i18n-href="menu-pdf" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-8 py-3.5 rounded-full font-extrabold text-base shadow-2xl shadow-[#C65D47]/30 flex items-center justify-center text-center">
+                            <a href="files/English_Menu.pdf" download target="_blank" data-i18n-href="menu-pdf" data-i18n="hero-menu-download" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-8 py-3.5 rounded-full font-extrabold text-base shadow-2xl shadow-[#C65D47]/30 flex items-center justify-center text-center">
                                 📄 Download Menu
                             </a>
                         </div>
@@ -424,12 +424,14 @@
     <!-- SIGNUP / NEWSLETTER SECTION -->
     <div id="signup-page" class="page-view max-w-xl mx-auto px-4 py-20">
         <div class="bg-white rounded-3xl shadow-xl shadow-black/5 p-8 space-y-6 text-center border border-gray-100">
-            <h3 class="text-2xl font-bold text-gray-900">📬 Stay in the Loop</h3>
-            <p class="text-sm text-gray-500 max-w-md mx-auto">
+            <h3 class="text-2xl font-bold text-gray-900" data-i18n="signup-title">📬 Stay in the Loop</h3>
+            <p class="text-sm text-gray-500 max-w-md mx-auto" data-i18n-html="signup-desc">
                 Sign up to receive exclusive <strong>specials, promotions, and homemade recipes</strong> 
                 delivered straight to your inbox. Don't miss out on new menu drops and seasonal treats!
             </p>
-            <div class="ml-embedded" data-form="gG0s9I"></div>
+            <div class="ml-embedded" data-form="gG0s9I" data-lang="en"></div>
+            <div class="ml-embedded hidden" data-form="6IQECv" data-lang="ru"></div>
+            <div class="ml-embedded hidden" data-form="bwQYwj" data-lang="uk"></div>
         </div>
     </div>
 
@@ -722,6 +724,10 @@
                 if (window.translations && translations[lang] && translations[lang][key]) {
                     el.href = translations[lang][key];
                 }
+            });
+            // Show only the MailerLite signup form matching the selected language
+            document.querySelectorAll('.ml-embedded[data-lang]').forEach(el => {
+                el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang);
             });
             // Re-render the store with translated labels
             if (catalogData) renderStore();
