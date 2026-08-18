@@ -69,11 +69,6 @@
         /* Tab buttons */
         .tab-btn { transition: all 0.25s ease; position: relative; }
         .tab-btn:hover { color: #C65D47; }
-
-        /* Home category lightbox gallery scrollbar */
-        .gallery-scroll::-webkit-scrollbar { height: 6px; }
-        .gallery-scroll::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 9999px; }
-        .gallery-scroll::-webkit-scrollbar-track { background: transparent; }
     </style>
 </head>
 <body class="bg-[#FAF7F2] text-gray-800 font-sans antialiased">
@@ -122,26 +117,113 @@
 
     <!-- FRONT HOMEPAGE LANDING VIEW -->
     <div id="home-page" class="page-view active-view">
-        <!-- Short, straight-to-the-point hero -->
-        <section class="max-w-6xl mx-auto px-4 pt-14 pb-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight" data-i18n="home-hero-title">Handmade comfort food, ready in minutes.</h1>
-            <p class="text-gray-500 mt-4 max-w-xl mx-auto text-base" data-i18n="home-hero-sub">Small-batch perogies, pastries, salads and soups — made fresh with no fillers. Pick a category to see every flavour.</p>
+        <!-- Hero Section -->
+        <section class="relative text-white overflow-hidden min-h-[85vh] flex items-center">
+            <div class="absolute inset-0 bg-cover bg-center scale-110" style="background-image: url('images/perogies.jpg');"></div>
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="hero-shine"></div>
+            <!-- Decorative bottom glow -->
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C65D47]/60 to-transparent"></div>
+            <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[80%] h-40 bg-[#C65D47]/10 blur-3xl rounded-full"></div>
+            
+            <div class="max-w-6xl mx-auto relative z-10 px-4 w-full">
+                <div class="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <!-- Left: Text content -->
+                    <div class="text-center md:text-left md:pr-8 space-y-7 py-24 md:py-32">
+                        <span class="inline-block text-[10px] uppercase tracking-[0.25em] font-semibold text-amber-300/80 border border-amber-400/20 px-4 py-2 rounded-full backdrop-blur-sm" data-i18n="hero-badge"></span>
+                        <h2 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.05]">
+                            <span class="block text-white" data-i18n="hero-heading-line1">Authentic Flavors</span>
+                            <span class="block bg-gradient-to-r from-amber-300 via-amber-400 to-orange-300 bg-clip-text text-transparent" data-i18n="hero-heading-line2">Frozen for Your Convenience.</span>
+                        </h2>
+                        <p class="text-base md:text-lg text-gray-300/80 max-w-lg font-light leading-relaxed" data-i18n="hero-desc">Authentic, hand made classics. Crafted using small-batch, 25-year family techniques with zero fillers or additives.</p>
+                        <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <button onclick="switchView('store-page')" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-8 py-3.5 rounded-full font-extrabold text-base shadow-2xl shadow-[#C65D47]/30">
+                                🛒 <span data-i18n="hero-cta">Explore Menu & Order Online</span>
+                            </button>
+                            <a href="files/English_Menu.pdf" download target="_blank" data-i18n-href="menu-pdf" data-i18n="hero-menu-download" class="btn-primary bg-[#C65D47] hover:bg-white hover:text-[#3D3A38] text-white px-8 py-3.5 rounded-full font-extrabold text-base shadow-2xl shadow-[#C65D47]/30 flex items-center justify-center text-center">
+                                📄 Download Menu
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Right: Decorative element -->
+                    <div class="hidden md:flex items-center justify-center">
+                        <div class="relative w-72 h-72 lg:w-96 lg:h-96">
+                            <div class="absolute inset-0 bg-gradient-to-br from-[#C65D47]/20 to-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
+                            <div class="absolute inset-4 border border-white/10 rounded-full backdrop-blur-sm overflow-hidden">
+                                <video autoplay muted playsinline class="w-full h-full object-cover rounded-full">
+                                    <source src="home_video.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-sm text-white/70 text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full">
+                                Handmade Daily
+                            </div>
+                            <div class="absolute top-3 right-4 w-3 h-3 bg-amber-400/50 rounded-full float"></div>
+                            <div class="absolute bottom-10 left-2 w-2 h-2 bg-[#C65D47]/30 rounded-full float" style="animation-delay: 2s;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Category grid (built by renderHomeCategories from catalogData) -->
-        <section id="menu" class="max-w-6xl mx-auto px-4 py-8 pb-20">
-            <div id="home-category-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+        <!-- Category Teaser Pitch Deck -->
+        <section class="relative py-24 px-4 overflow-hidden bg-[#FAF7F2]">
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/50 to-transparent"></div>
+            <div class="max-w-7xl mx-auto space-y-16">
+                <div class="text-center space-y-5">
+                    <span class="inline-block text-[10px] uppercase tracking-[0.25em] font-semibold text-[#C65D47] border border-[#C65D47]/30 px-5 py-2 rounded-full">Our Craft</span>
+                    <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight" data-i18n="category-heading">How We Keep It Authentic</h3>
+                    <div class="section-divider max-w-[120px] mx-auto"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-5 lg:gap-7">
+                    <div class="group relative bg-white rounded-3xl p-8 lg:p-10 text-center card-shadow border border-gray-100 overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-[#C65D47]/5 rounded-bl-[100px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-[#C65D47]/10"></div>
+                        <div class="relative space-y-5">
+                            <div class="cat-icon w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl">
+                                <span>🥟</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-perogies-title">Hand-Pinched Perogies</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-perogies-desc">Over 30 traditional and modern sweet or savory styles whipped up by hand, par-frozen raw on dusting boards to preserve integrity.</p>
+                        </div>
+                    </div>
+                    <div class="group relative bg-white rounded-3xl p-8 lg:p-10 text-center card-shadow border border-gray-100 overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-[#C65D47]/5 rounded-bl-[100px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-[#C65D47]/10"></div>
+                        <div class="relative space-y-5">
+                            <div class="cat-icon w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl">
+                                <span>🥩</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-classics-title">Household Specialties</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-classics-desc">Authentic regional comfort entrées like crispy chebureke turnovers and cabbage rolls prepared exactly according to legacy methods.</p>
+                        </div>
+                    </div>
+                    <div class="group relative bg-white rounded-3xl p-8 lg:p-10 text-center card-shadow border border-gray-100 overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-[#C65D47]/5 rounded-bl-[100px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-[#C65D47]/10"></div>
+                        <div class="relative space-y-5">
+                            <div class="cat-icon w-16 h-16 mx-auto bg-[#C65D47]/10 rounded-2xl flex items-center justify-center text-3xl">
+                                <span>🔥</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900" data-i18n="cat-sauces-title">Gourmet Sauce Bases</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed" data-i18n="cat-sauces-desc">Complete slow-simmered rich meats and veggies. Simply boil up your favorite pasta, rice, or mashed potatoes, mix together, and dinner is ready.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Bottom text: a bit about us, below all the photos -->
-        <section class="border-t border-gray-200 bg-white">
-            <div class="max-w-3xl mx-auto px-4 py-14 text-center space-y-5">
-                <h2 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight" data-i18n="home-bottom-title">Small-batch, hand-made, the old way</h2>
-                <p class="text-gray-600 leading-relaxed text-[15px]" data-i18n="home-bottom-p1">Everything on our menu is made in our own kitchen using recipes passed down through the family for 25 years. We hand-pinch each perogy, roll each cheburek, and simmer every soup in small batches — no fillers, no additives, no shortcuts.</p>
-                <p class="text-gray-600 leading-relaxed text-[15px]" data-i18n="home-bottom-p2">Order cold and deep-frozen to cook at home in minutes, or choose our catering option and we&rsquo;ll deliver it steaming hot and table-ready. Free home delivery on orders over $100.</p>
-                <button onclick="switchView('store-page')" class="mt-2 bg-[#C65D47] hover:bg-[#B04D37] text-white px-8 py-3 rounded-full font-bold text-sm transition-colors">
-                    <span data-i18n="home-cta">Browse the full menu</span> →
-                </button>
+        <!-- Popular Appetizers Highlight Grid -->
+        <section class="relative py-24 px-4 overflow-hidden bg-[#3D3A38]">
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C65D47]/5 rounded-full blur-3xl"></div>
+            <div class="max-w-7xl mx-auto relative z-10 space-y-14">
+                <div class="text-center space-y-4">
+                    <span class="inline-block text-[10px] uppercase tracking-[0.25em] font-semibold text-amber-300/80 border border-amber-400/20 px-5 py-2 rounded-full backdrop-blur-sm">Best Sellers</span>
+                    <h3 class="text-3xl md:text-5xl font-black text-white tracking-tight" data-i18n="popular-heading">Our Kitchen Staples</h3>
+                    <p class="text-sm text-white/40 font-medium uppercase tracking-wider" data-i18n="popular-subtitle">Customer Favorites from the Counter</p>
+                </div>
+                
+                <div id="popular-product-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                </div>
             </div>
         </section>
     </div>
@@ -415,12 +497,6 @@
         </div>
     </div>
 
-    <!-- HOME CATEGORY LIGHTBOX (Design A) -->
-    <div id="cat-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeCatModal()"></div>
-        <div id="cat-modal-panel" class="relative bg-white w-full max-w-3xl rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto"></div>
-    </div>
-
     <!-- Footer Area -->
     <!-- Footer Area -->
     <footer class="bg-[#3D3A38] text-gray-400 py-8 px-4 text-center text-xs relative">
@@ -569,7 +645,7 @@
                     return `
                         <div class="product-card bg-white border border-gray-100 flex flex-col justify-between card-shadow" data-veg="${veg}" data-df="${df}" data-pf="${pf}">
                             <div>
-                                <div onclick="openVisualModal('${prod.name.replace(/'/g, "\\'")}', '${prod.image}')" class="p-5 text-white cursor-pointer transition-all duration-300 relative bg-cover bg-center min-h-[112px] flex flex-col justify-end" style="background-image: linear-gradient(to top, rgba(26,24,23,0.95) 0%, rgba(61,58,56,0.55) 55%, rgba(61,58,56,0.35) 100%), url('${prod.image}');">
+                                <div onclick="openVisualModal('${prod.name.replace(/'/g, "\\'")}', '${prod.image}')" class="p-5 bg-gradient-to-br from-[#3D3A38] to-[#2A2827] text-white cursor-pointer hover:from-[#C65D47] hover:to-[#B04D37] transition-all duration-300">
                                     <h4 class="text-xl font-bold flex items-center justify-between">${prodName} <span class="text-sm opacity-90 p-1 hover:scale-110 transition">📷</span></h4>
                                     <p class="text-amber-100 text-xs mt-1">${prodDesc}</p>
                                 </div>
@@ -701,7 +777,6 @@
             });
             // Re-render the store with translated labels
             if (catalogData) renderStore();
-            renderHomeCategories();
             renderCart();
         }
 
@@ -719,181 +794,6 @@
             document.getElementById('visual-modal-overlay').classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
         }
-
-        // ── Home Landing: category cards + lightbox (Design A) ──
-        let HOME_CATEGORIES = [];
-        const HOME_CAT_DEF = [
-            { key: 'perogies',  sectionId: 'perogies', subgroups: null, nameKey: 'homecat-perogies',  tagKey: 'homecat-perogies-tag',  emoji: '🥟', img: 'images/perogies.jpg', slides: [
-                { label: 'Meat', emoji: '🥩', from: '#f6d365', to: '#fda085' },
-                { label: 'Potato', emoji: '🥔', from: '#ffecd2', to: '#fcb69f' },
-                { label: 'Dessert', emoji: '🍒', from: '#fbc2eb', to: '#a6c1ee' }
-            ]},
-            { key: 'chebureki', sectionId: 'classics', subgroups: ['subgroup-chebureki'], nameKey: 'homecat-chebureki', tagKey: 'homecat-chebureki-tag', emoji: '🥟', img: 'images/cheburiki.jpg', slides: [
-                { label: 'Chicken', emoji: '🍗', from: '#f6d365', to: '#fda085' },
-                { label: 'Beef & Pork', emoji: '🥩', from: '#fda085', to: '#f6d365' },
-                { label: 'Lamb', emoji: '🐑', from: '#fbc2eb', to: '#a6c1ee' }
-            ]},
-            { key: 'pirozhki',  sectionId: 'classics', subgroups: ['subgroup-pirozhki'], nameKey: 'homecat-pirozhki',  tagKey: 'homecat-pirozhki-tag',  emoji: '🥮', img: 'images/pirozhki.jpg', slides: [
-                { label: 'Beef & Pork', emoji: '🥩', from: '#fda085', to: '#f6d365' },
-                { label: 'Cabbage', emoji: '🥬', from: '#a8edea', to: '#fed6e3' },
-                { label: 'Potato', emoji: '🥔', from: '#f6d365', to: '#fda085' }
-            ]},
-            { key: 'crepes',    sectionId: 'classics', subgroups: ['subgroup-savoury-crepes', 'subgroup-dessert-crepes'], nameKey: 'homecat-crepes', tagKey: 'homecat-crepes-tag', emoji: '🥞', img: 'images/crepes.jpg', slides: [
-                { label: 'Savoury', emoji: '🍗', from: '#ffecd2', to: '#fcb69f' },
-                { label: 'Dessert', emoji: '🍒', from: '#fbc2eb', to: '#a6c1ee' }
-            ]},
-            { key: 'salads',    sectionId: 'fresh',    subgroups: ['subgroup-salads'], nameKey: 'homecat-salads',    tagKey: 'homecat-salads-tag',    emoji: '🥗', img: 'images/salad.jpg', slides: [
-                { label: 'Veggie Classics', emoji: '🥗', from: '#a8edea', to: '#fed6e3' },
-                { label: 'Beet & Eggplant', emoji: '🍆', from: '#fbc2eb', to: '#a6c1ee' },
-                { label: 'Pâtés & Spreads', emoji: '🧀', from: '#ffecd2', to: '#fcb69f' }
-            ]},
-            { key: 'soups',     sectionId: 'fresh',    subgroups: ['subgroup-soups'],    nameKey: 'homecat-soups',     tagKey: 'homecat-soups-tag',     emoji: '🍲', img: 'images/soup.jpg', slides: [
-                { label: 'Borscht', emoji: '🍲', from: '#fda085', to: '#f6d365' },
-                { label: 'Split Pea', emoji: '🟢', from: '#a8edea', to: '#fed6e3' },
-                { label: 'Meatball', emoji: '🥣', from: '#ffecd2', to: '#fcb69f' }
-            ]}
-        ];
-
-        function renderHomeCategories() {
-            const grid = document.getElementById('home-category-grid');
-            if (!grid || !catalogData) return;
-            const t = (window.translations && translations[currentLang]) ? translations[currentLang] : {};
-
-            const visibleSections = catalogData.sections
-                .map(sec => ({ ...sec, products: sec.products.filter(p => p.isVisible !== false) }))
-                .filter(sec => sec.products.length > 0);
-            const bySection = {};
-            visibleSections.forEach(sec => { bySection[sec.id] = sec.products; });
-
-            HOME_CATEGORIES = HOME_CAT_DEF.map(def => {
-                const section = bySection[def.sectionId] || [];
-                const products = def.subgroups
-                    ? section.filter(p => def.subgroups.includes(p.subgroup))
-                    : section;
-                const cat = {
-                    key: def.key, emoji: def.emoji,
-                    name: t[def.nameKey] || def.nameKey,
-                    tag: t[def.tagKey] || def.tagKey,
-                    products: products
-                };
-                cat.img = def.img || ((products[0] && products[0].image) || 'images/perogies.jpg');
-                cat.count = products.length;
-                // Shop-page anchor: whole section, or first subgroup block on the store page
-                cat.anchor = def.subgroups ? `${def.sectionId}-${def.subgroups[0]}` : def.sectionId;
-
-                const prices = products.map(p => p.price);
-                if (prices.length) {
-                    const min = Math.min(...prices), max = Math.max(...prices);
-                    const unitKey = products[0].unitKey;
-                    const unit = unitKey ? (t[unitKey] || unitKey) : '';
-                    cat.priceLabel = (min === max ? `$${min.toFixed(0)}` : `$${min.toFixed(0)}–$${max.toFixed(0)}`) + (unit ? ' ' + unit : '');
-                } else {
-                    cat.priceLabel = '';
-                }
-
-                cat.flavors = products.map(p => ({
-                    name: t[p.id + '-name'] || p.name,
-                    price: p.price,
-                    unit: p.unitKey ? (t[p.unitKey] || p.unitKey) : ''
-                }));
-
-                // Gallery: dedup real product images, then gradient flavour tiles
-                const slides = [];
-                const seen = new Set();
-                for (const p of products) {
-                    if (slides.length >= 4) break;
-                    if (!p.image || seen.has(p.image)) continue;
-                    seen.add(p.image);
-                    slides.push({ img: p.image });
-                }
-                for (const g of def.slides) {
-                    if (slides.length >= 8) break;
-                    slides.push(g);
-                }
-                if (slides.length === 0) slides.push({ img: cat.img });
-                cat.slides = slides;
-                return cat;
-            });
-
-            const flavoursLabel = t['home-flavours'] || 'flavours';
-            const viewLabel = t['home-view'] || 'View';
-            grid.innerHTML = HOME_CATEGORIES.map((c, i) => `
-                <button onclick="openCatModal('${c.key}')" class="group text-left bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="h-44 overflow-hidden relative">
-                        <img src="${c.img}" alt="${c.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-2.5 py-0.5 text-[11px] font-bold text-gray-700 shadow">${c.count} ${flavoursLabel}</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-extrabold text-gray-900">${c.emoji} ${c.name}</h3>
-                        <p class="text-sm text-gray-500 mt-1">${c.tag}</p>
-                        <div class="mt-3 flex items-center justify-between">
-                            <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">${c.priceLabel}</span>
-                            <span class="text-[#C65D47] text-sm font-bold group-hover:translate-x-1 transition-transform">${viewLabel} →</span>
-                        </div>
-                    </div>
-                </button>`).join('');
-        }
-
-        function openCatModal(key) {
-            const c = HOME_CATEGORIES.find(x => x.key === key);
-            if (!c) return;
-            const t = (window.translations && translations[currentLang]) ? translations[currentLang] : {};
-            const slides = c.slides.map(s => s.img
-                ? `<div class="w-64 h-40 shrink-0 snap-center rounded-2xl overflow-hidden"><img src="${s.img}" class="w-full h-full object-cover"></div>`
-                : `<div class="w-64 h-40 shrink-0 snap-center rounded-2xl flex flex-col items-center justify-center gap-1.5" style="background:linear-gradient(135deg,${s.from},${s.to})"><span class="text-4xl drop-shadow">${s.emoji}</span><span class="text-sm font-bold text-white/90">${s.label}</span></div>`).join('');
-            const flavors = c.flavors.map(f => `
-                <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-gray-100 last:border-0">
-                    <span class="text-sm text-gray-700">${f.name}</span>
-                    <span class="text-sm font-bold text-[#C65D47] whitespace-nowrap">$${f.price.toFixed(2)}${f.unit ? ` <span class="text-[10px] font-normal text-gray-400">${f.unit}</span>` : ''}</span>
-                </div>`).join('');
-
-            document.getElementById('cat-modal-panel').innerHTML = `
-                <div class="p-6 md:p-8">
-                    <div class="flex items-start justify-between gap-4">
-                        <div>
-                            <h3 class="text-2xl font-black text-gray-900">${c.emoji} ${c.name}</h3>
-                            <p class="text-sm text-gray-500 mt-1">${c.tag}</p>
-                        </div>
-                        <button onclick="closeCatModal()" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 text-lg leading-none">×</button>
-                    </div>
-                    <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mt-6 mb-2">${t['home-gallery-label'] || 'Swipe through — a few looks'}</p>
-                    <div class="gallery-scroll flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2">${slides}</div>
-                    <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mt-6 mb-2">${t['home-flavours-label'] || 'All flavours & varieties'}</p>
-                    <div class="rounded-2xl bg-[#FAF7F2] px-5 py-3">${flavors}</div>
-                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <a href="${t['menu-pdf'] || 'files/English_Menu.pdf'}" download target="_blank" onclick="closeCatModal()" class="flex items-center justify-center border-2 border-[#3D3A38]/15 text-[#3D3A38] hover:bg-[#3D3A38]/5 py-3 rounded-full font-bold text-sm transition-colors">${t['menu-download'] || '📄 Download Full Menu (PDF)'}</a>
-                        <button onclick="closeCatModal(); openCategoryInShop('${c.key}')" class="bg-[#C65D47] hover:bg-[#B04D37] text-white py-3 rounded-full font-bold text-sm transition-colors">${t['home-shop-cat'] || 'Shop this category'} →</button>
-                    </div>
-                </div>`;
-
-            const modal = document.getElementById('cat-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCatModal() {
-            const modal = document.getElementById('cat-modal');
-            if (!modal) return;
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = '';
-        }
-        function openCategoryInShop(key) {
-            const c = HOME_CATEGORIES.find(x => x.key === key);
-            // Temporarily disable smooth scrolling so the jump is instant and
-            // cannot be raced/cancelled by switchView()'s own scroll-to-top.
-            const html = document.documentElement;
-            const prev = html.style.scrollBehavior;
-            html.style.scrollBehavior = 'auto';
-            switchView('store-page');
-            if (c && c.anchor) {
-                const el = document.getElementById(c.anchor);
-                if (el) el.scrollIntoView({ block: 'start' });
-            }
-            html.style.scrollBehavior = prev;
-        }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCatModal(); });
 
         function switchView(viewId) {
             document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-view'));
@@ -1203,7 +1103,6 @@
         loadCart();
         renderCart();
         renderStore();
-        renderHomeCategories();
         // Sync all data-i18n elements with English translations on load
         changeLanguage(currentLang);
 
